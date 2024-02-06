@@ -1,2 +1,6 @@
 # Project-6
-Project6 van Feie, Tom, Bastiaan en Rik
+Project 6 van Feie, Tom, Bastiaan en Rik
+
+## Groenevinger webshop
+### Versions
+Laravel: 10
