@@ -1,0 +1,59 @@
+:root {
+    /* - colors - */
+    --primary-color: #48A240;
+    --secondary-color: #45A0CB;
+    --heading-text-color: #000000;
+    --paragraph-text-color: #333333;
+
+    /* - font sizes - */
+    --fs-display-large: 48px;
+    --fs-display-medium: 40px;
+    --fs-display-small: 33px;
+    --fs-heading-large: 28px;
+    --fs-heading-medium: 23px;
+    --fs-heading-small: 19px;
+    --fs-body: 16px;
+
+    /* - font weights - */
+    --fw-display: 800;
+    --fw-heading: 600;
+    --fw-body: 400;
+
+    /* - line heights */
+    --lh-heading-multiplier: 1.2;
+    --lh-body-multiplier: 1.5;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 80px;
+    height: 82px;
+}
+
+.green {
+    font-size: var(--fs-display-small);
+    color: var(--primary-color);
+}
+
+.blue {
+    font-size: var(--fs-display-small);
+    color: var(--secondary-color);
+}
+
+.main-navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    color: var(--heading-text-color);
+    font-size: var(--fs-heading-small);
+    font-weight: var(--fw-heading);
+    line-height: calc(var(--fs-heading-small) * var(--lh-heading-multiplier));
+    margin: 0;
+    text-decoration: none;
+}

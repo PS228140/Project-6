@@ -1,0 +1,44 @@
+:root {
+    /* - colors - */
+    --primary-color: #48A240;
+    --secondary-color: #45A0CB;
+    --heading-text-color: #000000;
+    --paragraph-text-color: #333333;
+
+    /* - font sizes - */
+    --fs-display-large: 48px;
+    --fs-display-medium: 40px;
+    --fs-display-small: 33px;
+    --fs-heading-large: 28px;
+    --fs-heading-medium: 23px;
+    --fs-heading-small: 19px;
+    --fs-body: 16px;
+
+    /* - font weights - */
+    --fw-display: 800;
+    --fw-heading: 600;
+    --fw-body: 400;
+
+    /* - line heights */
+    --lh-heading-multiplier: 1.2;
+    --lh-body-multiplier: 1.5;
+}
+
+.hero-section {
+    width: 100vw;
+    position: relative;
+}
+
+.disclaimer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-section>.background-image {
+    aspect-ratio: 180 / 71;
+    width: 100%;
+    max-height: 100%;
+}
