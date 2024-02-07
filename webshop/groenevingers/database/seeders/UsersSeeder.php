@@ -25,5 +25,17 @@ class UsersSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('users')->insert([
+            'role' => 1,
+            'email' => 'bastiaan.schilders@gmail.com',
+            'password' => '$2y$12$C7xc8OqQm/mtxj6mADTLsO/Own9o838JJhRpDhm2urcbTDpINtmJy',
+            'name' => 'Bastiaan `Jacco Adriaan` Schilders',
+            'branch' => 1,
+            'status' => 1,
+            'phone' => '0624431222',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
     }
 }
