@@ -13,10 +13,10 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return View::make('products.index')
+        return view('products.index')
             ->with('products', $products);
     }
-    
+
     public function show(string $id): View
     {
         return view('products.show', [

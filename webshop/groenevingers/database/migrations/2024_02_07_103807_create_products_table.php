@@ -15,11 +15,11 @@ return new class extends Migration
             $table->engine = "InnoDB";
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('categorie')->index();
+            $table->unsignedBigInteger('categorie_id')->index();
             $table->longText('description');
             $table->double('price');
 
-            $table->foreign('categorie')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('categorie_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

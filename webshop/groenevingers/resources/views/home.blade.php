@@ -22,6 +22,17 @@
             <h1 class="disclaimer">Deze website/webshop is binnenkort beschikbaar</h1>
             <img class="background-image" src="{{ url('assets/images/Tuinplanten.png') }}" alt="background image" />
         </div>
+
+        <div class="products-section">
+            @foreach ($products as $product)
+            <div class="product-wrapper">
+                <h4>{{$product->name}}</h4>
+                <span>{{$product->price}}</span>
+                <span>{{$product->categorie->name}}</span>
+                <img src="assets/images/products/pannenkoekenplant.webp">
+            </div>
+            @endforeach
+        </div>
     </div>
     @include('includes.footer')
 </body>

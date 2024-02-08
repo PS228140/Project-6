@@ -14,15 +14,15 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'name' => 'kamerplanten',
+            'name' => 'Kamerplanten',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'tuinplanten',
+            'name' => 'Tuinplanten',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'accessoires',
+            'name' => 'Accessoires',
         ]);
     }
 }

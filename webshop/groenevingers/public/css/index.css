@@ -44,3 +44,13 @@
     width: 100%;
     max-height: 100%;
 }
+
+.product-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-wrapper>img {
+    max-width: 25%;
+    max-height: 25%;
+}
