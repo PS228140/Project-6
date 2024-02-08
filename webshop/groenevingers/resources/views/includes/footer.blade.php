@@ -1,12 +1,14 @@
-<footer>
+<footer class="main-footer">
     <div class="footer-column">
-        <div>
+        <div class="contact-list">
             <h5>Contactgegevens</h5>
-            <span>06-12345678</span>
-            <span>Teststraat 5</span>
-            <span>4444 ka Nuenen</span>
+            <div class="contact-information">
+                <span>06-12345678</span>
+                <span>Teststraat 5</span>
+                <span>4444 ka Nuenen</span>
+            </div>
         </div>
-        <span>© 2024 GroeneVingers</span>
+        <span class="copyright">© 2024 GroeneVingers</span>
     </div>
 
     <div class="footer-column">

@@ -6,13 +6,13 @@
     --paragraph-text-color: #333333;
 
     /* - font sizes - */
-    --fs-display-large: 48px;
-    --fs-display-medium: 40px;
-    --fs-display-small: 33px;
-    --fs-heading-large: 28px;
-    --fs-heading-medium: 23px;
-    --fs-heading-small: 19px;
-    --fs-body: 16px;
+    --fs-display-large: 3rem;
+    --fs-display-medium: 2.5rem;
+    --fs-display-small: 2rem;
+    --fs-heading-large: 1.75rem;
+    --fs-heading-medium: 1.4rem;
+    --fs-heading-small: 1.2rem;
+    --fs-body: 1rem;
 
     /* - font weights - */
     --fw-display: 800;
@@ -35,6 +35,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 0px 4px #00000080;
 }
 
 .hero-section>.background-image {
