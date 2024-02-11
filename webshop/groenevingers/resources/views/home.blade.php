@@ -26,10 +26,10 @@
         <div class="products-section">
             @foreach ($products as $product)
             <div class="product-wrapper">
-                <h4>{{$product->name}}</h4>
-                <span>{{$product->price}}</span>
-                <span>{{$product->categorie->name}}</span>
                 <img src="assets/images/products/pannenkoekenplant.webp">
+                <h4>{{$product->name}}</h4>
+                <span>€ {{$product->price}}</span>
+                <span>{{$product->categorie->name}}</span>
             </div>
             @endforeach
         </div>
