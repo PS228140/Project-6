@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

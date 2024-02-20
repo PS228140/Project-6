@@ -5,7 +5,7 @@
             <div class="contact-information">
                 <span>06-12345678</span>
                 <span>Teststraat 5</span>
-                <span>4444 ka Nuenen</span>
+                <span>4444 KA Nuenen</span>
             </div>
         </div>
         <span class="copyright">© 2024 GroeneVingers</span>

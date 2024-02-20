@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welkom bij GroeneVingers! - GroeneVingers</title>
+    <link rel="shortcut icon" href="{{ url('assets/images/favicon.svg') }}" type="image/x-icon">
     <script src="{{ url('javascript/script.js') }}"></script>
     <link rel="stylesheet" href="{{ url('css/index.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">
@@ -24,14 +25,19 @@
         </div>
 
         <div class="products-section">
-            @foreach ($products as $product)
-            <div class="product-wrapper">
-                <img src="assets/images/products/pannenkoekenplant.webp">
-                <h4>{{$product->name}}</h4>
-                <span>€ {{$product->price}}</span>
-                <span>{{$product->categorie->name}}</span>
+            <h3 class="products-section-title">Onze producten</h3>
+            <div class="products-wrapper">
+                @foreach ($products as $product)
+                <div class="product-wrapper">
+                    <img src="assets/images/{{$product->image_src}}">
+                    <div class="product-information">
+                        <span class="product-name">{{$product->name}}</span>
+                        <span class="product-price">€ {{$product->price}}</span>
+                        <span class="product-categorie">{{$product->categorie->name}}</span>
+                    </div>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
     @include('includes.footer')
