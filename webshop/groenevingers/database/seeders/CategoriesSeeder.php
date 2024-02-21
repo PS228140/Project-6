@@ -24,5 +24,9 @@ class CategoriesSeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Accessoires',
         ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Kunstbloemen',
+        ]);
     }
 }

@@ -36,6 +36,30 @@ class ProductsSeeder extends Seeder
             'price' => 6.49,
             'image_src' => 'products/potgrond.webp'
         ]);
+        
+        DB::table('products')->insert([
+            'name' => 'Medinille (Medinilla magnifica "Dolce Rossa") D 14 H 30 cm',
+            'categorie_id' => 1,
+            'description' => '<p><strong>Kenmerken</strong><br>Het is een opvallende verschijning. De nerfstructuur is duidelijk zichtbaar en regelmatig, maar nog meer opvallend is de bloeiwijze. De bloemtrossen worden zichtbaar aan hangende stelen omrand met roze schutbladeren. Hij moet vaak even wennen aan zijn nieuwe omgeving. Houdt er rekening mee dat hij blad kan laten vallen of dat bladeren soms zelfs deels zwart kunnen worden. Geen nood, met de juiste zorg en wat geduld komt dit helemaal goed.</p>',
+            'price' => 11.99,
+            'image_src' => 'products\8720196790401.png'
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Intratuin bloempot Citroen multi 14,1 x 13,7 x 21,6 cm',
+            'categorie_id' => 3,
+            'description' => '<p>Wil je graag jouw woonkamer origineel stylen? Dan is deze Citroen bloempot uit de collectie van Intratuin echt iets voor jou! Bloempot Citroen is een toffe aanwinst voor in huis door het unieke design en de fraaie cilindervorm. Dit zorgt er voor dat deze pot met zomerse vibe zeker niet onopgemerkt zal blijven. De hoge pot is gemaakt van keramiek en dus breekbaar. De afmetingen van de bloempot zijn 13,6 x 12,7 x 22,1 cm. Bloempot Citroen is alleen geschikt voor binnen.<br><br><strong>Advies</strong><br>De opgegeven maten betreffen buitenmaten, de binnenmaat kan dus iets kleiner uitvallen. Het is aan te bevelen een plant te kiezen die een kleinere potmaat heeft dan de potmaat van de bloempot. Daarnaast is deze bloempot mogelijk niet volledig waterdicht. Vul de bloempot voor de zekerheid met een waterdichte zak.</p>',
+            'price' => 11.99,
+            'image_src' => 'products\bloempotcitroen.png',
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Intratuin kunstbloem Roos wit 42 cm',
+            'categorie_id' => 4,
+            'description' => '<div>Kunstbloemen zijn weer helemaal terug van weggeweest en je ziet ze daarom ook overal. En dat snappen wij, want deze leuke blikvangers brengen gemakkelijk meer sfeer in huis. Intratuin heeft een breed assortiment aan kunsttakken zodat je er altijd wel een kunt vinden die past bij jouw stijl. Combineer er op los met andere leuke planten of bloemen want tegenwoordig zijn de neppers niet meer van echt te onderscheiden! En vergeet er geen leuke vaas bij te halen om het helemaal af te maken. Deze kunstbloem van een Roos, van Intratuin, is gemaakt van kunststof en heeft een fijne lengte (42 cm) om een mooi (kunst)boeket te maken. De kleur van de bloem is wit .  <p><span>Lees alles over de</span> <a href="plantengids/rozen-verzorgen" title="Rozen / roos (Rosa) - plantengids">Rozen / roos (Rosa) in onze plantengids.</a></p></div>',
+            'price' => 1.99,
+            'image_src' => 'products\roos.jpeg',
+        ]);
 
         /*
             DB::table('products')->insert([
