@@ -34,7 +34,7 @@
             </div>
 
             <div class="picture">
-                <img src="{{ url('assets/images/Tuinplanten.png') }}" alt="locatie" />
+                <img src="{{ url('assets/images/GroenePand.jpg') }}" alt="locatie" />
             </div>
         </div>
     </div>

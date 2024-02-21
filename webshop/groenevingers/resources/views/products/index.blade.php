@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitch</title>
+    <title>Producten - GroeneVingers</title>
     <link rel="shortcut icon" href="{{ url('assets/images/favicon.svg') }}" type="image/x-icon">
     <script src="{{ url('javascript/script.js') }}"></script>
-    <link rel="stylesheet" href="{{ url('css/index.css') }}">
+    <link rel="stylesheet" href="{{ url('css/products.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/header.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/footer.css') }}">
@@ -19,29 +19,24 @@
 <body>
     @include('includes.header')
     <div class="wrapper">
-        <div class="hero-section">
-            <h1 class="disclaimer">Deze website/webshop is binnenkort beschikbaar</h1>
-            <img class="background-image" src="{{ url('assets/images/Tuinplanten.png') }}" alt="background image" />
-        </div>
-
         <div class="products-section">
             <h3 class="products-section-title">Onze producten</h3>
             <div class="products-wrapper">
-                @foreach ($products as $product)
-                @if($loop->index < 4) <div class="product-row">
-                    @endif
+               
+                    @php($i = 0)
+
+                    @foreach ($products as $product)
+                        <div class="product-wrapper">
+                            <img src="assets/images/{{$product->image_src}}">
+                            <div class="product-information">
+                                <span class="product-name">{{$product->name}}</span>
+                                <span class="product-price">€ {{$product->price}}</span>
+                                <span class="product-categorie">{{$product->categorie->name}}</span>
+                            </div>
+                        </div>
+                    @endforeach    
             </div>
-            <div class="product-wrapper">
-                <img src="assets/images/{{$product->image_src}}">
-                <div class="product-information">
-                    <span class="product-name">{{$product->name}}</span>
-                    <span class="product-price">€ {{$product->price}}</span>
-                    <span class="product-categorie">{{$product->categorie->name}}</span>
-                </div>
-            </div>
-            @endforeach
         </div>
-    </div>
     </div>
     @include('includes.footer')
 </body>

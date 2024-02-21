@@ -27,16 +27,17 @@
         <div class="products-section">
             <h3 class="products-section-title">Onze producten</h3>
             <div class="products-wrapper">
-                @foreach ($products as $product)
-                @if ($loop->index < 3 ) <div class="product-wrapper">
-                    <img src="assets/images/{{$product->image_src}}">
-                    <div class="product-information">
-                        <span class="product-name">{{$product->name}}</span>
-                        <span class="product-price">€ {{$product->price}}</span>
-                        <span class="product-categorie">{{$product->categorie->name}}</span>
+            @foreach ($products as $product)
+                @if ($loop->index < 3 )
+                    <div class="product-wrapper">
+                        <img src="assets/images/{{$product->image_src}}">
+                        <div class="product-information">
+                            <span class="product-name">{{$product->name}}</span>
+                            <span class="product-price">€ {{$product->price}}</span>
+                            <span class="product-categorie">{{$product->categorie->name}}</span>
+                        </div>
                     </div>
-            </div>
-            @endif
+                @endif
             @endforeach
         </div>
     </div>
