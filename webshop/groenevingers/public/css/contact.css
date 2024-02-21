@@ -41,6 +41,7 @@
     flex-direction: row;
     padding-inline: 5rem;
     padding-bottom: 44px;
+    gap: 5rem;
 }
 
 .contact-information {
