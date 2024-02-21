@@ -19,7 +19,18 @@
 <body>
     @include('includes.header')
     <div class="wrapper">
-        <div class="hero-section"></div>
+        <div class="hero-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.275819298719!2d5.550394242465561!3d51.45309215731677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c72744b7e91a4f%3A0xe5cddb3ed1c7f4e4!2sCollse%20Hoefdijk%207%2C%205674%20VL%20Nuenen!5e0!3m2!1snl!2snl!4v1708429647609!5m2!1snl!2snl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+        </div>
+        <div class="information-section">
+            <div class="contact-information">
+
+            </div>
+
+            <div class="picture">
+
+            </div>
+        </div>
     </div>
     @include('includes.footer')
 </body>
