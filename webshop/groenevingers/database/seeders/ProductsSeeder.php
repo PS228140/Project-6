@@ -42,7 +42,7 @@ class ProductsSeeder extends Seeder
             'categorie_id' => 1,
             'description' => '<p><strong>Kenmerken</strong><br>Het is een opvallende verschijning. De nerfstructuur is duidelijk zichtbaar en regelmatig, maar nog meer opvallend is de bloeiwijze. De bloemtrossen worden zichtbaar aan hangende stelen omrand met roze schutbladeren. Hij moet vaak even wennen aan zijn nieuwe omgeving. Houdt er rekening mee dat hij blad kan laten vallen of dat bladeren soms zelfs deels zwart kunnen worden. Geen nood, met de juiste zorg en wat geduld komt dit helemaal goed.</p>',
             'price' => 11.99,
-            'image_src' => 'products\8720196790401.png'
+            'image_src' => 'products\medinille.png'
         ]);
 
         DB::table('products')->insert([
