@@ -22,7 +22,6 @@
         <div class="products-section">
             <h3 class="products-section-title">Onze producten</h3>
             <div class="products-wrapper">
-               
                     @php($i = 0)
 
                     @foreach ($products as $product)
