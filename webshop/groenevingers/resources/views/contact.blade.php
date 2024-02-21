@@ -24,11 +24,17 @@
         </div>
         <div class="information-section">
             <div class="contact-information">
-
+                <p>
+                    RajHogewoning@groenevingersshop.com<br>
+                    info@groenevingersshop.com<br>
+                    06-33024999<br>
+                    Tuinstraat 167<br>
+                    2587 WD Nuenen
+                </p>
             </div>
 
             <div class="picture">
-
+                <img src="{{ url('assets/images/Tuinplanten.png') }}" alt="locatie" />
             </div>
         </div>
     </div>

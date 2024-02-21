@@ -28,17 +28,20 @@
             <h3 class="products-section-title">Onze producten</h3>
             <div class="products-wrapper">
                 @foreach ($products as $product)
-                <div class="product-wrapper">
-                    <img src="assets/images/{{$product->image_src}}">
-                    <div class="product-information">
-                        <span class="product-name">{{$product->name}}</span>
-                        <span class="product-price">€ {{$product->price}}</span>
-                        <span class="product-categorie">{{$product->categorie->name}}</span>
-                    </div>
-                </div>
-                @endforeach
+                @if($loop->index < 4) <div class="product-row">
+                    @endif
             </div>
+            <div class="product-wrapper">
+                <img src="assets/images/{{$product->image_src}}">
+                <div class="product-information">
+                    <span class="product-name">{{$product->name}}</span>
+                    <span class="product-price">€ {{$product->price}}</span>
+                    <span class="product-categorie">{{$product->categorie->name}}</span>
+                </div>
+            </div>
+            @endforeach
         </div>
+    </div>
     </div>
     @include('includes.footer')
 </body>
