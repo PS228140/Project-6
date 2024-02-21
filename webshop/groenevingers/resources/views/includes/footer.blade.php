@@ -17,6 +17,12 @@
     </div>
 
     <div class="footer-column">
+        <a href="https://www.instagram.com/groenevingersgv/" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url('assets/images/instagramfoto.png') }}" alt="Instagram" width="50" height="50">
+        </a>
+    </div>
+
+    <div class="footer-column">
         <img src="{{ url('assets/images/Logo.png') }}" alt="logo" />
     </div>
 </footer>
