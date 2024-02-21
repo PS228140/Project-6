@@ -7,19 +7,14 @@
                 <span>Teststraat 5</span>
                 <span>4444 KA Nuenen</span>
             </div>
+            
+            <span class="copyright">© 2024 GroeneVingers</span>
         </div>
-        <span class="copyright">© 2024 GroeneVingers</span>
-    </div>
-    
-    <div class="footer-column">
-        <h5>Socials</h5>
-        <a href="https://www.instagram.com/groenevingersgv/">Instagram</span>
-    </div>
 
-    <div class="footer-column">
-        <a href="https://www.instagram.com/groenevingersgv/" target="_blank" rel="noopener noreferrer">
-            <img src="{{ url('assets/images/instagramfoto.png') }}" alt="Instagram" width="50" height="50">
-        </a>
+        <div class="socials-list">
+            <h5>Socials</h5>
+            <a href="https://www.instagram.com/groenevingersgv/">Instagram</span>
+        </div>
     </div>
 
     <div class="footer-column">
