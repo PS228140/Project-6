@@ -13,11 +13,11 @@
 
         <div class="socials-list">
             <h5>Socials</h5>
-            <a href="https://www.instagram.com/groenevingersgv/">Instagram</span>
+            <a href="https://www.instagram.com/groenevingersgv/">Instagram</a>
         </div>
     </div>
 
-    <div class="footer-column">
-        <img src="{{ url('assets/images/Logo.png') }}" alt="logo" />
+    <div class="footer-column right">
+        <img class="logo" src="{{ url('assets/images/Logo.png') }}" alt="logo" />
     </div>
 </footer>
