@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,7 +19,7 @@ class ProductController extends Controller
     public function show(string $id): View
     {
         return view('products.show', [
-            'products' => Product::findOrFail($id)
+            'products' => Product::findOrFail($id),
         ]);
     }
 
@@ -31,27 +30,28 @@ class ProductController extends Controller
 
     public function update()
     {
-        $rules = array(
+        $rules = [
             'name' => 'required',
             'categorie' => 'required',
             'description' => 'required',
             'price' => 'required',
-        );
+        ];
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('products/' . $id . '/edit')
+            return Redirect::to('products/'.$id.'/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             $product = product::find($id);
-            $product->name          = Input::get('name');
-            $product->categorie     = Input::get('categorie');
-            $product->description   = Input::get('description');
-            $product->price         = Input::get('price');
+            $product->name = Input::get('name');
+            $product->categorie = Input::get('categorie');
+            $product->description = Input::get('description');
+            $product->price = Input::get('price');
             $product->save();
 
             Session::flash('message', 'Artikel is succesvol geüpdate!');
+
             return Redirect::to('products');
         }
     }
@@ -72,6 +72,7 @@ class ProductController extends Controller
         $product->delete();
 
         Session::flash('message', 'Succesvol het artikel verwijdert!');
+
         return Redirect::to('products.index');
     }
 }

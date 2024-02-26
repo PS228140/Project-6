@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="fetchAllProducts(1)">
     @include('includes.header')
     <div class="wrapper">
         <div class="products-section">
@@ -30,42 +30,4 @@
 
 </html>
 
-<script>
-    fetch('https://kuin.summaict.nl/api/product', {
-        headers: {Authorization: 'Bearer 50|Oy8mM3g2A8jSTpiHoxrRXXdspGlvQHbbQ45qM272'}
-    })
-        .then(resp => resp.json())
-        .then(respData => {
-            
-            let display = respData;
-            let name = [];
-            let description = [];
-            let price = [];
-            let image = [];
-
-            console.log(display);
-
-            display.forEach((id) => { name.push(id.name); });
-            display.forEach((id) => { description.push(id.description); });
-            display.forEach((id) => { price.push(id.price); });
-            display.forEach((id) => { image.push(id.image); });
-
-            let table_body = document.getElementById("producttable");
-
-            let current_page = "3";
-            let limit_count = (Number(current_page) * 50);
-
-            for(i=(Number(limit_count) - 50);i<=limit_count;i++){
-                var row = `<div class="product-wrapper">
-                    <img src="`+image[i]+`">
-                    <div class="product-information">
-                        <span class="product-name">`+name[i]+`</span>
-                        <span class="product-price">`+price[i]+`</span>
-                        <span class="product-categorie">`+description[i]+`</span>
-                    </div>
-                </div>`
-                table_body.innerHTML += row;
-            }
-            
-        })
-</script>
+<script src="{{ url('javascript/database/products/fetchAll.js') }}"></script>  

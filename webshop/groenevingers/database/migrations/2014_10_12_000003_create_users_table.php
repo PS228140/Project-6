@@ -25,9 +25,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('role')->references('id')->on('roles')->onUpdate('cascade')->onDelete("cascade");
-            $table->foreign('branch')->references('id')->on('branches')->onUpdate('cascade')->onDelete("cascade");
-            $table->foreign('status')->references('id')->on('status')->onUpdate('cascade')->onDelete("cascade");
+            $table->foreign('role')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('branch')->references('id')->on('branches')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('status')->references('id')->on('status')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
