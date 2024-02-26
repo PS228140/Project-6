@@ -74,7 +74,3 @@
     color: var(--paragraph-text-color);
     text-decoration: none;
 }
-
-.right {
-    justify-content: flex-end;
-}
