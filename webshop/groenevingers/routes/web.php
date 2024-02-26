@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
+
 Route::resource('products', ProductController::class);
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.index');
@@ -32,4 +34,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
