@@ -16,24 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="fetchAllProducts(1)">
     @include('includes.header')
     <div class="wrapper">
         <div class="products-section">
             <h3 class="products-section-title">Onze producten</h3>
-            <div class="products-wrapper">
-                    @php($i = 0)
-
-                    @foreach ($products as $product)
-                        <div class="product-wrapper">
-                            <img src="assets/images/{{$product->image_src}}">
-                            <div class="product-information">
-                                <span class="product-name">{{$product->name}}</span>
-                                <span class="product-price">€ {{$product->price}}</span>
-                                <span class="product-categorie">{{$product->categorie->name}}</span>
-                            </div>
-                        </div>
-                    @endforeach    
+            <div class="products-wrapper" id="productTable">
             </div>
         </div>
     </div>
@@ -41,3 +29,5 @@
 </body>
 
 </html>
+
+<script src="{{ url('javascript/database/products/fetchAll.js') }}"></script>  
