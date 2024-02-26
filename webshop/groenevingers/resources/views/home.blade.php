@@ -20,15 +20,14 @@
     @include('includes.header')
     <div class="wrapper">
         <div class="hero-section">
-            <h1 class="disclaimer">Deze website/webshop is binnenkort beschikbaar</h1>
+            <h1 class="disclaimer">{{ GoogleTranslate::trans('Deze website/webshop is binnenkort beschikbaar', app()->getLocale()) }}</h1>
             <img class="background-image" src="{{ url('assets/images/Tuinplanten.png') }}" alt="background image" />
         </div>
 
         <div class="products-section">
-            <h3 class="products-section-title">Onze producten</h3>
+            <h3 class="products-section-title">{{ GoogleTranslate::trans('Onze producten', app()->getLocale()) }}</h3>
             <div class="products-wrapper" id="productTable"></div>
         </div>
-    </div>
     </div>
     @include('includes.footer')
 </body>

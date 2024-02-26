@@ -20,8 +20,8 @@
     @include('includes.header')
     <div class="wrapper">
         <div class="products-section">
-            <h3 class="products-section-title">Onze producten</h3>
-            <div class="products-wrapper" id="productTable">
+            <h3 class="products-section-title">{{ GoogleTranslate::trans('Onze producten', app()->getLocale()) }}</h3>
+            <div class="products-wrapper" id="producttable">
             </div>
         </div>
     </div>
