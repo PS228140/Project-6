@@ -80,7 +80,6 @@
     text-decoration: none;
 }
 
-<<<<<<< Updated upstream
 .language-selector-wrapper {
     display: flex;
     flex-direction: column;
@@ -93,7 +92,8 @@
     padding-right: 2.5rem;
     padding-block: .25rem;
     border-radius: .5rem;
-=======
+
+}
 .socials-list img {
     width: 30px;
 }
@@ -101,5 +101,4 @@
 .logo-img {
     width: 100px; /* Pas de breedte aan zoals nodig */
     height: auto;
->>>>>>> Stashed changes
 }
