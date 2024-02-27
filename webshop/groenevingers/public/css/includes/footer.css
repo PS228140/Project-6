@@ -59,6 +59,10 @@
     gap: .5rem;
 }
 
+.phone {
+    text-wrap: nowrap;
+}
+
 .copyright {
     color: var(--paragraph-text-color);
 }
@@ -73,4 +77,18 @@
 .socials-list>a {
     color: var(--paragraph-text-color);
     text-decoration: none;
+}
+
+.language-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.language-selector {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    padding-right: 2.5rem;
+    padding-block: .25rem;
+    border-radius: .5rem;
 }

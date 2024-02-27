@@ -1,6 +1,6 @@
 <header class="main-header">
     <h3><span class="green">Groene</span><span class="blue">Vingers</span></h3>
-    @include('lang')
+
     <nav class="main-navigation">
         <a class="nav-item" href="{{route('homepage.index')}}">Home</a>
         <a class="nav-item" href="{{route('products.index')}}">{{ GoogleTranslate::trans('Products', app()->getLocale()) }}</a>

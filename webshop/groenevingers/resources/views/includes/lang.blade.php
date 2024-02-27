@@ -1,16 +1,12 @@
 <div class="card-body">
-    <div class="row">
-        <div class="col-md-2">
-            <strong>Select Language: </strong>
-        </div>
-        <div class="col-md-4">
-            <select class="form-select changeLang" id="language-select">
-                <option value="nl" {{ app()->getLocale() == 'nl' ? 'selected' : '' }}>Nederlands</option>
-                <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
-                <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>François</option>
-                <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>Español</option>
-            </select>
-        </div>
+    <div class="language-selector-wrapper">
+        <h6>{{ GoogleTranslate::trans('Select Language', app()->getLocale()) }}</h6>
+        <select class="form-select changeLang language-selector" id="language-select">
+            <option value="nl" {{ app()->getLocale() == 'nl' ? 'selected' : '' }}>Nederlands</option>
+            <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+            <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>François</option>
+            <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>Español</option>
+        </select>
     </div>
 </div>
 
