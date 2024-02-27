@@ -4,8 +4,8 @@
             <h5>{{ GoogleTranslate::trans('Contactgegevens', app()->getLocale()) }}</h5>
             <div class="contact-information">
                 <span class="phone">06-33024999</span>
-                <span>Tuinstraat 167</span>
-                <span>2587 WD  Nuenen</span>
+                <span class="location">Tuinstraat 167</span>
+                <span class="zipcode">2587 WD  Nuenen</span>
             </div>
 
             @include('includes/lang')
@@ -15,7 +15,6 @@
 
         <div class="socials-list">
             <h5>{{ GoogleTranslate::trans('Socials', app()->getLocale()) }}</h5>
-            <!-- <h5>Socials</h5> -->
             <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/images/instagram.png') }}" alt="instagram" /></span>
         </div>
     </div>

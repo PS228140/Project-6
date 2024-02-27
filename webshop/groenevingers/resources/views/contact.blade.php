@@ -25,11 +25,11 @@
         <div class="information-section">
             <div class="contact-information">
                 <div class="card-contact">
-                    <h3>Klantenservice</h3>
+                    <h3>{{ GoogleTranslate::trans('Klantenservice', app()->getLocale()) }}</h3>
                     <p>Mail: info@groenevingersshop.com</p>
                     <p>Tel: 06-33024999</p>
                     </br>
-                    <a href="mailto:info@groenevingersshop.com" class="contact-button">Neem contact op</a>
+                    <a href="mailto:info@groenevingersshop.com" class="contact-button">{{ GoogleTranslate::trans('Neem contact op', app()->getLocale()) }}</a>
                     
                 </div>
             </div>
