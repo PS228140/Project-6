@@ -24,15 +24,15 @@
         </div>
         <div class="information-section">
             <div class="contact-information">
-                <p>
-                    RajHogewoning@groenevingersshop.com<br>
-                    info@groenevingersshop.com<br>
-                    06-33024999<br>
-                    Tuinstraat 167<br>
-                    2587 WD Nuenen
-                </p>
+                <div class="card-contact">
+                    <h3>{{ GoogleTranslate::trans('Klantenservice', app()->getLocale()) }}</h3>
+                    <p>Mail: info@groenevingersshop.com</p>
+                    <p>Tel: 06-33024999</p>
+                    </br>
+                    <a href="mailto:info@groenevingersshop.com" class="contact-button">{{ GoogleTranslate::trans('Neem contact op', app()->getLocale()) }}</a>
+                    
+                </div>
             </div>
-
             <div class="picture">
                 <img src="{{ url('assets/images/GroenePand.jpg') }}" alt="locatie" />
             </div>

@@ -56,3 +56,28 @@
     max-width: 100%;
     height: 100%;
 }
+.card-contact {
+    background-color: #48A240;
+    border-radius: 10px;
+    padding: 20px;
+    /* height: 100%; */
+}
+
+.card-contact h3, .card-contact p {
+    margin: 0;
+    color: white;
+}
+.card-contact a {
+    background-color: white;
+    color: #48A240;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+.card-contact a:hover {
+    background-color: #e6e6e6;
+}
