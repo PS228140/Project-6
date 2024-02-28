@@ -21,7 +21,8 @@
     <div class="wrapper">
         <div class="hero-section">
             <h1 class="disclaimer">{{ GoogleTranslate::trans('Deze website/webshop is binnenkort beschikbaar', app()->getLocale()) }}</h1>
-            <img class="background-image" src="{{ url('assets/images/groengeluk2.jpg') }}" alt="background image" />
+            <!-- <img class="background-image" src="{{ url('assets/images/groengeluk2.jpg') }}" alt="background image" /> -->
+            <img class="background-image" src="{{ url('assets/images/winkel.png') }}" alt="background image" />
         </div>
 
         <div class="products-section">

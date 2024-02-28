@@ -31,7 +31,7 @@
 .background-image {
     width: 100%;
     height: auto;
-    filter: brightness(0.8); /* Pas de helderheid en vervaging toe op de afbeelding */
+    filter: brightness(0.6); /* Pas de helderheid en vervaging toe op de afbeelding */
 }
 
 .disclaimer {
