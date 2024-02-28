@@ -15,15 +15,11 @@ function fetchProduct(id) {
         price.push(display.price);
         image.push(display.image);
         
-        let table_body = document.getElementById("productTable");
-        var row = `
-        <div class="product-wrapper">
-        <img src="` + image + `">
-        <div class="product-information">
-        <span class="product-name">` + name + `</span>
-        <span class="product-price">€ `+ price + `</span>
-        </div>
-        </div>`
-        table_body.innerHTML += row;         
+        alert('Product naam: ' + display.name +
+        '\nPrijs: ' + display.price +
+        '\nHoogte: ' + display.height_cm + 'cm' +
+        '\nBreedte: ' + display.width_cm + 'cm' +
+        '\nDiepte: ' + display.depth_cm + 'cm' +
+        '\nOmschrijving: ' + display.description)    
     })
 }
