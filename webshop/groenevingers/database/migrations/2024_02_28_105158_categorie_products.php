@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('categorie_product', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('categorie')->index();
-            $table->integer('product');
+            $table->unsignedBigInteger('categorie_id')->index();
+            $table->integer('product_id');
 
-            $table->foreign('categorie')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('categorie_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
