@@ -81,6 +81,7 @@
 .socials-list>a {
     color: var(--paragraph-text-color);
     text-decoration: none;
+    width: fit-content;
 }
 
 .language-selector-wrapper {
