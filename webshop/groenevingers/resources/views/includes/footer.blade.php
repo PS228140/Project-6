@@ -15,6 +15,10 @@
 
         <div class="socials-list">
             <h5>{{ GoogleTranslate::trans('Socials', app()->getLocale()) }}</h5>
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
             <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/images/instagram.png') }}" alt="instagram" /></span>
         </div>
     </div>

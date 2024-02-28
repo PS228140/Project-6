@@ -25,8 +25,13 @@
 }
 
 .hero-section {
-    width: 100vw;
     position: relative;
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.8); /* Pas de helderheid en vervaging toe op de afbeelding */
 }
 
 .disclaimer {
@@ -34,15 +39,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white; /* Witte tekst voor contrast met de overlay */
+    z-index: 1; /* Zet de tekst bovenop de overlay */
     text-align: center;
-    color: #ffffff;
     text-shadow: 0px 0px 4px #00000080;
-}
-
-.hero-section>.background-image {
-    aspect-ratio: 180 / 71;
-    width: 100%;
-    max-height: 100%;
 }
 
 .products-section {
