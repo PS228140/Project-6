@@ -37,7 +37,7 @@ function fetchAllProducts(currentPage = 1, maxItems = null) {
                 
                 for(i=(Number(limitCount) - 50);i<=limitCount;i++){
                     var row = `
-                    <div class="product-wrapper">
+                    <div class="product-wrapper" onclick="fetchProduct(` + [i + 1] + `)">
                     <img src="` + image[i] + `">
                     <div class="product-information">
                     <span class="product-name">` + name[i] + `</span>

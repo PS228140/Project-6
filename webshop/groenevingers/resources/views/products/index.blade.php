@@ -31,3 +31,4 @@
 </html>
 
 <script src="{{ url('javascript/database/products/fetchAll.js') }}"></script>
+<script src="{{ url('javascript/database/products/fetch.js') }}"></script>
