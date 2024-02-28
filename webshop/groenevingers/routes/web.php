@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
 
-Route::resource('products', ProductController::class);
+Route::get('/products', function () {
+    return view('products.index');
+})->name('products.index');
 
 Route::get('/contact', function () {
     return view('contact');

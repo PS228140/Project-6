@@ -1,4 +1,4 @@
-# Project-6
+# Groenevingers
 
 Project 6 van Feie, Tom, Bastiaan en Rik
 
