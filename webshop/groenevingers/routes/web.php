@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/get-pdf', [DomPdfController::class, 'getPdf'])->name('pdf.index');
 
 /* homepage routes */
 Route::get('/', function () {
