@@ -26,7 +26,7 @@ class Product extends Model
         'height_cm',
         'width_cm',
         'depth_cm',
-        'weight_gr'
+        'weight_gr',
     ];
 
     /**
