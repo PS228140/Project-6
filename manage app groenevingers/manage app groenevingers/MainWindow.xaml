@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:manage_app_groenevingers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="kassa" Height="1569" Width="1440">
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="assets\Winkel.png" Opacity="0.9"/>
+        </Grid.Background>
     </Grid>
 </Window>
