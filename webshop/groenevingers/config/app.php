@@ -5,6 +5,12 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'aliases' =>[
+        \Barryvdh\DomPDF\ServiceProvider::class,
+    ],
+    'aliases' =>[
+        'PDF' => \Barryvdh\DomPDF\Facade::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -156,6 +162,7 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -183,6 +190,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
+        
     ])->toArray(),
 
 ];
