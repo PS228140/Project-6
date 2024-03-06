@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,16 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
+/* homepage routes */
+Route::get('/', function () {
+    return view('home');
+})->name('homepage.index');
 
+/* products routes */
 Route::get('/products', function () {
     return view('products.index');
 })->name('products.index');
 
+Route::get('/products/{id}', function () {
+    return view('products.show');
+})->name('products.show');
+
+/* contact routes */
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.index');
 
+/* dashboard routes */
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,5 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+/* user routes */
+Route::resource('/dashboard/users', UserController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
