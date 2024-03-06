@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\DomPdfController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;

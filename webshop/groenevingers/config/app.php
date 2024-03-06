@@ -5,10 +5,10 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
-    'aliases' =>[
+    'aliases' => [
         \Barryvdh\DomPDF\ServiceProvider::class,
     ],
-    'aliases' =>[
+    'aliases' => [
         'PDF' => \Barryvdh\DomPDF\Facade::class,
     ],
     /*
@@ -190,7 +190,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
-        
+
     ])->toArray(),
 
 ];
