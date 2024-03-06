@@ -11,6 +11,7 @@ class DomPdfController extends Controller
     {
         $data = [
             'title' => 'Groene Vingers',
+            'logo' => public_path('assets/images/logo.png'),
             'date' => date('m/d/Y'),
         ];
         
