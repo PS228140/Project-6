@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class HomepageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -35,7 +38,9 @@ class HomepageController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::find($id);
+        
+        return view('user.show', ['user' => $user]);
     }
 
     /**
