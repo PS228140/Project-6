@@ -16,20 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/get-pdf', [DomPdfController::class, 'getPdf'])->name('pdf.index');
+Route::resource('products', ProductController::class);
 
 /* homepage routes */
 Route::get('/', function () {
     return view('home');
 })->name('homepage.index');
 
-/* products routes */
-Route::get('/products', function () {
-    return view('products.index');
-})->name('products.index');
+// /* products routes */
+// Route::get('/products', function () {
+//     return view('products.index');
+// })->name('products.index');
 
-Route::get('/products/{id}', function () {
-    return view('products.show');
-})->name('products.show');
+// Route::get('/products/{id}', function () {
+//     return view('products.show');
+// })->name('products.show');
 
 /* contact routes */
 Route::get('/contact', function () {
