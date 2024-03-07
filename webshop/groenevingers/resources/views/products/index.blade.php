@@ -21,13 +21,24 @@
     <div class="wrapper">
         <div class="products-section">
             <h3 class="products-section-title">{{ GoogleTranslate::trans('Onze producten', app()->getLocale()) }}</h3>
-            <div class="products-wrapper" id="productTable">
+            <div class="products-wrapper">
+            @php($i = 0)
+
+            @foreach ($products as $product)
+                    <div class="product-wrapper">
+                        <img src="{{$product->img_src}}">
+                        <div class="product-information">
+                            <span class="product-name">{{$product->name}}</span>
+                            <span class="product-price">€ {{$product->price}}</span>
+                            <span class="product-categorie">{{$product->categorie->name}}</span>
+                        </div>
+                    </div>
+            @endforeach
             </div>
         </div>
+        {{ $products->links('pagination::semantic-ui') }}
     </div>
     @include('includes.footer')
 </body>
 
 </html>
-
-<script src="{{ url('javascript/database/products/fetchAll.js') }}"></script>
