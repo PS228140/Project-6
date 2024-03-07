@@ -14,7 +14,7 @@ class DomPdfController extends Controller
             'logo' => public_path('assets/images/logo.png'),
             'date' => date('m/d/Y'),
         ];
-        
+
         $pdf = PDF::loadview('magecompPDF', $data);
         return $pdf->stream('factuur.pdf');
 
