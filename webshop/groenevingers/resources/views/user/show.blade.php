@@ -6,6 +6,7 @@
     </x-slot>
 
     <div class="py-12">
+        <!-- Update form -->
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -74,6 +75,25 @@
                         @endif
 
                         <button type="submit" class="mt-6 w-min inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete form -->
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <form action="{{ route('users.destroy', ['user' => $user->id])}}" method="post" class="grid max-w-xl">
+                        @method('DELETE')
+                        @csrf
+
+                        <header>
+                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Delete Account</h2>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting this account, please download any data or information that you wish to retain.</p>
+                        </header>
+
+                        <button type="submit" class="mt-6 w-min items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Delete</button>
                     </form>
                 </div>
             </div>
