@@ -3,18 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::paginate(15);
+        $users = User::orderBy('created_at', 'asc')->get()->groupBy(function($user) {
+            return Carbon::parse($user->created_at)->format('m');
+        });
 
         return view('products.index')
-            ->with('products', $products);
+            ->with('products', $products)
+            ->with('users', $users);
     }
 
     public function show(string $id): View

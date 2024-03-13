@@ -38,6 +38,7 @@
         </div>
         {{ $products->links('pagination::semantic-ui') }}
     </div>
+    @include('components.line-chart')
     @include('includes.footer')
 </body>
 

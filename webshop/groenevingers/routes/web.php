@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +38,8 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact.index');
+
+Route::get('/get-user-data', [ChartController::class, 'lineChart']);
 
 /* dashboard routes */
 Route::get('/dashboard', function () {
