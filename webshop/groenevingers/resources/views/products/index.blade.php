@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    @vite('resources/css/app.css')
 </head>
 
 <body onload="fetchAllProducts(1)">
@@ -38,7 +39,15 @@
         </div>
         {{ $products->links('pagination::semantic-ui') }}
     </div>
+    <div class="parent">
+    {!! $chart1->renderHtml() !!}
+    {!! $chart2->renderHtml() !!}
+    </div>
     @include('includes.footer')
 </body>
 
 </html>
+{!! $chart1->renderChartJsLibrary() !!}
+{!! $chart1->renderJs() !!}
+{!! $chart2->renderChartJsLibrary() !!}
+{!! $chart2->renderJs() !!}

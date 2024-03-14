@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class ProductController extends Controller
 {
@@ -13,8 +15,35 @@ class ProductController extends Controller
     {
         $products = Product::paginate(15);
 
+        $chart_options = [
+            'chart_title' => 'Users by months',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Models\User',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'month',
+            'chart_color' => '10,52,99',
+            'chart_type' => 'bar',
+            'chart_height' => '400px',
+            'show_blank_data' => 'true',
+        ];
+
+        $chart_options2 = [
+            'chart_title' => 'Users by mcnths',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Models\User',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'month',
+            'chart_color' => '10,52,99',
+            'chart_type' => 'line',
+        ];
+
+        $chart1 = new LaravelChart($chart_options);
+        $chart2 = new LaravelChart($chart_options2);
+
         return view('products.index')
-            ->with('products', $products);
+            ->with('products', $products)
+            ->with('chart1', $chart1)
+            ->with('chart2', $chart2);  
     }
 
     public function show(string $id): View
