@@ -6,6 +6,7 @@ use App\Models\Branch;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,7 +18,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('user.index', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -41,12 +42,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::find($id);
-        $statuses = Status::all();
-        $branches = Branch::all();
-        $roles = Role::all();
-
-        return view('user.show', ['user' => $user, 'statuses' => $statuses, 'branches' => $branches, 'roles' => $roles]);
+        //
     }
 
     /**
@@ -54,7 +50,12 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        $statuses = Status::all();
+        $branches = Branch::all();
+        $roles = Role::all();
+
+        return view('users.edit', ['user' => $user, 'statuses' => $statuses, 'branches' => $branches, 'roles' => $roles]);
     }
 
     /**
@@ -80,6 +81,7 @@ class UserController extends Controller
                 'status_id' => $request->status,
                 'branch_id' => $request->branch,
                 'role_id' => $request->role,
+                'updated_at' => Carbon::now()
             ]);
         } else {
             $user->update([
@@ -88,6 +90,7 @@ class UserController extends Controller
                 'phone' => $request->input('phone'),
                 'status_id' => $request->status,
                 'branch_id' => $request->branch,
+                'updated_at' => Carbon::now()
             ]);
         }
 

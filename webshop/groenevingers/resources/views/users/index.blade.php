@@ -16,7 +16,7 @@
                             <span class="py-2 text-center">{{$user->branch->name}}</span>
 
                             @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Manager")
-                                <button onclick="location.href='{{ route('users.show', ['user' => $user->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end p-2 w-24 rounded">
+                                <button onclick="location.href='{{ route('users.edit', ['user' => $user->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end p-2 w-24 rounded">
                                     Beheer
                                 </button>
                             @endif

@@ -2,78 +2,103 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\Product;
-use Illuminate\Http\RedirectResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $products = Product::paginate(15);
+        $products = Product::all();
 
-        return view('products.index')
-            ->with('products', $products);
+        return view('products.index', ['products' => $products]);
     }
 
-    public function show(string $id): View
-    {
-        return view('products.show', [
-            'products' => Product::findOrFail($id),
-        ]);
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return View::make('products.create');
+        //
     }
 
-    public function update()
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $rules = [
-            'name' => 'required',
-            'categorie' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-        ];
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()) {
-            return Redirect::to('products/'.$id.'/edit')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            $product = product::find($id);
-            $product->name = Input::get('name');
-            $product->categorie = Input::get('categorie');
-            $product->description = Input::get('description');
-            $product->price = Input::get('price');
-            $product->save();
-
-            Session::flash('message', 'Artikel is succesvol geüpdate!');
-
-            return Redirect::to('products');
-        }
+        //
     }
 
-    public function store(Request $request): RedirectResponse
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $name = $request->name;
-        $categorie = $request->categorie;
-        $description = $request->description;
-        $price = $request->price;
-
-        return redirect('/products');
+        //
     }
 
-    public function destroy($id)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
-        $product = product::find($id);
+        $product = Product::find($id);
+        $categories = Categorie::all();
+
+        return view('products.edit', ['product' => $product, 'categories' => $categories]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric'
+        ]);
+
+        // Storage::putFileAs(storage_path('app\public'), $request->file('image'));
+
+        // Storage::putFileAs(storage_path('app\public'), $request->input('image'));
+
+        $product = Product::findOrFail($id);
+
+        $product->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'categorie_id' => $request->category,
+            'color' => $request->input('color'),
+            'height_cm' => $request->input('height'),
+            'width_cm' => $request->input('width'),
+            'depth_cm' => $request->input('depth'),
+            'weight_gr' => $request->input('weight'),
+            'updated_at' => Carbon::now()
+        ]);
+
+        $product->save();
+
+        return redirect()->route('products.edit', ['product' => $id]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $product = Product::findOrFail($id);
+
         $product->delete();
 
-        Session::flash('message', 'Succesvol het artikel verwijdert!');
-
-        return Redirect::to('products.index');
+        return redirect()->route('products.index')->with('succes', 'Product Succesfully deleted');
     }
 }

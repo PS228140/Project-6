@@ -1,44 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Products') }}
+        </h2>
+    </x-slot>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producten - GroeneVingers</title>
-    <link rel="shortcut icon" href="{{ url('assets/images/favicon.svg') }}" type="image/x-icon">
-    <script src="{{ url('javascript/script.js') }}"></script>
-    <link rel="stylesheet" href="{{ url('css/products.css') }}">
-    <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">
-    <link rel="stylesheet" href="{{ url('css/includes/header.css') }}">
-    <link rel="stylesheet" href="{{ url('css/includes/footer.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
+                    @foreach ($products as $product)
+                        <div class="grid grid-cols-4 grid-rows-1">
+                            <span class="p-2">{{$product->name}}</span>
+                            <span class="py-2 text-center">{{$product->price}}</span>
+                            <span class="py-2 text-center">{{$product->categorie->name}}</span>
 
-<body onload="fetchAllProducts(1)">
-    @include('includes.header')
-    <div class="wrapper">
-        <div class="products-section">
-            <h3 class="products-section-title">{{ GoogleTranslate::trans('Onze producten', app()->getLocale()) }}</h3>
-            <div class="products-wrapper">
-            @php($i = 0)
-
-            @foreach ($products as $product)
-                    <div class="product-wrapper">
-                        <img src="{{$product->img_src}}">
-                        <div class="product-information">
-                            <span class="product-name">{{$product->name}}</span>
-                            <span class="product-price">€ {{$product->price}}</span>
-                            <span class="product-categorie">{{$product->categorie->name}}</span>
+                            @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Manager")
+                                <button onclick="location.href='{{ route('products.edit', ['product' => $product->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end p-2 w-24 rounded">
+                                    Beheer
+                                </button>
+                            @endif
                         </div>
-                    </div>
-            @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-        {{ $products->links('pagination::semantic-ui') }}
     </div>
-    @include('includes.footer')
-</body>
-
-</html>
+</x-app-layout>
