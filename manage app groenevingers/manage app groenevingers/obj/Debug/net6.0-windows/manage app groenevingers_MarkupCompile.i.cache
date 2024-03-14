@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\wamp64\www\opdrachten\GitHub\Project-6\manage app groenevingers\manage app groenevingers\App.xaml
-11407045341
+3-1550386425
 
-5-135716615
+7183260418
 194101785492
-MainWindow.xaml;
+DollarWindow.xaml;EuroWindow.xaml;YingWindow.xaml;
 
 True
 

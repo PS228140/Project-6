@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="DollarWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="YingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="EuroWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DollarWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="YingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

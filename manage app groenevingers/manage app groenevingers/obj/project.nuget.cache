@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LFsW2rDN/aaywKWu23rrpQrwKEPbNAMw79jX0/bxkrpFU0N5ugaU6ZOQVuuba8JYup7VJIGVYask5tdtH9v/pQ==",
+  "dgSpecHash": "vU9iTtsgFAFjaf5fpH4GrOFl4dYbvNKy60urqIGASKpOOvZEqfUPYUHa7mhyFEcvZIPFN4nmmzR5TSt6G4MF8w==",
   "success": true,
   "projectFilePath": "C:\\wamp64\\www\\opdrachten\\GitHub\\Project-6\\manage app groenevingers\\manage app groenevingers\\manage app groenevingers.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\feie\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\feie\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\feie\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
+    "C:\\Users\\feie\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
