@@ -36,7 +36,7 @@
     background-color: #ffffff;
     transition: all .5s;
     z-index: 100000;
-    border-bottom: 2px solid #dfdfdf;
+    box-shadow: 0px 2px 2px #ffffff50;
 }
 
 @media (min-width: 900px) {
@@ -69,3 +69,22 @@
     margin: 0;
     text-decoration: none;
 }
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-counter {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+

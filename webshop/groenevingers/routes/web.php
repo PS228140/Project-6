@@ -33,6 +33,12 @@ Route::get('/contact', function () {
 /* pdf routes */
 Route::get('/get-pdf', [DomPdfController::class, 'getPdf'])->name('pdf.index');
 
+
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart.index');
+
+
 /* dashboard routes */
 Route::get('/dashboard', function () {
     return view('dashboard');
