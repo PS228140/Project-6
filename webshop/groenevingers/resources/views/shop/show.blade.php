@@ -24,8 +24,8 @@
             <span class="product-categorie">{{ $product->categorie->name }}</span>
 
             <div class="product-info-row">
-                <div class="product-info-image">
-                    <img src="{{ $product->img_src}}"/>
+                <div class="product-image-wrapper">
+                    <img class="product-image" src="{{ asset($product->img_src) }}"/>
                 </div>
                 <div class="product-info-action">
                     <span class="product-price">€ {{ $product->price }}</span>

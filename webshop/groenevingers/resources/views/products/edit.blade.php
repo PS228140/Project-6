@@ -10,7 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('products.update', ['product' => $product->id])}}" method="post" class="grid max-w-xl">
+                    <form action="{{ route('products.update', ['product' => $product->id])}}" method="post" enctype="multipart/form-data" class="grid max-w-xl">
                         @method('PUT')
                         @csrf
                         <header>
@@ -30,7 +30,7 @@
             
                         <div class="mt-6">
                             <label for="price" class="block font-medium text-gray-700 dark:text-gray-300">Price (€)</label>
-                            <input id="price" name="price" type="number" min="0" step="any" value="{{ $product->price }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <input id="price" name="price" type="number" min="0" step="any" value="{{ number_format( $product->price, 2) }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <div class="mt-6">

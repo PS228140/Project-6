@@ -33,7 +33,7 @@
             @foreach ($products as $product)
                 @if ($loop->index < 3)
                     <div class="product-wrapper" onclick="location.href='{{ route('shop.show', ['shop' => $product->id])}}'">
-                        <img src="{{$product->img_src}}">
+                        <img src="{{ asset($product->img_src) }}">
                         <div class="product-information">
                             <span class="product-name">{{$product->name}}</span>
                             <span class="product-price">€ {{$product->price}}</span>

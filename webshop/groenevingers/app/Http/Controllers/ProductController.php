@@ -63,12 +63,11 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'image' => 'required'
         ]);
 
-        // Storage::putFileAs(storage_path('app\public'), $request->file('image'));
-
-        // Storage::putFileAs(storage_path('app\public'), $request->input('image'));
+        Storage::disk('public')->put('products', $request->file('image'));
 
         $product = Product::findOrFail($id);
 
@@ -76,6 +75,7 @@ class ProductController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
+            'img_src' => "storage/products/" . $request->file('image')->hashName(),
             'categorie_id' => $request->category,
             'color' => $request->input('color'),
             'height_cm' => $request->input('height'),
