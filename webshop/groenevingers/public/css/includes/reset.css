@@ -1,7 +1,7 @@
 :root {
     /* - colors - */
-    --primary-color: #48A240;
-    --secondary-color: #45A0CB;
+    --primary-color: #48a240;
+    --secondary-color: #45a0cb;
     --heading-text-color: #000000;
     --paragraph-text-color: #333333;
 
@@ -34,7 +34,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     overflow-x: hidden;
     font-size: 16px;
     min-height: 110dvh;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
 
 class HomepageController extends Controller
@@ -10,9 +9,10 @@ class HomepageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {
+    public function index()
+    {
         $products = Product::all();
 
-        return view('home', ['products' => $products]);
+        return view("home", ["products" => $products]);
     }
 }

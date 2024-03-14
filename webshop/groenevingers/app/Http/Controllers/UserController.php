@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('users.index', compact('users'));
+        return view("users.index", compact("users"));
     }
 
     /**
@@ -55,7 +55,12 @@ class UserController extends Controller
         $branches = Branch::all();
         $roles = Role::all();
 
-        return view('users.edit', ['user' => $user, 'statuses' => $statuses, 'branches' => $branches, 'roles' => $roles]);
+        return view("users.edit", [
+            "user" => $user,
+            "statuses" => $statuses,
+            "branches" => $branches,
+            "roles" => $roles,
+        ]);
     }
 
     /**
@@ -64,39 +69,39 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required',
-            'status' => 'required',
-            'branch' => 'required'
+            "name" => "required|string|max:255",
+            "email" => "required|email|max:255",
+            "phone" => "required",
+            "status" => "required",
+            "branch" => "required",
         ]);
 
         $user = User::findOrFail($id);
 
         if ($request->role !== null) {
             $user->update([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-                'status_id' => $request->status,
-                'branch_id' => $request->branch,
-                'role_id' => $request->role,
-                'updated_at' => Carbon::now()
+                "name" => $request->input("name"),
+                "email" => $request->input("email"),
+                "phone" => $request->input("phone"),
+                "status_id" => $request->status,
+                "branch_id" => $request->branch,
+                "role_id" => $request->role,
+                "updated_at" => Carbon::now(),
             ]);
         } else {
             $user->update([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-                'status_id' => $request->status,
-                'branch_id' => $request->branch,
-                'updated_at' => Carbon::now()
+                "name" => $request->input("name"),
+                "email" => $request->input("email"),
+                "phone" => $request->input("phone"),
+                "status_id" => $request->status,
+                "branch_id" => $request->branch,
+                "updated_at" => Carbon::now(),
             ]);
         }
 
         $user->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route("users.index");
     }
 
     /**
@@ -108,6 +113,8 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index')->with('succes', 'User succesfully deleted');
+        return redirect()
+            ->route("users.index")
+            ->with("succes", "User succesfully deleted");
     }
 }

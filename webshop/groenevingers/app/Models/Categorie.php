@@ -15,9 +15,7 @@ class Categorie extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-    ];
+    protected $fillable = ["name"];
 
     /**
      * Defines the relation between products and categories

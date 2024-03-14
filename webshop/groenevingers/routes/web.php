@@ -20,40 +20,52 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* homepage routes */
-Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
+Route::get("/", [HomepageController::class, "index"])->name("homepage.index");
 
 /* shop routes */
-Route::resource('shop', ShopController::class)->only(['index', 'show']);
+Route::resource("shop", ShopController::class)->only(["index", "show"]);
 
 /* contact routes */
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact.index');
+Route::get("/contact", function () {
+    return view("contact");
+})->name("contact.index");
 
 /* pdf routes */
-Route::get('/get-pdf', [DomPdfController::class, 'getPdf'])->name('pdf.index');
+Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
 
-
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart.index');
-
+Route::get("/cart", function () {
+    return view("cart");
+})->name("cart.index");
 
 /* dashboard routes */
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get("/dashboard", function () {
+    return view("dashboard");
+})
+    ->middleware(["auth", "verified"])
+    ->name("dashboard");
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware("auth")->group(function () {
+    Route::get("/profile", [ProfileController::class, "edit"])->name(
+        "profile.edit"
+    );
+    Route::patch("/profile", [ProfileController::class, "update"])->name(
+        "profile.update"
+    );
+    Route::delete("/profile", [ProfileController::class, "destroy"])->name(
+        "profile.destroy"
+    );
 });
 
 /* - user routes - */
-Route::resource('/dashboard/users', UserController::class)->middleware(['auth', 'verified']);
+Route::resource("/dashboard/users", UserController::class)->middleware([
+    "auth",
+    "verified",
+]);
 
 /* - product routes - */
-Route::resource('/dashboard/products', ProductController::class)->middleware(['auth', 'verified']);
+Route::resource("/dashboard/products", ProductController::class)->middleware([
+    "auth",
+    "verified",
+]);
 
-require __DIR__.'/auth.php';
+require __DIR__ . "/auth.php";

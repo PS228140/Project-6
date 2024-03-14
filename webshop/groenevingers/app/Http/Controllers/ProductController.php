@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('products.index', ['products' => $products]);
+        return view("products.index", ["products" => $products]);
     }
 
     /**
@@ -52,7 +52,10 @@ class ProductController extends Controller
         $product = Product::find($id);
         $categories = Categorie::all();
 
-        return view('products.edit', ['product' => $product, 'categories' => $categories]);
+        return view("products.edit", [
+            "product" => $product,
+            "categories" => $categories,
+        ]);
     }
 
     /**
@@ -61,33 +64,34 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'image' => 'required'
+            "name" => "required|string|max:255",
+            "description" => "required|string",
+            "price" => "required|numeric",
+            "image" => "required",
         ]);
 
-        Storage::disk('public')->put('products', $request->file('image'));
+        Storage::disk("public")->put("products", $request->file("image"));
 
         $product = Product::findOrFail($id);
 
         $product->update([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'img_src' => "storage/products/" . $request->file('image')->hashName(),
-            'categorie_id' => $request->category,
-            'color' => $request->input('color'),
-            'height_cm' => $request->input('height'),
-            'width_cm' => $request->input('width'),
-            'depth_cm' => $request->input('depth'),
-            'weight_gr' => $request->input('weight'),
-            'updated_at' => Carbon::now()
+            "name" => $request->input("name"),
+            "description" => $request->input("description"),
+            "price" => $request->input("price"),
+            "img_src" =>
+                "storage/products/" . $request->file("image")->hashName(),
+            "categorie_id" => $request->category,
+            "color" => $request->input("color"),
+            "height_cm" => $request->input("height"),
+            "width_cm" => $request->input("width"),
+            "depth_cm" => $request->input("depth"),
+            "weight_gr" => $request->input("weight"),
+            "updated_at" => Carbon::now(),
         ]);
 
         $product->save();
 
-        return redirect()->route('products.edit', ['product' => $id]);
+        return redirect()->route("products.edit", ["product" => $id]);
     }
 
     /**
@@ -99,6 +103,8 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('products.index')->with('succes', 'Product Succesfully deleted');
+        return redirect()
+            ->route("products.index")
+            ->with("succes", "Product Succesfully deleted");
     }
 }

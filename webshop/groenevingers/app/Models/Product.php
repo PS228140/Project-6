@@ -16,17 +16,17 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'api_id',
-        'categorie_id',
-        'name',
-        'description',
-        'price',
-        'img_src',
-        'color',
-        'height_cm',
-        'width_cm',
-        'depth_cm',
-        'weight_gr',
+        "api_id",
+        "categorie_id",
+        "name",
+        "description",
+        "price",
+        "img_src",
+        "color",
+        "height_cm",
+        "width_cm",
+        "depth_cm",
+        "weight_gr",
     ];
 
     /**

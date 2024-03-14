@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 
 class ShopController extends Controller
@@ -15,7 +13,7 @@ class ShopController extends Controller
     {
         $products = Product::paginate(15);
 
-        return view('shop.index', compact('products'));
+        return view("shop.index", compact("products"));
     }
 
     /**
@@ -25,6 +23,6 @@ class ShopController extends Controller
     {
         $product = Product::find($id);
 
-        return view('shop.show', ['product' => $product]);
+        return view("shop.show", ["product" => $product]);
     }
 }

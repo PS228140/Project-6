@@ -1,7 +1,7 @@
 :root {
     /* - colors - */
-    --primary-color: #48A240;
-    --secondary-color: #45A0CB;
+    --primary-color: #48a240;
+    --secondary-color: #45a0cb;
     --heading-text-color: #000000;
     --paragraph-text-color: #333333;
 
@@ -33,7 +33,7 @@
     font-weight: var(--fw-heading);
     line-height: calc(var(--fs-heading-large) * var(--lh-heading-multiplier));
     margin: 0;
-    padding-block: .5rem;
+    padding-block: 0.5rem;
 }
 
 .product-categorie {
@@ -77,15 +77,15 @@
 .paragraph {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .indicator {
     font-weight: var(--fw-display);
     color: #ffffff;
     background-color: #00b5e2;
-    padding: .3rem;
-    border-radius: .15rem;
+    padding: 0.3rem;
+    border-radius: 0.15rem;
     text-transform: uppercase;
     width: fit-content;
 }
@@ -96,9 +96,9 @@
     font-weight: var(--fw-display);
     color: #ffffff;
     background-color: var(--primary-color);
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border: none;
-    border-radius: .15rem;
+    border-radius: 0.15rem;
     text-transform: uppercase;
     width: max-content;
     box-shadow: 0px 2px 0px 0px #276222;
@@ -115,7 +115,7 @@
 
 .product-details-header {
     padding-top: 3rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     font-size: var(--fs-heading-medium);
     font-weight: var(--fw-heading);
     line-height: calc(var(--fs-heading-medium) * var(--lh-heading-multiplier));
@@ -124,7 +124,7 @@
 }
 
 .subject-header {
-    padding-block: .5rem;
+    padding-block: 0.5rem;
     font-size: var(--fs-heading-small);
     font-weight: var(--fw-heading);
     line-height: calc(var(--fs-heading-small) * var(--lh-heading-multiplier));
@@ -132,7 +132,7 @@
 }
 
 .description-wrapper {
-    padding-top: .25rem;
+    padding-top: 0.25rem;
 }
 
 .description-paragraph {
@@ -146,11 +146,11 @@
     padding-bottom: 3rem;
 }
 
-.specifications-wrapper>span {
-    padding-block: .25rem;
+.specifications-wrapper > span {
+    padding-block: 0.25rem;
 }
 
-.specifications-wrapper>.height {
+.specifications-wrapper > .height {
     padding-block: 0;
-    padding-bottom: .25rem;
+    padding-bottom: 0.25rem;
 }
