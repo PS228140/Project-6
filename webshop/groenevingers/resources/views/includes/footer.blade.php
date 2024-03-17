@@ -15,7 +15,7 @@
 
         <div class="socials-list">
             <h5>{{ GoogleTranslate::trans('Socials', app()->getLocale()) }}</h5>
-            <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/images/instagram.png') }}" alt="instagram" /></span>
+            <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/icons/instagram.png') }}" alt="instagram" /></span>
         </div>
     </div>
 
