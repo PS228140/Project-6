@@ -29,7 +29,7 @@
                         <img src="{{$product->img_src}}">
                         <div class="product-information">
                             <span class="product-name">{{$product->name}}</span>
-                            <span class="product-price">€ {{$product->price}}</span>
+                            <span class="product-price">€ {{ number_format($product->price, 2, ',') }}</span>
                             <span class="product-categorie">{{$product->categorie->name}}</span>
                         </div>
                     </div>

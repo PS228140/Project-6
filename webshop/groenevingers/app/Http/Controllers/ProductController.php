@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Categorie;
 use App\Models\Product;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -67,27 +67,42 @@ class ProductController extends Controller
             "name" => "required|string|max:255",
             "description" => "required|string",
             "price" => "required",
-            "image" => "required",
+            "image" => "",
         ]);
-
-        Storage::disk("public")->put("products", $request->file("image"));
 
         $product = Product::findOrFail($id);
 
-        $product->update([
-            "name" => $request->input("name"),
-            "description" => $request->input("description"),
-            "price" => $request->input("price"),
-            "img_src" =>
-                "storage/products/" . $request->file("image")->hashName(),
-            "categorie_id" => $request->category,
-            "color" => $request->input("color"),
-            "height_cm" => $request->input("height"),
-            "width_cm" => $request->input("width"),
-            "depth_cm" => $request->input("depth"),
-            "weight_gr" => $request->input("weight"),
-            "updated_at" => Carbon::now(),
-        ]);
+        if ($request->file("image") != null) {
+            Storage::disk("public")->put("products", $request->file("image"));
+
+            $product->update([
+                "name" => $request->input("name"),
+                "description" => $request->input("description"),
+                "price" => $request->input("price"),
+                "img_src" =>
+                    "storage/products/" . $request->file("image")->hashName(),
+                "categorie_id" => $request->category,
+                "color" => $request->input("color"),
+                "height_cm" => $request->input("height"),
+                "width_cm" => $request->input("width"),
+                "depth_cm" => $request->input("depth"),
+                "weight_gr" => $request->input("weight"),
+                "updated_at" => Carbon::now(),
+            ]);
+        } else {
+            $product->update([
+                "name" => $request->input("name"),
+                "description" => $request->input("description"),
+                "price" => $request->input("price"),
+                "categorie_id" => $request->category,
+                "color" => $request->input("color"),
+                "height_cm" => $request->input("height"),
+                "width_cm" => $request->input("width"),
+                "depth_cm" => $request->input("depth"),
+                "weight_gr" => $request->input("weight"),
+                "updated_at" => Carbon::now(),
+            ]);    
+        }
 
         $product->save();
 

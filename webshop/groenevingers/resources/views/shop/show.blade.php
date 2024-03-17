@@ -28,7 +28,7 @@
                     <img class="product-image" src="{{ asset($product->img_src) }}"/>
                 </div>
                 <div class="product-info-action">
-                    <span class="product-price">€ {{ $product->price }}</span>
+                    <span class="product-price">€ {{ number_format($product->price, 2, ',') }}</span>
 
                     <div class="paragraph">
                         <span class="indicator">Alleen Online</span>

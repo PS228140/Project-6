@@ -12,7 +12,7 @@
                     @foreach ($products as $product)
                         <div class="grid grid-cols-4 grid-rows-1">
                             <span class="p-2">{{$product->name}}</span>
-                            <span class="py-2 text-center">{{$product->price}}</span>
+                            <span class="py-2 text-center">€ {{ number_format($product->price, 2, ',') }}</span>
                             <span class="py-2 text-center">{{$product->categorie->name}}</span>
 
                             @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Manager")

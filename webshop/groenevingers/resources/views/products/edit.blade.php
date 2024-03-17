@@ -30,7 +30,7 @@
             
                         <div class="mt-6">
                             <label for="price" class="block font-medium text-gray-700 dark:text-gray-300">Price (€)</label>
-                            <input id="price" name="price" type="number" min="0" step="any" value="{{ number_format( $product->price, 2) }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <input id="price" name="price" type="number" min="0" step="any" value={{ number_format($product->price, 2, '.') }} class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <div class="mt-6">

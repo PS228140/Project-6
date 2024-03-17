@@ -21,7 +21,6 @@
     <div class="wrapper">
         <div class="hero-section">
             <h1 class="disclaimer">{{ GoogleTranslate::trans('Deze website/webshop is binnenkort beschikbaar', app()->getLocale()) }}</h1>
-            <!-- <img class="background-image" src="{{ url('assets/images/groengeluk2.jpg') }}" alt="background image" /> -->
             <img class="background-image" src="{{ url('assets/images/winkel.png') }}" alt="background image" />
         </div>
 
@@ -36,7 +35,7 @@
                         <img src="{{ asset($product->img_src) }}">
                         <div class="product-information">
                             <span class="product-name">{{$product->name}}</span>
-                            <span class="product-price">€ {{$product->price}}</span>
+                            <span class="product-price">€ {{ number_format($product->price, 2, ',') }}</span>
                             <span class="product-categorie">{{$product->categorie->name}}</span>
                         </div>
                     </div>
