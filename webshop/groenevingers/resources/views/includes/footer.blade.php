@@ -15,11 +15,16 @@
 
         <div class="socials-list">
             <h5>{{ GoogleTranslate::trans('Socials', app()->getLocale()) }}</h5>
-            <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/icons/instagram.png') }}" alt="instagram" /></span>
+            <a href="https://www.instagram.com/groenevingersgv/"><img src="{{ url('assets/icons/instagram.png') }}" alt="instagram" /></a>
+        </div>
+
+        <div class="socials-list">
+            <h5>Service</h5>
+            <a href="{{route('pdf.index')}}">Voorbeeld factuur</a>
         </div>
     </div>
 
-    <div class="footer-column">
-        <img src="{{ url('assets/images/Logo.png') }}" alt="logo" />
+    <div class="footer-column logo">
+        <img class="logo-img" src="{{ url('assets/images/Logo.png') }}" alt="logo" />
     </div>
 </footer>

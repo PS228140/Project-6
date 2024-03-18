@@ -43,6 +43,12 @@
             @endforeach
             </div>
         </div>
+
+        <a class="cart" href="{{ route('cart.index') }}">
+            <div class="cart-icon-container">
+                <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.png') }}" alt="Winkelwagen">
+            </div>
+        </a>
     </div>
     @include('includes.footer')
 </body>

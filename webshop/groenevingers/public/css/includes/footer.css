@@ -97,11 +97,22 @@
     padding-block: 0.25rem;
     border-radius: 0.5rem;
 }
+
 .socials-list img {
     width: 30px;
 }
 
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 .logo-img {
-    width: 100px; /* Pas de breedte aan zoals nodig */
+    align-self: flex-end;
+    justify-self: flex-end;
+    width: 100%;
+    max-width: 250px;
     height: auto;
+    aspect-ratio: 481 / 450;
 }

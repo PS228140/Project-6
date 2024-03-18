@@ -96,3 +96,16 @@
     max-height: 180px;
     padding-bottom: 1rem;
 }
+
+.cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 70px;
+    width: 70px;
+    right: 80px;
+    bottom: 80px;
+    background-color: var(--secondary-color);
+    border-radius: 35px;
+}

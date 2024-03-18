@@ -33,7 +33,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 2,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "minus suscipit omnis",
             "description" =>
                 "Deleniti veniam unde quod ducimus. Blanditiis nesciunt eaque est distinctio sunt. Et aut sequi perspiciatis qui tempora.",
@@ -51,7 +51,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 3,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "eaque consequuntur repellat",
             "description" =>
                 "Nihil et exercitationem doloremque molestiae perspiciatis perspiciatis. Sed repellat harum distinctio est autem rem. Asperiores in aut vel aspernatur sed. Illum ut quas dignissimos nam.",
@@ -69,7 +69,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 4,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "dolor excepturi quod",
             "description" =>
                 "Eos voluptatem quia alias omnis quis. Aperiam vitae nobis eum quis tempore. Aspernatur laudantium nobis et ipsum. Ducimus occaecati in distinctio molestias omnis ea expedita rerum.",
@@ -87,7 +87,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 5,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "laudantium voluptatum et",
             "description" =>
                 "Repellat facere odio nisi quaerat. Nihil doloribus rerum consequuntur aperiam aut. A magnam temporibus perferendis ratione atque. Qui at a et illum ratione modi.",
@@ -105,7 +105,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 6,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "perferendis quia pariatur",
             "description" =>
                 "Qui est commodi beatae dolor incidunt blanditiis ut. Voluptas repellendus odio repellat maxime et quas. Officiis natus fuga molestiae.",
@@ -123,7 +123,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 7,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "vero exercitationem numquam",
             "description" =>
                 "Exercitationem id repellendus quo consequuntur ab corporis esse. Molestias ipsam accusantium dolore dicta voluptatem qui dolor. Eaque alias aut ut vero eum.",
@@ -195,7 +195,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 11,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "accusantium tenetur assumenda",
             "description" =>
                 "Ut labore vero rem. Nemo totam temporibus libero voluptas hic possimus. Deleniti veritatis dolorem eum.",
@@ -213,7 +213,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 12,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "sint ut facilis",
             "description" =>
                 "Quisquam eum molestias a ut. Voluptas maxime odit voluptatem quisquam reprehenderit. Corporis et tempore fugiat aut dolore.",
@@ -231,7 +231,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 13,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "enim et quidem",
             "description" =>
                 "Et molestiae eaque dolore aut. Natus nisi omnis quia optio. Soluta provident repudiandae ipsa sunt ut quia.",
@@ -249,7 +249,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 14,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "praesentium consequatur iure",
             "description" =>
                 "Mollitia nihil officia qui illo est mollitia dolores. Inventore et autem accusantium autem qui recusandae voluptas asperiores. Nostrum voluptate aut ut non. Veritatis dolorem mollitia et eius est.",
@@ -267,7 +267,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 15,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "facere accusamus ducimus",
             "description" =>
                 "Non velit veritatis et occaecati et ratione est cupiditate. Exercitationem impedit ut ea eum nulla sit. Vel non voluptatem dolorum harum quis.",
@@ -285,7 +285,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 16,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "et dolores officia",
             "description" =>
                 "Enim dolor dolorem voluptas beatae aut. Commodi ut adipisci quos ab et quia dolores. Magnam deleniti voluptas sapiente ut laudantium nihil. Accusantium ut eligendi corrupti neque rerum.",
@@ -321,7 +321,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 18,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "illum occaecati eveniet",
             "description" =>
                 "Esse eum et et velit tenetur quia. Omnis voluptates quibusdam voluptates quo. Magnam non iusto et dignissimos dolorem atque.",
@@ -339,7 +339,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 19,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "nihil voluptatem delectus",
             "description" =>
                 "Dolor perspiciatis saepe sunt nam totam possimus. Eveniet cum eius ea accusamus. Possimus eveniet minima et voluptas. Et repellendus iure totam aut.",
@@ -357,7 +357,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 20,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "quaerat est repellat",
             "description" =>
                 "Eveniet quos enim sapiente. Omnis iure quasi et. Aut pariatur et laudantium et. Ut magni optio aperiam est voluptas repudiandae perferendis. Dolorem vitae ullam magni soluta deleniti nisi magnam.",
@@ -411,7 +411,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 23,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "cupiditate et veritatis",
             "description" =>
                 "Nihil et optio harum a. Rerum non qui illo perferendis placeat exercitationem omnis voluptatem. Aut est voluptas et consequatur quibusdam. Odit vitae aut aliquam minus velit rerum culpa.",
@@ -429,7 +429,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 24,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "sequi impedit sed",
             "description" =>
                 "Ut libero qui quia quia molestiae dolor. Animi quo repellendus fuga excepturi asperiores. Quos et repellendus officia laborum aliquam repudiandae quibusdam quo.",
@@ -465,7 +465,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 26,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "accusamus consectetur in",
             "description" =>
                 "Sunt sunt ipsam ipsam culpa. Reiciendis quisquam animi eligendi sint. Ex alias dolorem magni laborum ipsa temporibus possimus.",
@@ -483,7 +483,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 27,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "veniam temporibus placeat",
             "description" =>
                 "Libero sequi minus aspernatur nisi aut adipisci cum. Debitis ea illo deserunt odio. Qui hic doloremque doloremque non. Dolores id iusto saepe iste quasi excepturi. Eligendi molestiae et ratione.",
@@ -501,7 +501,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 28,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "sed laborum aperiam",
             "description" =>
                 "Ipsum recusandae dolores incidunt saepe laboriosam aliquid. Ut magnam unde aliquid dolores minima ut aut. Aut magni dolorum et. Qui nihil quam ut suscipit et consequatur.",
@@ -519,7 +519,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 29,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "expedita sed nostrum",
             "description" =>
                 "Consequatur excepturi consectetur id occaecati nihil rerum esse illum. Dolorum veritatis id corrupti.",
@@ -537,7 +537,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 30,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "nemo aut amet",
             "description" =>
                 "Consectetur et pariatur atque velit odit reprehenderit. Ratione neque consequuntur dolores aspernatur non hic. Sit illo quibusdam delectus pariatur et.",
@@ -555,7 +555,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 31,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "dolorum voluptatibus pariatur",
             "description" =>
                 "Earum distinctio inventore sit suscipit. Minima quos eos illo eligendi assumenda iusto.",
@@ -591,7 +591,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 33,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "aut veritatis ut",
             "description" =>
                 "Quam quis ducimus nihil ut doloribus rerum voluptate. Corporis occaecati et dolores non fugit officiis sunt. Dolorem doloremque eligendi ut minima nihil amet.",
@@ -609,7 +609,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 34,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "pariatur vero ut",
             "description" =>
                 "Dicta illum blanditiis quasi necessitatibus recusandae et reiciendis. Aut nihil autem optio pariatur dolorum qui. Quibusdam et rerum beatae repudiandae non odit aut.",
@@ -627,7 +627,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 35,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "cumque ipsa in",
             "description" =>
                 "Ratione earum et praesentium sint quisquam minus. Libero consequuntur consequuntur ratione neque culpa. Voluptates nostrum quos mollitia quisquam modi nulla aspernatur.",
@@ -663,7 +663,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 37,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "dolore sunt quis",
             "description" =>
                 "Iure voluptas dolorem commodi. Rerum ad iure omnis perspiciatis necessitatibus ad. Illum id modi accusantium veritatis occaecati iure.",
@@ -681,7 +681,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 38,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "aut architecto vitae",
             "description" =>
                 "Velit veritatis ut nulla ducimus. Qui modi ipsa et ducimus consectetur. Est doloremque dolores expedita est aut.",
@@ -717,7 +717,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 40,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "consequatur accusantium dolor",
             "description" =>
                 "Corrupti et sint quia consectetur est sunt. Dolores id sed quae iure voluptas. Dolore magni eligendi ea.",
@@ -735,7 +735,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 41,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "a eius aspernatur",
             "description" =>
                 "Vero quasi ratione consequatur eos ullam nobis. Quidem magnam consequatur sed voluptas corrupti eum numquam voluptas. Sed voluptatem dolorem animi fugit laboriosam.",
@@ -789,7 +789,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 44,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "delectus tempora reprehenderit",
             "description" =>
                 "Velit omnis at id voluptatem vel hic. Quaerat numquam nulla rerum laborum culpa expedita. Omnis debitis adipisci aliquid aut sit voluptates laborum consequatur.",
@@ -807,7 +807,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 45,
-            "categorie_id" => 1,
+            "categorie_id" => 3,
             "name" => "saepe temporibus voluptas",
             "description" =>
                 "Cupiditate aliquam nulla et. Id sed distinctio ut quidem est doloremque quod. Reiciendis quis et repudiandae numquam aut. Perspiciatis non hic provident ea eum eos veritatis.",
@@ -825,7 +825,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 46,
-            "categorie_id" => 1,
+            "categorie_id" => 2,
             "name" => "facere totam dolore",
             "description" =>
                 "Mollitia veritatis voluptatem possimus nobis consequatur omnis. Ullam error voluptatem ut sit quae cum maiores. Deleniti corporis consequatur qui incidunt dolor ex totam at.",
@@ -897,7 +897,7 @@ class ProductsSeeder extends Seeder
 
         DB::table("products")->insert([
             "api_id" => 50,
-            "categorie_id" => 1,
+            "categorie_id" => 4,
             "name" => "non earum non",
             "description" =>
                 "Non sed placeat sed atque deserunt id ut consequatur. Qui ex aut est aut soluta. Voluptatibus quia itaque in.",
