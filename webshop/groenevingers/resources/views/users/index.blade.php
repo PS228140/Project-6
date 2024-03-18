@@ -25,5 +25,10 @@
                 </div>
             </div>
         </div>
+        <div class="user-chart w-1/2">
+            {!! $chart1->renderHtml() !!}
+        </div>
     </div>
 </x-app-layout>
+{!! $chart1->renderChartJsLibrary() !!}
+{!! $chart1->renderJs() !!}
