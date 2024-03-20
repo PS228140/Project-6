@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create("users", function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
-            $table->unsignedBigInteger("role_id")->index()->default(3);
+            $table->unsignedBigInteger("role_id")->index()->default(4);
             $table->string("email")->unique();
             $table->string("password");
             $table->string("name");
