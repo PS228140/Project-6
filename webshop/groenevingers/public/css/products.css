@@ -108,7 +108,11 @@
     height: 70px;
     width: 70px;
     right: 80px;
-    bottom: 80px;
+    bottom: 60px;
     background-color: var(--secondary-color);
     border-radius: 35px;
+}
+
+.cart-icon {
+    color: #ffffff;
 }

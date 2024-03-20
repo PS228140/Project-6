@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Status;
 
 class ProfileController extends Controller
 {
@@ -16,8 +17,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $statuses = Status::all();
+
         return view("profile.edit", [
             "user" => $request->user(),
+            "statuses" => $statuses
         ]);
     }
 
@@ -31,6 +35,8 @@ class ProfileController extends Controller
         if ($request->user()->isDirty("email")) {
             $request->user()->email_verified_at = null;
         }
+
+        $request->user()->status_id = $request->status;
 
         $request->user()->save();
 

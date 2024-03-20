@@ -47,6 +47,20 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="status" :value="__('Status')" />
+            <select id="status" name="status" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm rounded" required autofocus>
+                @foreach ($statuses as $status)
+                    @if ($user->status->id === $status->id)
+                        <option value={{$status->id}} selected>{{$status->name}}</option>
+                    @else
+                        <option value={{$status->id}}>{{$status->name}}</option>
+                    @endif
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

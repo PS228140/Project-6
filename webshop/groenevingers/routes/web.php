@@ -26,6 +26,11 @@ Route::get("/", [HomepageController::class, "index"])->name("homepage.index");
 /* shop routes */
 Route::resource("shop", ShopController::class)->only(["index", "show"]);
 
+/* cart routes */
+Route::get("/cart", function () {
+    return view("cart");
+})->name("cart.index");
+
 /* contact routes */
 Route::get("/contact", function () {
     return view("contact");
@@ -34,35 +39,22 @@ Route::get("/contact", function () {
 /* pdf routes */
 Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
 
-Route::get("/cart", function () {
-    return view("cart");
-})->name("cart.index");
-
 /* dashboard routes */
 Route::get("/dashboard", [DashboardController::class, "index"])->middleware(["auth", "verified"])->name("dashboard");
 
+/* - profile routes - */
 Route::middleware("auth")->group(function () {
-    Route::get("/profile", [ProfileController::class, "edit"])->name(
-        "profile.edit"
-    );
-    Route::patch("/profile", [ProfileController::class, "update"])->name(
-        "profile.update"
-    );
-    Route::delete("/profile", [ProfileController::class, "destroy"])->name(
-        "profile.destroy"
-    );
+    Route::get("/profile", [ProfileController::class, "edit"])->name("profile.edit");
+
+    Route::patch("/profile", [ProfileController::class, "update"])->name("profile.update");
+
+    Route::delete("/profile", [ProfileController::class, "destroy"])->name("profile.destroy");
 });
 
 /* - user routes - */
-Route::resource("/dashboard/users", UserController::class)->middleware([
-    "auth",
-    "verified",
-])->except(['show', 'create']);
+Route::resource("/dashboard/users", UserController::class)->middleware(["auth", "verified"])->except(['show', 'create']);
 
 /* - product routes - */
-Route::resource("/dashboard/products", ProductController::class)->middleware([
-    "auth",
-    "verified",
-]);
+Route::resource("/dashboard/products", ProductController::class)->middleware(["auth", "verified"])->except('show');
 
 require __DIR__ . "/auth.php";

@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
-<body onload="fetchAllProducts(1, 3)">
+<body>
     @include('includes.header')
     <div class="wrapper">
         <div class="hero-section">
@@ -46,7 +46,7 @@
 
         <a class="cart" href="{{ route('cart.index') }}">
             <div class="cart-icon-container">
-                <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.png') }}" alt="Winkelwagen">
+                <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.svg') }}" alt="Winkelwagen">
             </div>
         </a>
     </div>

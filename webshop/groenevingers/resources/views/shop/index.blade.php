@@ -39,7 +39,7 @@
     
         <a class="cart" href="{{ route('cart.index') }}">
             <div class="cart-icon-container">
-                <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.png') }}" alt="Winkelwagen">
+                <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.svg') }}" alt="Winkelwagen">
             </div>
         </a>
 

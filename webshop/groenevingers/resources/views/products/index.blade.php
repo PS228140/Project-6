@@ -15,8 +15,8 @@
                             <span class="py-2 text-center">€ {{ number_format($product->price, 2, ',') }}</span>
                             <span class="py-2 text-center">{{$product->categorie->name}}</span>
 
-                            @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Manager")
-                                <button onclick="location.href='{{ route('products.edit', ['product' => $product->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end p-2 w-24 rounded">
+                            @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Accountant" || Auth::user()->role->name === "Manager")
+                                <button onclick="location.href='{{ route('products.edit', ['product' => $product->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end self-center p-2 w-24 max-h-10 rounded">
                                     Beheer
                                 </button>
                             @endif

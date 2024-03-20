@@ -104,8 +104,9 @@
     position: fixed;
     height: 70px;
     width: 70px;
-    right: 80px;
-    bottom: 80px;
+    right: 40px;
+    bottom: 40px;
+    color: #ffffff;
     background-color: var(--secondary-color);
     border-radius: 35px;
 }
