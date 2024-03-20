@@ -22,7 +22,7 @@ class UsersSeeder extends Seeder
             "branch_id" => 2,
             "status_id" => 1,
             "phone" => "0639349446",
-            "created_at" => Carbon::now(),
+            "created_at" => "2024-02-06 10:22:40",
             "updated_at" => Carbon::now(),
         ]);
 
@@ -35,7 +35,7 @@ class UsersSeeder extends Seeder
             "branch_id" => 1,
             "status_id" => 1,
             "phone" => "0624431222",
-            "created_at" => Carbon::now(),
+            "created_at" => "2024-02-06 11:52:40",
             "updated_at" => Carbon::now(),
         ]);
 

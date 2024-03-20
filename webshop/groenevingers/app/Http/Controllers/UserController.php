@@ -19,45 +19,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        $chart_options = [
-            'chart_title' => 'Users by months',
-            'report_type' => 'group_by_date',
-            'model' => 'App\Models\User',
-            'group_by_field' => 'created_at',
-            'group_by_period' => 'month',
-            'chart_color' => '110,152,199',
-            'chart_type' => 'bar',
-            'chart_height' => '400px',
-            'show_blank_data' => 'true',
-        ];
-
-        $chart1 = new LaravelChart($chart_options);
-
-        return view("users.index", compact("users", "chart1"));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return view("users.index", compact("users"));
     }
 
     /**
