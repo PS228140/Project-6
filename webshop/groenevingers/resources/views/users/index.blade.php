@@ -11,12 +11,12 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
                     @foreach ($users as $user)
                         <div class="grid grid-cols-4 grid-rows-1">
-                            <span class="p-2">{{$user->name}}</span>
-                            <span class="py-2 text-center">{{$user->status->name}}</span>
-                            <span class="py-2 text-center">{{$user->branch->name}}</span>
+                            <span class="p-2 self-center">{{$user->name}}</span>
+                            <span class="py-2 text-center self-center">{{$user->status->name}}</span>
+                            <span class="py-2 text-center self-center">{{$user->branch->name}}</span>
 
                             @if(Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Manager")
-                                <button onclick="location.href='{{ route('users.edit', ['user' => $user->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end p-2 w-24 rounded">
+                                <button onclick="location.href='{{ route('users.edit', ['user' => $user->id]) }}'" class="bg-blue-500 hover:bg-blue-700 justify-self-end self-center p-2 w-24 max-h-10 rounded">
                                     Beheer
                                 </button>
                             @endif
@@ -25,10 +25,5 @@
                 </div>
             </div>
         </div>
-        <div class="user-chart w-1/2">
-            {!! $chart1->renderHtml() !!}
-        </div>
     </div>
 </x-app-layout>
-{!! $chart1->renderChartJsLibrary() !!}
-{!! $chart1->renderJs() !!}
