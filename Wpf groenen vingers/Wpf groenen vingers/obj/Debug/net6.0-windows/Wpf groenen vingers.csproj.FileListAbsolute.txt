@@ -1,0 +1,86 @@
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Wpf groenen vingers.exe
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Wpf groenen vingers.deps.json
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Wpf groenen vingers.runtimeconfig.json
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Wpf groenen vingers.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Wpf groenen vingers.pdb
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronBarcodeDetection.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronBarCode.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\BitMiracle.LibTiff.NET.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronSoftware.Abstractions.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronSoftware.Logger.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronSoftware.Shared.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\IronSoftware.Drawing.Common.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\Microsoft.ML.OnnxRuntime.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\SixLabors.ImageSharp.Drawing.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\linux-x64\native\IronBarcodeInterop.so
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\IronBarcodeInterop.dylib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\osx-x64\native\IronBarcodeInterop.dylib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x64\native\IronBarcodeInterop.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x86\native\IronBarcodeInterop.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\android\native\onnxruntime.aar
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\Info.plist
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\coreml_provider_factory.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\cpu_provider_factory.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_c_api.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_cxx_api.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_cxx_inline.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_float16.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_run_options_config_keys.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Headers\onnxruntime_session_options_config_keys.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\Info.plist
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64\onnxruntime.framework\onnxruntime
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\coreml_provider_factory.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\cpu_provider_factory.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_c_api.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_cxx_api.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_cxx_inline.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_float16.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_run_options_config_keys.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Headers\onnxruntime_session_options_config_keys.h
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\Info.plist
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\ios\native\onnxruntime.xcframework\ios-arm64_x86_64-simulator\onnxruntime.framework\onnxruntime
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\libonnxruntime.so
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\linux-x64\native\libonnxruntime.so
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\libonnxruntime.dylib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\osx-x64\native\libonnxruntime.dylib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-arm64\native\onnxruntime.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-arm64\native\onnxruntime.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-arm64\native\onnxruntime_providers_shared.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-arm64\native\onnxruntime_providers_shared.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x64\native\onnxruntime.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x64\native\onnxruntime.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x64\native\onnxruntime_providers_shared.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x64\native\onnxruntime_providers_shared.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x86\native\onnxruntime.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x86\native\onnxruntime.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x86\native\onnxruntime_providers_shared.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\runtimes\win-x86\native\onnxruntime_providers_shared.lib
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.csproj.AssemblyReference.cache
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\App.g.cs
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers_MarkupCompile.cache
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers_MarkupCompile.lref
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\MainWindow.baml
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.g.resources
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.GeneratedMSBuildEditorConfig.editorconfig
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.AssemblyInfoInputs.cache
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.AssemblyInfo.cs
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.csproj.CoreCompileInputs.cache
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.csproj.CopyComplete
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\refint\Wpf groenen vingers.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.pdb
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.genruntimeconfig.cache
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\ref\Wpf groenen vingers.dll
