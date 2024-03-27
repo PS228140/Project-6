@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        request()->server->add(['REMOTE_ADDR' => '145.100.155.13']);
+        // request()->server->add(['REMOTE_ADDR' => '145.100.155.13']);
 
         $ipaddress = request()->ip();
 
