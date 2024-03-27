@@ -113,8 +113,8 @@
             key: 'm4QRBkItT4yj4Zpg1fHv7yqdZBGq7gVT',
             container: 'map',
             dragPan: !window.isMobileOrTablet(),
-            center: [5.543190926093243, 51.46210505968836],
-            zoom: 13
+            center: [{!! $iplon !!}, {!! $iplat !!}],
+            zoom: 11
         });
 
         function createMarker(icon, position, color, popupText) {
@@ -142,6 +142,7 @@
 
         createMarker('accident.colors-white.svg', [5.534008932407582, 51.469172997430434], '#45A0CB', 'Groenevingers');
         createMarker('accident.colors-white.svg', [5.552663391299532, 51.45318241457581], '#48A240', 'Groenevingers');
+        createMarker('accident.colors-white.svg', [{!! $iplon !!}, {!! $iplat !!}], '#FF0000', 'Dit bent u');
 
         map.addControl(new tt.FullscreenControl());
         map.addControl(new tt.NavigationControl());

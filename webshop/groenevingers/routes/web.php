@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
@@ -32,9 +33,7 @@ Route::get("/cart", function () {
 })->name("cart.index");
 
 /* contact routes */
-Route::get("/contact", function () {
-    return view("contact");
-})->name("contact.index");
+Route::get("/contact", [ContactController::class, "index"])->name("contact.index");
 
 /* pdf routes */
 Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
