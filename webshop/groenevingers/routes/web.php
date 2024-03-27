@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
@@ -56,5 +57,8 @@ Route::resource("/dashboard/users", UserController::class)->middleware(["auth", 
 
 /* - product routes - */
 Route::resource("/dashboard/products", ProductController::class)->middleware(["auth", "verified"])->except('show');
+
+/* - management routes - */
+Route::resource("/dashboard/management", ManagementController::class)->middleware(["auth", "verified"])->only(['index', 'show', 'store']);
 
 require __DIR__ . "/auth.php";
