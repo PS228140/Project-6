@@ -16,8 +16,8 @@ class DomPdfController extends Controller
         ];
 
         $pdf = PDF::loadview("magecompPDF", $data);
-        return $pdf->stream("factuur.pdf");
+        return $pdf->download("factuur.pdf");
 
-        // return $pdf->download('magecomp.pdf');
+        // return $pdf->stream('magecomp.pdf');
     }
 }

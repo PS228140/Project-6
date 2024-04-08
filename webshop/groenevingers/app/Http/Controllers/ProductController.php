@@ -59,7 +59,12 @@ class ProductController extends Controller
             "name" => "required|string|max:255",
             "description" => "required|string",
             "price" => "required",
-            "image" => "",
+            "categorie_id" => "required|integer",
+            "color" => "required|string|max:255",
+            "height_cm" => "required|string|max:5",
+            "width_cm" => "required|string|max:5",
+            "depth_cm" => "required|string|max:5",
+            "weight_gr" => "required|string|max:10",
         ]);
 
         $product = Product::findOrFail($id);

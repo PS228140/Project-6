@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -31,7 +33,37 @@ class ManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "api_id" => "required|integer",
+            "name" => "required|string|max:255",
+            "description" => "required|string",
+            "price" => "required",
+            "image" => "required",
+            "color" => "required|string|max:255",
+            "height_cm" => "required|string|max:5",
+            "width_cm" => "required|string|max:5",
+            "depth_cm" => "required|string|max:5",
+            "weight_gr" => "required|string|max:10",
+        ]);
+
+        $newProduct = new Product();
+
+        $newProduct->api_id = $validatedData["api_id"];
+        $newProduct->name = $validatedData["name"];
+        $newProduct->description = $validatedData["description"];
+        $newProduct->price = $validatedData["price"];
+        $newProduct->img_src = $validatedData["image"];
+        $newProduct->color = $validatedData["color"];
+        $newProduct->height_cm = $validatedData["height_cm"];
+        $newProduct->width_cm = $validatedData["width_cm"];
+        $newProduct->depth_cm = $validatedData["depth_cm"];
+        $newProduct->weight_gr = $validatedData["weight_gr"];
+        $newProduct->created_at = Carbon::now();
+        $newProduct->updated_at = Carbon::now();
+
+        $newProduct->save();
+
+        return redirect()->route("management.index");
     }
 
     /**
@@ -39,7 +71,9 @@ class ManagementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $response = Http::withToken("50|Oy8mM3g2A8jSTpiHoxrRXXdspGlvQHbbQ45qM272")->get("https://kuin.summaict.nl/api/product/" . $id);
+
+        return view('management.show', ["product" => $response]);
     }
 
     /**

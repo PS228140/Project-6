@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\EnsureRoleIsValid;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,22 +44,33 @@ Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
 /* dashboard routes */
 Route::get("/dashboard", [DashboardController::class, "index"])->middleware(["auth", "verified"])->name("dashboard");
 
-/* - profile routes - */
+/* routes only accessible to authenticated users */
 Route::middleware("auth")->group(function () {
+    /* - profile routes - */
     Route::get("/profile", [ProfileController::class, "edit"])->name("profile.edit");
-
     Route::patch("/profile", [ProfileController::class, "update"])->name("profile.update");
-
     Route::delete("/profile", [ProfileController::class, "destroy"])->name("profile.destroy");
+
+    /* - user routes - */
+    Route::get("/dashboard/users", [UserController::class, "index"])->name("users.index");
+
+    /* - product routes - */
+    Route::get("/dashboard/products", [ProductController::class, "index"])->name("products.index");
 });
 
-/* - user routes - */
-Route::resource("/dashboard/users", UserController::class)->middleware(["auth", "verified"])->except(['show', 'create']);
+/* routes only accessible to Administrators, Accountants and Managers */
+Route::middleware("auth", "verified", "role:Admin,Accountant,Manager")->group(function () {
+    /* - user routes - */
+    Route::resource("/dashboard/users", UserController::class)->except(["index", "show", "create", "store"]);
 
-/* - product routes - */
-Route::resource("/dashboard/products", ProductController::class)->middleware(["auth", "verified"])->except('show');
+    /* - product routes - */
+    Route::resource("/dashboard/products", ProductController::class)->except(["index"]);
+});
 
-/* - management routes - */
-Route::resource("/dashboard/management", ManagementController::class)->middleware(["auth", "verified"])->only(['index', 'show', 'store']);
+/* routes only accessible to Administrators and Accantants */
+Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function () {
+    /* - management routes - */
+    Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'store']);
+});
 
 require __DIR__ . "/auth.php";
