@@ -160,10 +160,10 @@ return [
 
     "providers" => ServiceProvider::defaultProviders()
         ->merge([
-            Barryvdh\DomPDF\ServiceProvider::class,
             /*
-             * Package Service Providers...
-             */
+            * Package Service Providers...
+            */
+            Barryvdh\DomPDF\ServiceProvider::class,
 
             /*
              * Application Service Providers...
