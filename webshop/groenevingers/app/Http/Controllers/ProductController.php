@@ -78,12 +78,12 @@ class ProductController extends Controller
                 "price" => $request->input("price"),
                 "img_src" =>
                     "storage/products/" . $request->file("image")->hashName(),
-                "categorie_id" => $request->category,
+                "categorie_id" => $request->categorie_id,
                 "color" => $request->input("color"),
-                "height_cm" => $request->input("height"),
-                "width_cm" => $request->input("width"),
-                "depth_cm" => $request->input("depth"),
-                "weight_gr" => $request->input("weight"),
+                "height_cm" => $request->input("height_cm"),
+                "width_cm" => $request->input("width_cm"),
+                "depth_cm" => $request->input("depth_cm"),
+                "weight_gr" => $request->input("weight_gr"),
                 "updated_at" => Carbon::now(),
             ]);
         } else {
@@ -91,12 +91,12 @@ class ProductController extends Controller
                 "name" => $request->input("name"),
                 "description" => $request->input("description"),
                 "price" => $request->input("price"),
-                "categorie_id" => $request->category,
+                "categorie_id" => $request->categorie_id,
                 "color" => $request->input("color"),
-                "height_cm" => $request->input("height"),
-                "width_cm" => $request->input("width"),
-                "depth_cm" => $request->input("depth"),
-                "weight_gr" => $request->input("weight"),
+                "height_cm" => $request->input("height_cm"),
+                "width_cm" => $request->input("width_cm"),
+                "depth_cm" => $request->input("depth_cm"),
+                "weight_gr" => $request->input("weight_gr"),
                 "updated_at" => Carbon::now(),
             ]);    
         }

@@ -16,6 +16,16 @@
                         <header>
                             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Product information</h2>
                             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Update the product information.</p>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li class="text-red-600">{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         </header>
 
                         <div class="mt-6">
@@ -39,8 +49,8 @@
                         </div>
 
                         <div class="mt-6">
-                            <label for="category" class="block font-medium text-gray-700 dark:text-gray-300">Category</label>
-                            <select id="category" name="category" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm rounded">
+                            <label for="categorie_id" class="block font-medium text-gray-700 dark:text-gray-300">Category</label>
+                            <select id="categorie_id" name="categorie_id" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm rounded">
                                 @foreach ($categories as $categorie)
                                     @if ($product->categorie->id == $categorie->id)
                                         <option value="{{ $categorie->id }}" selected>{{ $categorie->name }}</option>
@@ -57,23 +67,23 @@
                         </div>
                         
                         <div class="mt-6">
-                            <label for="height" class="block font-medium text-gray-700 dark:text-gray-300">Height (cm)</label>
-                            <input id="height" name="height" type="number" min="0" value="{{ $product->height_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <label for="height_cm" class="block font-medium text-gray-700 dark:text-gray-300">Height (cm)</label>
+                            <input id="height_cm" name="height_cm" type="number" min="0" value="{{ $product->height_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <div class="mt-6">
-                            <label for="width" class="block font-medium text-gray-700 dark:text-gray-300">Width (cm)</label>
-                            <input id="width" name="width" type="number" min="0" value="{{ $product->width_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <label for="width_cm" class="block font-medium text-gray-700 dark:text-gray-300">Width (cm)</label>
+                            <input id="width_cm" name="width_cm" type="number" min="0" value="{{ $product->width_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <div class="mt-6">
-                            <label for="depth" class="block font-medium text-gray-700 dark:text-gray-300">Depth (cm)</label>
-                            <input id="depth" name="depth" type="number" min="0" value="{{ $product->depth_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <label for="depth_cm" class="block font-medium text-gray-700 dark:text-gray-300">Depth (cm)</label>
+                            <input id="depth_cm" name="depth_cm" type="number" min="0" value="{{ $product->depth_cm }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <div class="mt-6">
-                            <label for="weight" class="block font-medium text-gray-700 dark:text-gray-300">Weight (gr)</label>
-                            <input id="weight" name="weight" type="number" min="0" value="{{ $product->weight_gr }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
+                            <label for="weight_gr" class="block font-medium text-gray-700 dark:text-gray-300">Weight (gr)</label>
+                            <input id="weight_gr" name="weight_gr" type="number" min="0" value="{{ $product->weight_gr }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full">
                         </div>
 
                         <button type="submit" class="mt-6 w-min inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Save</button>
