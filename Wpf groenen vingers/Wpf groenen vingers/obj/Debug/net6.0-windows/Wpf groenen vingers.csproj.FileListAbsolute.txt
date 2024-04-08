@@ -84,3 +84,5 @@ C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vinger
 C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.pdb
 C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers.genruntimeconfig.cache
 C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\ref\Wpf groenen vingers.dll
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\bin\Debug\net6.0-windows\assets\Winkel.png
+C:\wamp64\www\opdrachten\GitHub\Project-6\Wpf groenen vingers\Wpf groenen vingers\obj\Debug\net6.0-windows\Wpf groenen vingers_Content.g.cs

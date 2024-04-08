@@ -9,7 +9,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="1*"/>
@@ -23,5 +23,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="assets\Winkel.png"/>
         </Grid.Background>
+
+        <ListBox Grid.Row="1" Grid.Column="3" Opacity="0.8" x:Name="LB_Betalen"/>
     </Grid>
 </Window>
