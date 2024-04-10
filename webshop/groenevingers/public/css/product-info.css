@@ -24,6 +24,10 @@
     --lh-body-multiplier: 1.5;
 }
 
+.wrapper {
+    padding-top: 7rem !important;
+}
+
 .product-info-section {
     padding-inline: 5rem;
 }

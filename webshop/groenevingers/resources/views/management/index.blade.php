@@ -3,6 +3,10 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Kuin B.V.') }}
         </h2>
+
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('06-91204657') }}
+        </h2>
     </x-slot>
 
     <div class="py-12">
