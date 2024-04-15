@@ -93,6 +93,11 @@
             <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
                 {{ __('Products') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Accountant")
+                <x-responsive-nav-link :href="route('management.index')" :active="request()->routeIs('management.index')">
+                    {{__('Management')}}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

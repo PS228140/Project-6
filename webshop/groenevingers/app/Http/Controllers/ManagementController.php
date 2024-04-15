@@ -25,7 +25,10 @@ class ManagementController extends Controller
      */
     public function create()
     {
-        //
+        $products = Http::withToken("50|Oy8mM3g2A8jSTpiHoxrRXXdspGlvQHbbQ45qM272")->get("https://kuin.summaict.nl/api/product");
+        $products = $products->json();
+
+        return view('management.create', ["products" => $products, "order_id" => null]);
     }
 
     /**
@@ -33,7 +36,13 @@ class ManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // if ($request->order_id) {
+        //     dd([$request->product, $request->quantity, $request->order_id]);
+        // } else {
+        //     dd([$request->product, $request->quantity]);
+        // }
+
+        return redirect()->route('management.index');
     }
 
     /**

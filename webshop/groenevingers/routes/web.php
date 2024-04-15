@@ -70,7 +70,7 @@ Route::middleware("auth", "verified", "role:Admin,Accountant,Manager")->group(fu
 /* routes only accessible to Administrators and Accantants */
 Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function () {
     /* - management routes - */
-    Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'store']);
+    Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
 });
 
 require __DIR__ . "/auth.php";
