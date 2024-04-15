@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "api_id" => "required|integer",
+            "api_id" => "required|integer|unique:products",
             "name" => "required|string|max:255",
             "description" => "required|string",
             "price" => "required",
