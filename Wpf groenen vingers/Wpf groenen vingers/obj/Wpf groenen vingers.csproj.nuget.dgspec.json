@@ -42,7 +42,11 @@
           "dependencies": {
             "BarCode": {
               "target": "Package",
-              "version": "[2024.3.2, )"
+              "version": "[2024.4.4, )"
+            },
+            "IronPdf": {
+              "target": "Package",
+              "version": "[2024.4.2, )"
             }
           },
           "imports": [
