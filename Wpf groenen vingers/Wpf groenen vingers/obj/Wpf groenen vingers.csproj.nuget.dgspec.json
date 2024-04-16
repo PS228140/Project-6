@@ -47,6 +47,10 @@
             "IronPdf": {
               "target": "Package",
               "version": "[2024.4.2, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             }
           },
           "imports": [
