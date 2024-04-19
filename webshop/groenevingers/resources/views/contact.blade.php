@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    $feed = \Dymantic\InstagramFeed\InstagramFeed::for('groenevingersgv');
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,6 +101,9 @@
             </div>
         </div>
     </div>
+    @foreach($feed as $post)
+            <img src={{ $post->url }} alt="A post from my instagram">
+    @endforeach
     @include('includes.footer')
 </body>
 
