@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laraveldaily/laravel-charts": "^0.2.3",
+        "laravolt/avatar": "^5.1",
         "stichoza/google-translate-php": "^5.1"
     },
     "require-dev": {
