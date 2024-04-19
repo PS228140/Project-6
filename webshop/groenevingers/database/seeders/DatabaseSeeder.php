@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             CategoriesSeeder::class,
             ProductsSeeder::class,
+            DymanticProfileSeeder::class,
+            DymanticTokenSeeder::class,
         ]);
     }
 }
