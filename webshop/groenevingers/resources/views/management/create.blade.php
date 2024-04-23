@@ -1,3 +1,7 @@
+@php
+    use App\Models\Product;
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -40,6 +44,24 @@
                     </form>
                 </div>
             </div>
+
+            @if ($orderrows !== null)
+                <div class="mt-6 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        @if (!is_array($orderrows))
+                            <p>{{ $orderrow }}</p>
+                        @else
+                            @foreach ($orderrows as $orderrow)
+                                @php
+                                    $product = Product::getProduct($orderrow["product_id"]);
+                                @endphp
+
+                                <p>{{ $product["name"] }} - {{ $orderrow["quantity"] }}x</p>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </x-app-layout>
