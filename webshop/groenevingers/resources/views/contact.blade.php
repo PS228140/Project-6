@@ -32,57 +32,7 @@
     <div class="wrapper">
         <div class="hero-section">
              <!-- Map container -->
-            <div id='map' class='map'>
-                <div id='foldable' class='tt-overlay-panel -left-top -medium js-foldable'>
-                    <form id="form">
-                    
-                        <div id="startSearchBox" class="searchbox-container">
-                            <div class="tt-icon tt-icon-size icon-spacing-right -start"></div>
-                            <div class="tt-search-box">
-                                <div class="tt-search-box-input-container">
-                                    <div class="tt-searchbox-filter-label" style="display: none;">
-                                        <div class="tt-searchbox-filter-label__text"></div>
-                                        <div class="tt-searchbox-filter-label__close-button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
-                                                <path d="M15.512418,11.5 L19.9637666,7.28870352 C20.1223719,7.13865149 20.1223719,6.89512441 19.9637666,6.74507238 L18.2390424,5.11253903 C18.0795704,4.96248699 17.8221618,4.96248699 17.6635565,5.11253903 L13.2122078,9.3238355 L8.7608592,5.11253903 C8.68545669,5.04120281 8.58145321,5.00020499 8.47398296,5.00020499 C8.36564601,5.00020499 8.26250923,5.04120281 8.18624002,5.11253903 L6.46064906,6.74507238 C6.38437985,6.81722855 6.34191176,6.91480337 6.34191176,7.01729793 C6.34191176,7.11979249 6.38437985,7.21736731 6.46064906,7.28952348 L10.9119977,11.5 L6.46064906,15.7112965 C6.38437985,15.7834526 6.34191176,15.8810275 6.34191176,15.9827021 C6.34191176,16.0851966 6.38437985,16.1827715 6.46064906,16.2549276 L8.18624002,17.887461 C8.26250923,17.9596171 8.36564601,17.999795 8.47398296,17.999795 C8.58145321,17.999795 8.68545669,17.9596171 8.7608592,17.887461 L13.2122078,13.6761645 L17.6635565,17.887461 C17.8221618,18.037513 18.0795704,18.037513 18.2390424,17.887461 L19.9637666,16.2549276 C20.1223719,16.1048756 20.1223719,15.8613485 19.9637666,15.7112965 L15.512418,11.5 Z" transform="translate(-5.544 -5)"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <input class="tt-search-box-input" placeholder="Query e.g. Washington">
-                                    <div class="my-location-button"></div>
-                                </div>
-                            
-                                <div class="tt-search-box-result-list-container" hidden="true"></div>
-                            </div>
-                        </div>
-                
-                        <div id="finishSearchBox" class="searchbox-container">
-                            <div class="tt-icon tt-icon-size icon-spacing-right -finish"></div>
-                            <div class="tt-search-box">
-                                <div class="tt-search-box-input-container">
-                                    <div class="tt-searchbox-filter-label" style="display: none;">
-                                        <div class="tt-searchbox-filter-label__text"></div>
-                                        <div class="tt-searchbox-filter-label__close-button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
-                                                <path d="M15.512418,11.5 L19.9637666,7.28870352 C20.1223719,7.13865149 20.1223719,6.89512441 19.9637666,6.74507238 L18.2390424,5.11253903 C18.0795704,4.96248699 17.8221618,4.96248699 17.6635565,5.11253903 L13.2122078,9.3238355 L8.7608592,5.11253903 C8.68545669,5.04120281 8.58145321,5.00020499 8.47398296,5.00020499 C8.36564601,5.00020499 8.26250923,5.04120281 8.18624002,5.11253903 L6.46064906,6.74507238 C6.38437985,6.81722855 6.34191176,6.91480337 6.34191176,7.01729793 C6.34191176,7.11979249 6.38437985,7.21736731 6.46064906,7.28952348 L10.9119977,11.5 L6.46064906,15.7112965 C6.38437985,15.7834526 6.34191176,15.8810275 6.34191176,15.9827021 C6.34191176,16.0851966 6.38437985,16.1827715 6.46064906,16.2549276 L8.18624002,17.887461 C8.26250923,17.9596171 8.36564601,17.999795 8.47398296,17.999795 C8.58145321,17.999795 8.68545669,17.9596171 8.7608592,17.887461 L13.2122078,13.6761645 L17.6635565,17.887461 C17.8221618,18.037513 18.0795704,18.037513 18.2390424,17.887461 L19.9637666,16.2549276 C20.1223719,16.1048756 20.1223719,15.8613485 19.9637666,15.7112965 L15.512418,11.5 Z" transform="translate(-5.544 -5)"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <input class="tt-search-box-input" placeholder="Query e.g. Washington">
-                                    <div class="tt-search-box-close-icon -hidden">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
-                                            <path d="M15.512418,11.5 L19.9637666,7.28870352 C20.1223719,7.13865149 20.1223719,6.89512441 19.9637666,6.74507238 L18.2390424,5.11253903 C18.0795704,4.96248699 17.8221618,4.96248699 17.6635565,5.11253903 L13.2122078,9.3238355 L8.7608592,5.11253903 C8.68545669,5.04120281 8.58145321,5.00020499 8.47398296,5.00020499 C8.36564601,5.00020499 8.26250923,5.04120281 8.18624002,5.11253903 L6.46064906,6.74507238 C6.38437985,6.81722855 6.34191176,6.91480337 6.34191176,7.01729793 C6.34191176,7.11979249 6.38437985,7.21736731 6.46064906,7.28952348 L10.9119977,11.5 L6.46064906,15.7112965 C6.38437985,15.7834526 6.34191176,15.8810275 6.34191176,15.9827021 C6.34191176,16.0851966 6.38437985,16.1827715 6.46064906,16.2549276 L8.18624002,17.887461 C8.26250923,17.9596171 8.36564601,17.999795 8.47398296,17.999795 C8.58145321,17.999795 8.68545669,17.9596171 8.7608592,17.887461 L13.2122078,13.6761645 L17.6635565,17.887461 C17.8221618,18.037513 18.0795704,18.037513 18.2390424,17.887461 L19.9637666,16.2549276 C20.1223719,16.1048756 20.1223719,15.8613485 19.9637666,15.7112965 L15.512418,11.5 Z" transform="translate(-5.544 -5)"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="tt-search-box-result-list-container" hidden="true"></div>
-                            </div>
-                        </div>
-                    </form>
-                    
-                    
-                </div>
-            </div>
+            <div id='map' class='map'></div>
         </div>
 
         <div class="information-section">
@@ -100,10 +50,21 @@
                 <img src="{{ url('assets/images/GroenePand.jpg') }}" alt="locatie" />
             </div>
         </div>
+        
+        <div class="instagram-feed-section">            
+            @foreach($feed as $post)
+                <div class="instagram-post" onclick="location.href='{{ $post->permalink }}'">
+                    {{ $feed->profile->username }}
+
+                    <img src={{ $post->url }} alt="A post from our instagram">
+                    <span>{{ $post->caption }}</span>
+                    <div>
+                        <span></span>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-    @foreach($feed as $post)
-            <img src={{ $post->url }} alt="A post from my instagram">
-    @endforeach
     @include('includes.footer')
 </body>
 
