@@ -54,12 +54,15 @@
         <div class="instagram-feed-section">            
             @foreach($feed as $post)
                 <div class="instagram-post" onclick="location.href='{{ $post->permalink }}'">
-                    {{ $feed->profile->username }}
+                    <div class="post-header">
+                        <span class="account">{{ $feed->profile->username }}</span>
+                    </div>
 
-                    <img src={{ $post->url }} alt="A post from our instagram">
-                    <span>{{ $post->caption }}</span>
-                    <div>
-                        <span></span>
+                    <img class="post-image" src="{{ $post->url }}" alt="A post from our instagram">
+                    <p class="caption">{{ $post->caption }}</p>
+                    
+                    <div class="post-footer">
+                        <span>{{ date('d-m-Y', strtotime($post->timestamp)) }}</span>
                     </div>
                 </div>
             @endforeach
