@@ -6,27 +6,27 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "BarCode/2024.4.4": {
+      "BarCode/2024.5.3": {
         "dependencies": {
-          "BarCode.Slim": "2024.4.4",
+          "BarCode.Slim": "2024.5.3",
           "Microsoft.ML.OnnxRuntime": "1.17.1"
         },
         "runtime": {
           "lib/netstandard2.0/IronBarcodeDetection.dll": {
-            "assemblyVersion": "2024.4.0.4",
-            "fileVersion": "2024.4.0.4"
+            "assemblyVersion": "2024.5.0.3",
+            "fileVersion": "2024.5.0.3"
           }
         }
       },
-      "BarCode.Slim/2024.4.4": {
+      "BarCode.Slim/2024.5.3": {
         "dependencies": {
           "IronSoftware.Common": "2024.1.7",
-          "IronSoftware.System.Drawing": "2024.4.1"
+          "IronSoftware.System.Drawing": "2024.5.1"
         },
         "runtime": {
           "lib/netstandard2.0/IronBarCode.dll": {
-            "assemblyVersion": "2024.4.0.4",
-            "fileVersion": "2024.4.0.4"
+            "assemblyVersion": "2024.5.0.3",
+            "fileVersion": "2024.5.0.3"
           }
         },
         "runtimeTargets": {
@@ -148,14 +148,14 @@
           }
         }
       },
-      "IronPdf/2024.4.2": {
+      "IronPdf/2024.5.2": {
         "dependencies": {
-          "IronPdf.Native.Chrome.Windows": "2024.4.18",
-          "IronPdf.Slim": "2024.4.2",
-          "IronSoftware.Native.PdfModel": "2024.4.18"
+          "IronPdf.Native.Chrome.Windows": "2024.5.11",
+          "IronPdf.Slim": "2024.5.2",
+          "IronSoftware.Native.PdfModel": "2024.5.11"
         }
       },
-      "IronPdf.Native.Chrome.Windows/2024.4.18": {
+      "IronPdf.Native.Chrome.Windows/2024.5.11": {
         "runtimeTargets": {
           "runtimes/win-x64/native/Chrome.Native.deployment.json": {
             "rid": "win-x64",
@@ -170,7 +170,7 @@
           "runtimes/win-x64/native/IronInterop.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "2024.4.0.18"
+            "fileVersion": "2024.5.0.11"
           },
           "runtimes/win-x64/native/api-ms-win-crt-convert-l1-1-0.dll": {
             "rid": "win-x64",
@@ -276,6 +276,11 @@
             "rid": "win-x64",
             "assetType": "native",
             "fileVersion": "109.1.18.0"
+          },
+          "runtimes/win-x64/native/libyara.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/locales/af.pak": {
             "rid": "win-x64",
@@ -630,7 +635,7 @@
           "runtimes/win-x86/native/IronInterop.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "2024.4.0.18"
+            "fileVersion": "2024.5.0.11"
           },
           "runtimes/win-x86/native/api-ms-win-crt-convert-l1-1-0.dll": {
             "rid": "win-x86",
@@ -736,6 +741,11 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "109.1.18.0"
+          },
+          "runtimes/win-x86/native/libyara.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/locales/af.pak": {
             "rid": "win-x86",
@@ -1074,21 +1084,21 @@
           }
         }
       },
-      "IronPdf.Slim/2024.4.2": {
+      "IronPdf.Slim/2024.5.2": {
         "dependencies": {
           "Google.Protobuf": "3.23.0",
           "Grpc": "2.46.6",
           "Grpc.Net.Client": "2.62.0",
           "IronSoftware.Common": "2024.1.7",
-          "IronSoftware.System.Drawing": "2024.4.1",
+          "IronSoftware.System.Drawing": "2024.5.1",
           "Microsoft.Extensions.Configuration.UserSecrets": "6.0.0",
           "System.Drawing.Common": "6.0.0",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/IronPdf.dll": {
-            "assemblyVersion": "2024.4.0.2",
-            "fileVersion": "2024.4.0.2"
+            "assemblyVersion": "2024.5.0.2",
+            "fileVersion": "2024.5.0.2"
           }
         }
       },
@@ -1115,7 +1125,7 @@
           }
         }
       },
-      "IronSoftware.Native.PdfModel/2024.4.18": {
+      "IronSoftware.Native.PdfModel/2024.5.11": {
         "runtimeTargets": {
           "runtimes/linux-x64/native/IronPdfInterop.so": {
             "rid": "linux-x64",
@@ -1150,7 +1160,7 @@
           "runtimes/win-x64/native/IronPdfInterop.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "2024.4.0.18"
+            "fileVersion": "2024.5.0.11"
           },
           "runtimes/win-x64/native/Pdfium.Native.deployment.json": {
             "rid": "win-x64",
@@ -1160,7 +1170,7 @@
           "runtimes/win-x86/native/IronPdfInterop.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "2024.4.0.18"
+            "fileVersion": "2024.5.0.11"
           },
           "runtimes/win-x86/native/Pdfium.Native.deployment.json": {
             "rid": "win-x86",
@@ -1169,17 +1179,17 @@
           }
         }
       },
-      "IronSoftware.System.Drawing/2024.4.1": {
+      "IronSoftware.System.Drawing/2024.5.1": {
         "dependencies": {
           "BitMiracle.LibTiff.NET": "2.4.649",
-          "SixLabors.ImageSharp": "3.1.3",
-          "SixLabors.ImageSharp.Drawing": "2.1.2",
+          "SixLabors.ImageSharp": "3.1.4",
+          "SixLabors.ImageSharp.Drawing": "2.1.3",
           "System.Memory": "4.5.5"
         },
         "runtime": {
           "lib/net60/IronSoftware.Drawing.Common.dll": {
-            "assemblyVersion": "2024.4.0.1",
-            "fileVersion": "2024.4.0.1"
+            "assemblyVersion": "2024.5.0.1",
+            "fileVersion": "2024.5.0.1"
           }
         }
       },
@@ -1596,31 +1606,31 @@
           }
         }
       },
-      "SixLabors.Fonts/2.0.1": {
+      "SixLabors.Fonts/2.0.3": {
         "runtime": {
           "lib/net6.0/SixLabors.Fonts.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.1.0"
+            "fileVersion": "2.0.3.0"
           }
         }
       },
-      "SixLabors.ImageSharp/3.1.3": {
+      "SixLabors.ImageSharp/3.1.4": {
         "runtime": {
           "lib/net6.0/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.1.3.0"
+            "fileVersion": "3.1.4.0"
           }
         }
       },
-      "SixLabors.ImageSharp.Drawing/2.1.2": {
+      "SixLabors.ImageSharp.Drawing/2.1.3": {
         "dependencies": {
-          "SixLabors.Fonts": "2.0.1",
-          "SixLabors.ImageSharp": "3.1.3"
+          "SixLabors.Fonts": "2.0.3",
+          "SixLabors.ImageSharp": "3.1.4"
         },
         "runtime": {
           "lib/net6.0/SixLabors.ImageSharp.Drawing.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.2.0"
+            "fileVersion": "2.1.3.0"
           }
         }
       },
@@ -1816,19 +1826,19 @@
     }
   },
   "libraries": {
-    "BarCode/2024.4.4": {
+    "BarCode/2024.5.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-faiGuAgA+qUPzebuP1hpO0U+cPpyB/38kbfv8yEJuzrZ4qXUyRxzvEQXiw/NE03ORXY++Y4m4OvybRAnnhpNeg==",
-      "path": "barcode/2024.4.4",
-      "hashPath": "barcode.2024.4.4.nupkg.sha512"
+      "sha512": "sha512-JNMhF558C0d4HJoNOo0s4ZcFfMm6xlIxwbrgmTRMgriBk4Wp9u37T20gtrt0cl8IvXx1Y0Mu0+flr85sdkakcA==",
+      "path": "barcode/2024.5.3",
+      "hashPath": "barcode.2024.5.3.nupkg.sha512"
     },
-    "BarCode.Slim/2024.4.4": {
+    "BarCode.Slim/2024.5.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-y+rAo462p+a8zxBv0OMUQaH/i+gL5ktnPflUti4Dbvh4uqUzvIyAIDtkD0wYvA37+55bYfLZL94lrZr4egE3pg==",
-      "path": "barcode.slim/2024.4.4",
-      "hashPath": "barcode.slim.2024.4.4.nupkg.sha512"
+      "sha512": "sha512-MNIgtH5Y88KsrwVjxGTgIzZKZ+uJhfM/SNJj6KWQxxOTwdttWJdr47PbkbghZ2v3riyUApD/Wos9RNtk0KFENQ==",
+      "path": "barcode.slim/2024.5.3",
+      "hashPath": "barcode.slim.2024.5.3.nupkg.sha512"
     },
     "BitMiracle.LibTiff.NET/2.4.649": {
       "type": "package",
@@ -1879,26 +1889,26 @@
       "path": "grpc.net.common/2.62.0",
       "hashPath": "grpc.net.common.2.62.0.nupkg.sha512"
     },
-    "IronPdf/2024.4.2": {
+    "IronPdf/2024.5.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kd8snFekcWXBB4czk7d2jugA+YY7MWNg2KcpKOrbZk1DIC+XpLAIE9KABCa18j4lKvd6FQSsgs60drgAOTAVqA==",
-      "path": "ironpdf/2024.4.2",
-      "hashPath": "ironpdf.2024.4.2.nupkg.sha512"
+      "sha512": "sha512-lcHbzfpfPf9urG04d/OxH4AeGW+KPi+H4JnSlqJN6KKsy1hOLVu/gTBZn86QTNYlS4m2jXjPtCswkxRS78Nyiw==",
+      "path": "ironpdf/2024.5.2",
+      "hashPath": "ironpdf.2024.5.2.nupkg.sha512"
     },
-    "IronPdf.Native.Chrome.Windows/2024.4.18": {
+    "IronPdf.Native.Chrome.Windows/2024.5.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MzIHJQR6L/lGlK6FHYQvbFNJW0aORgdA2I6Ha0euSDho6uMKHr9m47AvvCLIiseXC89wfEFIqL1zNmOLe5IE8Q==",
-      "path": "ironpdf.native.chrome.windows/2024.4.18",
-      "hashPath": "ironpdf.native.chrome.windows.2024.4.18.nupkg.sha512"
+      "sha512": "sha512-qN08Zqzw3il0zTLr5bQIdzJekUg4HYgRILFODE1Ab6uoF3YPneaKoaPGbeSMkceRh5vwq+b70qg5Xa8ASmONyQ==",
+      "path": "ironpdf.native.chrome.windows/2024.5.11",
+      "hashPath": "ironpdf.native.chrome.windows.2024.5.11.nupkg.sha512"
     },
-    "IronPdf.Slim/2024.4.2": {
+    "IronPdf.Slim/2024.5.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/5cynOpjPE5RTIoOxXUzsExLMz4Fiidt8fMqsThJMEGn5JjHC4BVtOKV1jUO/KcoxPAwdm8gVzjaZk3vdrJ60A==",
-      "path": "ironpdf.slim/2024.4.2",
-      "hashPath": "ironpdf.slim.2024.4.2.nupkg.sha512"
+      "sha512": "sha512-pB5LASjdPco8sc9MZF1rc4KtUWwl0tbI4kNVSpiIjpRz7PgXNmp8XFdJ1QDpwlWnXN+paoBpId+Mv6pAMmzucA==",
+      "path": "ironpdf.slim/2024.5.2",
+      "hashPath": "ironpdf.slim.2024.5.2.nupkg.sha512"
     },
     "IronSoftware.Common/2024.1.7": {
       "type": "package",
@@ -1907,19 +1917,19 @@
       "path": "ironsoftware.common/2024.1.7",
       "hashPath": "ironsoftware.common.2024.1.7.nupkg.sha512"
     },
-    "IronSoftware.Native.PdfModel/2024.4.18": {
+    "IronSoftware.Native.PdfModel/2024.5.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nOCY9O7cvqmxQTZVOOOQSMQzfCI9cyBUXA3lRWWpujd3dRVRDnh2+aMCkh+QIMvkaFUTXMm+srTIkHt0JEImLw==",
-      "path": "ironsoftware.native.pdfmodel/2024.4.18",
-      "hashPath": "ironsoftware.native.pdfmodel.2024.4.18.nupkg.sha512"
+      "sha512": "sha512-bF2X0RCCADkPYwdF+q7fhmSFv718LTgM42/smIokFIhBnbbFV9LaxNhvCZnL1U9SbQTmbfX5/XJIYWvWETRdCQ==",
+      "path": "ironsoftware.native.pdfmodel/2024.5.11",
+      "hashPath": "ironsoftware.native.pdfmodel.2024.5.11.nupkg.sha512"
     },
-    "IronSoftware.System.Drawing/2024.4.1": {
+    "IronSoftware.System.Drawing/2024.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-svmt4SwDQajjkxjmhwET4PPWJcTlzJqHg4VIvIK+ZhgIMzLB802onlWYw+Va+UHw8yp26pfyfefEo3YRinj+UA==",
-      "path": "ironsoftware.system.drawing/2024.4.1",
-      "hashPath": "ironsoftware.system.drawing.2024.4.1.nupkg.sha512"
+      "sha512": "sha512-c5rwzj3RssRd8dy7/Vl66/3tGwdaGKBRb7H1eurv3luoWb9UrZBzFT+Zfp0HcmaYLTT4qcs3YNQOl2sxbOBHpg==",
+      "path": "ironsoftware.system.drawing/2024.5.1",
+      "hashPath": "ironsoftware.system.drawing.2024.5.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/6.0.0": {
       "type": "package",
@@ -2054,26 +2064,26 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
-    "SixLabors.Fonts/2.0.1": {
+    "SixLabors.Fonts/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ubgkOt7Eb5garmLMigeWAAAMyZF6JWuT09RApHouncPZeML2nRJahm2JJUkw3HLB+XbYJfBfOTCMvbsdCO5LDw==",
-      "path": "sixlabors.fonts/2.0.1",
-      "hashPath": "sixlabors.fonts.2.0.1.nupkg.sha512"
+      "sha512": "sha512-IY+i5JsUoFTyLvNOlLFUak4nJajSZdfxYqCbDCSYeGDGwHNBtJo0ICduAFGaYaqdL41+YHn7LMrp1AwIU/29Ag==",
+      "path": "sixlabors.fonts/2.0.3",
+      "hashPath": "sixlabors.fonts.2.0.3.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/3.1.3": {
+    "SixLabors.ImageSharp/3.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wybtaqZQ1ZRZ4ZeU+9h+PaSeV14nyiGKIy7qRbDfSHzHq4ybqyOcjoifeaYbiKLO1u+PVxLBuy7MF/DMmwwbfg==",
-      "path": "sixlabors.imagesharp/3.1.3",
-      "hashPath": "sixlabors.imagesharp.3.1.3.nupkg.sha512"
+      "sha512": "sha512-lFIdxgGDA5iYkUMRFOze7BGLcdpoLFbR+a20kc1W7NepvzU7ejtxtWOg9RvgG7kb9tBoJ3ONYOK6kLil/dgF1w==",
+      "path": "sixlabors.imagesharp/3.1.4",
+      "hashPath": "sixlabors.imagesharp.3.1.4.nupkg.sha512"
     },
-    "SixLabors.ImageSharp.Drawing/2.1.2": {
+    "SixLabors.ImageSharp.Drawing/2.1.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-03G6/1Vp6x1aVns5/bSs1gJ027Essfp4ijT1CFstYdc0yUax9M+m3swcSthiDeEJkRL1SFA/oPRDpBBBe2K7SQ==",
-      "path": "sixlabors.imagesharp.drawing/2.1.2",
-      "hashPath": "sixlabors.imagesharp.drawing.2.1.2.nupkg.sha512"
+      "sha512": "sha512-Bo8MeLEhKlZTSV29lh1iZmKVnLFvp+lNPVIo6X1Nu/G3xVwYuhPBjTuxUNhO6bxsVR9tLDuWZULxHSJAXu6LFw==",
+      "path": "sixlabors.imagesharp.drawing/2.1.3",
+      "hashPath": "sixlabors.imagesharp.drawing.2.1.3.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.0": {
       "type": "package",

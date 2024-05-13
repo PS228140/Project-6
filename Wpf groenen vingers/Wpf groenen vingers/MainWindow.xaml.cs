@@ -78,6 +78,7 @@ namespace Wpf_groenen_vingers
         {
             string connectionString = "YourConnectionString"; // Vervang dit door de juiste verbindingssnaren
             string query = "SELECT name, color, price FROM products"; // Query om gegevens op te halen uit de database
+             
 
             try
             {
@@ -89,7 +90,8 @@ namespace Wpf_groenen_vingers
 
                     while (reader.Read())
                     {
-                        Plants.Add(new Plant
+                        Plants.Add(new Plantdsyyu778g
+
                         {
                             Name = reader["name"].ToString(),
                             Color = reader["color"].ToString(),
