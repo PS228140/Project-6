@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
@@ -26,7 +27,10 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomepageController::class, "index"])->name("homepage.index");
 
 /* shop routes */
-Route::resource("shop", ShopController::class)->only(["index", "show"]);
+Route::resource("/shop", ShopController::class)->only(["index", "show"]);
+
+/* order routes */
+Route::resource("/order", OrderController::class);
 
 /* cart routes */
 Route::get("/cart", function () {

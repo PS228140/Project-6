@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -19,7 +20,7 @@ class Branch extends Model
     /**
      * Get the users associated with the branch.
      */
-    public function users()
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }

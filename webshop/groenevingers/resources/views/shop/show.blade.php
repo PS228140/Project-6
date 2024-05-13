@@ -35,7 +35,13 @@
                         <p>Alleen online verkrijgbaar, niet in de winkel.</p>
                     </div>
 
-                    <button class="order-btn">In winkelwagen</button>
+                    <form action="{{route('order.store')}}" method="post">
+                        @csrf
+                        @method('POST')
+                        <input name="product_id" type="hidden" value="{{ $product->id }}">
+                        <input name="product_price" type="hidden" value="{{ $product->price }}">
+                        <button type="submit" class="order-btn">In winkelwagen</button>
+                    </form>
                 </div>
             </div>
         </section>
