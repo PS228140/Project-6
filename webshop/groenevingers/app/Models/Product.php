@@ -44,10 +44,14 @@ class Product extends Model
      * @param int $id id of the product to fetch
      * @return $response array of product specs
      */
-    public static function getProduct($id)
+    public static function getProductFromAPI($id)
     {
         $response = Http::withToken("50|Oy8mM3g2A8jSTpiHoxrRXXdspGlvQHbbQ45qM272")->get("https://kuin.summaict.nl/api/product/" . $id);
-
         return $response;
+    }
+
+    public static function getProduct($id)
+    {
+        return Product::find($id);
     }
 }

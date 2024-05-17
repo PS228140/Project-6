@@ -24,119 +24,95 @@
     --lh-body-multiplier: 1.5;
 }
 
-.product_cart {
-    margin-bottom: 20px;
-    border: 1px solid #ccc; /* Border voor de hele productsectie */
-    padding: 10px; /* Padding toegevoegd voor een betere leesbaarheid */
-    display: flex;
-    align-items: center;
-    width: 60%;
+.wrapper {
+    min-height: 85vh;
+    min-height: 85dvh;
+    padding-inline: 5rem;
+    padding-bottom: 44px;
 }
 
-.product_cart img {
-    width: 100px; /* Pas de breedte van de afbeelding aan naar wens */
-    height: auto; /* Zorg ervoor dat de hoogte automatisch wordt aangepast om de verhoudingen te behouden */
-    margin-right: 20px; /* Voeg wat ruimte toe tussen de afbeelding en de tekst */
+.title {
+    text-align: center;
+    color: var(--primary-color);
+    padding-block: 44px;
 }
 
-.product_cart h4 {
-    margin: 0;
-    border-bottom: 1px solid #ccc; /* Border onder de naam van het product */
-    padding-bottom: 5px; /* Ruimte toegevoegd onder de naam van het product */
-    font-size: 20px;
-}
-
-.product_cart p {
-    margin-left: 20px;
-    font-size: 18px;
-}
-
-.product_cart button {
-    border: 1px solid #ccc; /* Border voor de knoppen */
-    background-color: transparent; /* Achtergrondkleur verwijderd om de knoppen doorzichtig te maken */
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Overgangseffect toegevoegd voor knoppen */
-}
-
-.product button:hover {
-    background-color: #f0f0f0; /* Achtergrondkleur veranderd bij het zweven over de knop */
-}
-
-.products_cart-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.product_cart-wrapper {
+.order-overview {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0px 0px 3px 3px #efefef;
-    padding: 2rem;
-    border-radius: 0.5rem;
 }
 
-.quantity {
+.product-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.product-wrapper:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.quantity-selector {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    height: 100%;
 }
 
-.quantity button {
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin: 0;
-}
-
-.quantity button:hover {
-    background-color: #ddd;
-}
-
-.qty {
-    width: 40px;
+.selector {
+    height: 100%;
+    width: 45px;
+    border: 1px solid #dfdfdf;
+    border-radius: 0.15rem;
     text-align: center;
-    margin: 0 10px;
-}
-h2{
-    align-self: center;
-    margin-bottom: 20px;
+    color: #000000;
 }
 
-.cart-summary {
-    width: 30%; /* Aanpassen aan de gewenste breedte van de kaart */
-    margin-left: auto;
-    padding: 20px;
-}
-
-.summary-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.summary-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/* Voeg hier stijlen toe voor de totaalprijs en andere samenvattende informatie */
-.wrapper {
+.order-totals {
     display: flex;
-    justify-content: space-between; /* Plaats de elementen (producten en samenvatting) aan de uiteinden */
-    align-items: flex-start; /* Zorg ervoor dat de elementen aan de bovenkant uitgelijnd zijn */
-}
-
-.product_cart-wrapper {
-    width: 70%;
-}
-
-.cart-summary {
-    width: 30%;
-    padding: 20px;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding-top: 44px;
+}
+
+.back-btn {
+    font-size: var(--fs-heading-small);
+    cursor: pointer;
+    font-weight: var(--fw-display);
+    color: var(--primary-color);
+    background-color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.15rem;
+    text-transform: uppercase;
+    width: max-content;
+}
+
+.back-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+}
+
+.empty-image {
+    height: 250px;
+    width: 100%;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Orderrow;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,8 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $cookie = cookie('order_id', 1, 120);
-        return response('The cookie has been created!')->cookie($cookie);
+        $cookie = request()->cookie('order_id');
+        $order = Order::with('Orderrow')->find($cookie);
+
+        return view('cart', ["order" => $order]);
     }
 
     /**
@@ -34,11 +37,12 @@ class OrderController extends Controller
 
         $validatedData = $request->validate([
             "product_id" => 'required|integer',
-            "product_price" => 'required'
+            "product_price" => 'required',
+            "quantity" => 'required|integer'
         ]);
 
         if ($cookie === null) {
-            $newOrderId = Order::insertGetId(['state_id' => 1]);
+            $newOrderId = Order::insertGetId(['state_id' => 1, 'created_at' => Carbon::now()]);
         } else {
             $newOrderId = $cookie;
         }
@@ -46,11 +50,17 @@ class OrderController extends Controller
         $newOrderRow = new Orderrow();
         $newOrderRow->order_id = $newOrderId;
         $newOrderRow->product_id = $validatedData["product_id"];
-        $newOrderRow->price = $validatedData["product_price"];
+        $newOrderRow->quantity = $validatedData["quantity"];
+        $newOrderRow->price = $request->product_price * $request->quantity;
         $newOrderRow->save();
+
+        $order = Order::find($newOrderId);
+        $order->price = $order->price + $request->product_price * $request->quantity;
+        $order->save();
         
-        $cookie = cookie('order_id', 1, 120);
-        return redirect()->route('cart.index')->cookie($cookie);
+        $cookie = cookie('order_id', $newOrderId, 120);
+
+        return redirect()->route('order.index')->cookie($cookie);
     }
 
     /**
@@ -58,12 +68,7 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        $order_id = request()->cookie('order_id');
-        if ($order_id !== null) {
-            echo 'order_id: '. $order_id;
-        } else {
-            echo 'no cookie detected!';
-        }
+
     }
 
     /**

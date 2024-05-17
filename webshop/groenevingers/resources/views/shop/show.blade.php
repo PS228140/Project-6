@@ -35,11 +35,25 @@
                         <p>Alleen online verkrijgbaar, niet in de winkel.</p>
                     </div>
 
-                    <form action="{{route('order.store')}}" method="post">
+                    <form class="order-form" action="{{route('order.store')}}" method="post">
                         @csrf
                         @method('POST')
                         <input name="product_id" type="hidden" value="{{ $product->id }}">
                         <input name="product_price" type="hidden" value="{{ $product->price }}">
+
+                        <div class="quantity-selector">
+                            <select class="selector" name="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </div>
                         <button type="submit" class="order-btn">In winkelwagen</button>
                     </form>
                 </div>
