@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
+Route::get("/producten/{id}", [ProductController::class, "apiSpecific"]);
+Route::get("/producten/", [ProductController::class, "apiReturn"]);
 
 /*
 |--------------------------------------------------------------------------

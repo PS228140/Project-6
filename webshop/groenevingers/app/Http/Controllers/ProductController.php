@@ -149,4 +149,22 @@ class ProductController extends Controller
             ->route("products.index")
             ->with("succes", "Product Succesfully deleted");
     }
+
+    /**
+     * Fetch all products using api.
+     */
+
+    public function apiReturn()
+    {
+        return Product::all();
+    }
+    
+    /**
+     * Fetch specific product from the api with id.
+     */
+
+    public function apiSpecific($id)
+    {
+        return Product::where('id',$id)->get();
+    }
 }
