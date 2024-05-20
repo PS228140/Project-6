@@ -10,7 +10,6 @@
     <title>Winkelwagen - GroeneVingers</title>
     <link rel="shortcut icon" href="{{ url('assets/icons/favicon.svg') }}" type="image/x-icon">
     <script src="{{ url('javascript/script.js') }}"></script>
-    <script src="{{ url('javascript/cart.js') }}"></script>
     <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/header.css') }}">
     <link rel="stylesheet" href="{{ url('css/includes/footer.css') }}">
@@ -40,8 +39,11 @@
             </div>
 
             <div class="order-totals">
-                <button class="back-btn" onclick="location.href='{{ route('shop.index') }}'">Verder winkelen</button>
                 <h6>Totaal: € {{ number_format($order->price, 2, ',') }}</h6>
+                <div class="order-buttons">
+                    <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Verder winkelen</button>
+                    <button class="main-button checkout-btn" onclick="location.href='{{ route('checkout') }}'">Naar Bestellen</button>
+                </div>
             </div>
         @elseif ($order === null)
             <div class="empty">

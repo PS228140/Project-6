@@ -32,10 +32,11 @@ Route::resource("/shop", ShopController::class)->only(["index", "show"]);
 /* order routes */
 Route::resource("/order", OrderController::class);
 
-/* cart routes */
-Route::get("/cart", function () {
-    return view("cart");
-})->name("cart.index");
+Route::patch("/order", [OrderController::class, 'setCustomerInformation'])->name('order.setCustomerInformation');
+
+Route::get("/checkout", function () {
+    return view('checkout');
+})->name('checkout');
 
 /* contact routes */
 Route::get("/contact", function () {

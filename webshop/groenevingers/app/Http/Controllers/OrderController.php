@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Orderrow;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class OrderController extends Controller
 {
@@ -56,6 +57,7 @@ class OrderController extends Controller
 
         $order = Order::find($newOrderId);
         $order->price = $order->price + $request->product_price * $request->quantity;
+        $order->updated_at = Carbon::now();
         $order->save();
         
         $cookie = cookie('order_id', $newOrderId, 120);
@@ -68,7 +70,7 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-
+        //
     }
 
     /**
@@ -84,7 +86,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
@@ -93,5 +95,38 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Set all user information
+     */
+    public function setCustomerInformation(Request $request) 
+    {
+        $cookie = request()->cookie('order_id');
+
+
+        /* add better validation */
+        $validatedData = $request->validate([
+            "fullName" => 'required',
+            "email" => 'required',
+            "phone" => 'required',
+            "address" => 'required',
+            "city" => 'required',
+            "zipcode" => 'required',
+        ]);
+
+        $order = Order::find($cookie);
+        $order->customer_name = $validatedData["fullName"];
+        $order->email = $validatedData["email"];
+        $order->phone = $validatedData["phone"];
+        $order->address = $validatedData["address"];
+        $order->city = $validatedData["city"];
+        $order->zipcode = $validatedData["zipcode"];
+        $order->save();
+        
+        Cookie::forget('order_id'); /* may be removed in future */
+
+        /* add redirection to new page with overview of order */
+        return "Your order has been processed correctly";
     }
 }

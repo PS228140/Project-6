@@ -16,9 +16,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('state_id')->index()->default(1);
             $table->string('customer_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('zipcode')->nullable();
-            $table->string('phone')->nullable();
             $table->double('price')->nullable();
             $table->timestamps();
 
