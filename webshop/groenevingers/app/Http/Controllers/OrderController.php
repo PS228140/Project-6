@@ -104,7 +104,6 @@ class OrderController extends Controller
     {
         $cookie = request()->cookie('order_id');
 
-
         /* add better validation */
         $validatedData = $request->validate([
             "fullName" => 'required',
@@ -116,6 +115,7 @@ class OrderController extends Controller
         ]);
 
         $order = Order::find($cookie);
+        $order->state_id = 2;
         $order->customer_name = $validatedData["fullName"];
         $order->email = $validatedData["email"];
         $order->phone = $validatedData["phone"];
@@ -123,10 +123,9 @@ class OrderController extends Controller
         $order->city = $validatedData["city"];
         $order->zipcode = $validatedData["zipcode"];
         $order->save();
-        
-        Cookie::forget('order_id'); /* may be removed in future */
 
-        /* add redirection to new page with overview of order */
-        return "Your order has been processed correctly";
+        Cookie::forget('order_id');
+        
+        return view('status', ['order' => $order]);
     }
 }

@@ -18,6 +18,10 @@ class StatesSeeder extends Seeder
         ]);
 
         DB::table('states')->insert([
+            "name" => "Betaald"
+        ]);
+
+        DB::table('states')->insert([
             "name" => "Verwerkt"
         ]);
 
