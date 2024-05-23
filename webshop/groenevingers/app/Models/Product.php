@@ -50,6 +50,12 @@ class Product extends Model
         return $response;
     }
 
+    /**
+     * Get a product row from the database using its id
+     * 
+     * @param int $id id of the product to fetch
+     * @return Product an instance of the Product model
+     */
     public static function getProduct($id)
     {
         return Product::find($id);

@@ -30,6 +30,10 @@ class StatesSeeder extends Seeder
         ]);
 
         DB::table('states')->insert([
+            "name" => "Afgeleverd"
+        ]);
+
+        DB::table('states')->insert([
             "name" => "Geannuleerd"
         ]);
     }

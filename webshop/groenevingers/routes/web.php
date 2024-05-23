@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
@@ -31,12 +32,10 @@ Route::resource("/shop", ShopController::class)->only(["index", "show"]);
 
 /* order routes */
 Route::resource("/order", OrderController::class);
-
 Route::patch("/order", [OrderController::class, 'setCustomerInformation'])->name('order.setCustomerInformation');
 
-Route::get("/checkout", function () {
-    return view('checkout');
-})->name('checkout');
+/* checkout routes */
+Route::get("/checkout", [CheckoutController::class, 'index'])->name('checkout.index');
 
 /* contact routes */
 Route::get("/contact", function () {

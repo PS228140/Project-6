@@ -42,7 +42,7 @@
                 <h6>Totaal: € {{ number_format($order->price, 2, ',') }}</h6>
                 <div class="order-buttons">
                     <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Verder winkelen</button>
-                    <button class="main-button checkout-btn" onclick="location.href='{{ route('checkout') }}'">Naar Bestellen</button>
+                    <button class="main-button checkout-btn" onclick="location.href='{{ route('checkout.index') }}'">Naar Bestellen</button>
                 </div>
             </div>
         @elseif ($order === null)

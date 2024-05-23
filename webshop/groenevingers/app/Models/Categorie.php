@@ -24,4 +24,15 @@ class Categorie extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Get a categorie row from the database using its id
+     * 
+     * @param int $id id of the categorie to fetch
+     * @return Categorie an instance of the categorie model
+     */
+    public static function getCategorie($id)
+    {
+        return Categorie::find($id);
+    }
 }
