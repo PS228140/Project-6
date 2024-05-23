@@ -52,6 +52,7 @@ Route::middleware("auth")->group(function () {
     Route::delete("/profile", [ProfileController::class, "destroy"])->name("profile.destroy");
 
     /* - user routes - */
+    Route::post('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::get("/dashboard/users", [UserController::class, "index"])->name("users.index");
 
     /* - product routes - */

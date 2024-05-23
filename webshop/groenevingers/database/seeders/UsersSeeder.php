@@ -40,6 +40,19 @@ class UsersSeeder extends Seeder
         ]);
 
         DB::table("users")->insert([
+            "role_id" => 1,
+            "email" => "rikzande@gmail.com",
+            "password" =>
+                '$2y$12$JUGVJAj2v8l.dHK6XkbfAO1Vrd.ji4ip.m4zFMkdyk9MMxLmdGy0O',
+            "name" => "Rik van der Zande",
+            "branch_id" => 1,
+            "status_id" => 1,
+            "phone" => "061234567",
+            "created_at" => "2024-05-23 07:38:48",
+            "updated_at" => Carbon::now(),
+        ]);
+
+        DB::table("users")->insert([
             "role_id" => 2,
             "email" => "ajdaozmen@groenevingersshop.com",
             "password" =>
