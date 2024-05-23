@@ -58,7 +58,7 @@
                         <span class="account">{{ $feed->profile->username }}</span>
                     </div>
 
-                    <img class="post-image" src="{{ $post->url }}" alt="A post from our instagram">
+                    <img class="post-image" src="/storage/posts/{{ $post->id }}.jpg" alt="A post from our instagram">
                     <p class="caption">{{ $post->caption }}</p>
                     
                     <div class="post-footer">
