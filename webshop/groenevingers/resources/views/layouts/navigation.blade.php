@@ -28,6 +28,9 @@
                         <x-nav-link :href="route('management.index')" :active="request()->routeIs('management.index')">
                             {{__('Management')}}
                         </x-nav-link>
+                        <x-nav-link :href="#" :active="#">
+                            {{__('Orders')}}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -97,6 +100,9 @@
             @if (Auth::user()->role->name === "Admin" || Auth::user()->role->name === "Accountant")
                 <x-responsive-nav-link :href="route('management.index')" :active="request()->routeIs('management.index')">
                     {{__('Management')}}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="#" :active="#">
+                    {{__('Orders')}}
                 </x-responsive-nav-link>
             @endif
         </div>

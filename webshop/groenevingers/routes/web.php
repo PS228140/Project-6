@@ -10,7 +10,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\EnsureRoleIsValid;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +30,7 @@ Route::get("/", [HomepageController::class, "index"])->name("homepage.index");
 Route::resource("/shop", ShopController::class)->only(["index", "show"]);
 
 /* order routes */
-Route::resource("/order", OrderController::class);
+Route::resource("/order", OrderController::class)->only(["index", "store"]);
 Route::patch("/order", [OrderController::class, 'setCustomerInformation'])->name('order.setCustomerInformation');
 
 /* checkout routes */
@@ -76,6 +75,9 @@ Route::middleware("auth", "verified", "role:Admin,Accountant,Manager")->group(fu
 Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function () {
     /* - management routes - */
     Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
+
+    /* - order management routes - */
+    Route::resource("/dashboard/orders", );
 });
 
 require __DIR__ . "/auth.php";
