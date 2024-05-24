@@ -47,7 +47,6 @@ class ProductController extends Controller
         ]);
 
         $newProduct = new Product();
-
         $newProduct->api_id = $validatedData["api_id"];
         $newProduct->name = $validatedData["name"];
         $newProduct->description = $validatedData["description"];

@@ -53,7 +53,7 @@
                         @else
                             @foreach ($orderrows as $orderrow)
                                 @php
-                                    $product = Product::getProduct($orderrow["product_id"]);
+                                    $product = Product::getProductFromAPI($orderrow["product_id"]);
                                 @endphp
 
                                 <p>{{ $product["name"] }} - {{ $orderrow["quantity"] }}x</p>

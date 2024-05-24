@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Role extends Model
+class State extends Model
 {
     use HasFactory;
 
@@ -18,10 +18,10 @@ class Role extends Model
     protected $fillable = ["name"];
 
     /**
-     * Get the users associated with the role.
+     * Get the users associated with the Status.
      */
-    public function users(): HasMany
+    public function orders(): HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Order::class);
     }
 }

@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <a class="cart" href="{{ route('cart.index') }}">
+        <a class="cart" href="{{ route('order.index') }}">
             <div class="cart-icon-container">
                 <img class="cart-icon" width="30px" src="{{ url('assets/icons/cart.svg') }}" alt="Winkelwagen">
             </div>

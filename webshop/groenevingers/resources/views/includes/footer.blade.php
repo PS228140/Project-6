@@ -3,7 +3,7 @@
         <div class="contact-list">
             <h5>{{ GoogleTranslate::trans('Contactgegevens', app()->getLocale()) }}</h5>
             <div class="contact-information">
-                <span class="phone">06-33024999</span>
+                <span class="phone">06 33024999</span>
                 <span class="location">Tuinstraat 167</span>
                 <span class="zipcode">2587 WD  Nuenen</span>
             </div>
