@@ -25,7 +25,7 @@
                         
                         <div class="mt-6">
                             <label for="email" class="block font-medium text-gray-700 dark:text-gray-300">Email</label>
-                            <input id="email" name="email" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full" type="text" value="{{ $user->email }}">
+                             <input id="email" name="email" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full" type="text" value="{{ $user->email }}">
                         </div>
 
                         <div class="mt-6">

@@ -18,12 +18,12 @@
 
         <!-- Phone Number -->
         <div class="mt-6">
-    <label for="phone" class="block font-medium text-gray-700 dark:text-gray-300">Phone</label>
-    <input id="phone" name="phone" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full" type="tel" value="{{ old('phone') }}" required>
-    @error('phone')
-        <div class="text-red-600 mt-2">{{ $message }}</div>
-    @enderror
-</div>
+            <label for="phone" class="block font-medium text-gray-700 dark:text-gray-300">Phone</label>
+            <input id="phone" name="phone" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full" type="tel" value="{{ old('phone') }}" pattern="^(?:(?:\+|00)31|0)(?:6|((?:2|3|4|5|6|7|8|9)[0-9]))\d{7,8}$" required>
+            @error('phone')
+                <div class="text-red-600 mt-2">{{ $message }}</div>
+            @enderror
+        </div>
 
 
 
