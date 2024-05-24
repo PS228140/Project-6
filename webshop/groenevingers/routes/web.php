@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
@@ -26,12 +28,14 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomepageController::class, "index"])->name("homepage.index");
 
 /* shop routes */
-Route::resource("shop", ShopController::class)->only(["index", "show"]);
+Route::resource("/shop", ShopController::class)->only(["index", "show"]);
 
-/* cart routes */
-Route::get("/cart", function () {
-    return view("cart");
-})->name("cart.index");
+/* order routes */
+Route::resource("/order", OrderController::class);
+Route::patch("/order", [OrderController::class, 'setCustomerInformation'])->name('order.setCustomerInformation');
+
+/* checkout routes */
+Route::get("/checkout", [CheckoutController::class, 'index'])->name('checkout.index');
 
 /* contact routes */
 Route::get("/contact", function () {

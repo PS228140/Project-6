@@ -26,12 +26,7 @@ return new class extends Migration {
             $table->string("weight_gr");
             $table->timestamps();
 
-            $table
-                ->foreign("categorie_id")
-                ->references("id")
-                ->on("categories")
-                ->onUpdate("cascade")
-                ->onDelete("cascade");
+            $table->foreign("categorie_id")->references("id")->on("categories")->onUpdate("cascade")->onDelete("cascade");
         });
     }
 
