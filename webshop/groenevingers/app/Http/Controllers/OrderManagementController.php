@@ -89,17 +89,30 @@ class OrderManagementController extends Controller
      */
     public function updateState(string $id, string $orderId)
     {
-        if ($id <= 5) {
-            $id + 1;
-            dd($id);
+        if ($id <= 4) {
+            $stateId = $id + 1;
         } else {
-            return;
+            return redirect()->route('orders.edit', ["order" => $orderId]);
         }
 
         $order = Order::find($orderId);
-        $order->state_id = $id;
+        $order->state_id = $stateId;
+        $order->updated_at = Carbon::now();
         $order->save();
 
         return redirect()->route('orders.edit', ["order" => $orderId]);
+    }
+
+    /**
+     * Update the state of an order to `canceled`
+     */
+    public function cancelOrder(string $id)
+    {
+        $order = Order::find($id);
+        $order->state_id = 6;
+        $order->updated_at = Carbon::now();
+        $order->save();
+
+        return redirect()->route('orders.edit', ["order" => $id]);
     }
 }

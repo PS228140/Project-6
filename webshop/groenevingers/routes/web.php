@@ -80,6 +80,7 @@ Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function
     /* - order management routes - */
     Route::delete("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
     Route::post("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "updateState"])->name('orders.updateState');
+    Route::post("/dashboard/orders/{id}", [OrderManagementController::class, "cancelOrder"])->name('orders.cancelOrder');
     Route::resource("/dashboard/orders", OrderManagementController::class);
 });
 

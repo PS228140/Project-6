@@ -24,10 +24,17 @@
 
                         @foreach ($states as $state)
                             @if ($order->state->id >= $state->id)
-                                <div class="w-full flex flex-col gap-1">
-                                    <div class="bg-gray-100 h-1 w-full rounded-sm"></div>
-                                    <span class="text-gray-100">{{ $state->name }}</span>
-                                </div>
+                                @if ($order->state->id == 6)
+                                    <div class="w-full flex flex-col gap-1">
+                                        <div class="bg-red-600 h-1 w-full rounded-sm"></div>
+                                        <span class="text-gray-500">{{ $state->name }}</span>
+                                    </div>
+                                @else
+                                    <div class="w-full flex flex-col gap-1">
+                                        <div class="bg-gray-100 h-1 w-full rounded-sm"></div>
+                                        <span class="text-gray-100">{{ $state->name }}</span>
+                                    </div>
+                                @endif
                             @else
                                 <div class="w-full flex flex-col gap-1">
                                     <div class="bg-gray-600 h-1 w-full rounded-sm"></div>
@@ -37,11 +44,19 @@
                         @endforeach
                     </div>
 
-                    <form action="{{ route('orders.updateState', ['id' => $order->state->id, 'orderId' => $order->id]) }}" method="post">
-                        @csrf
-                        @method("POST")
-                        <button type="submit" class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
-                    </form>
+                    <div class="flex flex-row justify-between content-end">
+                        <form action="{{ route('orders.updateState', ['id' => $order->state->id, 'orderId' => $order->id]) }}" method="post">
+                            @csrf
+                            @method("POST")
+                            <button type="submit" class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
+                        </form>
+
+                        <form action="{{ route('orders.cancelOrder', ['id' => $order->id]) }}" method="post">
+                            @csrf
+                            @method("POST")
+                            <button type="submit" class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 transition ease-in-out duration-150">Cancel</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
