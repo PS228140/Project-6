@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winkelwagen - GroeneVingers</title>
+    <title>Je bestelling - GroeneVingers</title>
     <link rel="shortcut icon" href="{{ url('assets/icons/favicon.svg') }}" type="image/x-icon">
     <script src="{{ url('javascript/script.js') }}"></script>
     <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">

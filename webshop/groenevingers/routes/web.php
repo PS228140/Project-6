@@ -6,6 +6,7 @@ use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderManagementController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
@@ -77,7 +78,9 @@ Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function
     Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
 
     /* - order management routes - */
-    Route::resource("/dashboard/orders", );
+    Route::delete("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
+    Route::post("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "updateState"])->name('orders.updateState');
+    Route::resource("/dashboard/orders", OrderManagementController::class);
 });
 
 require __DIR__ . "/auth.php";
