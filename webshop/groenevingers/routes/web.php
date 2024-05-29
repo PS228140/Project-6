@@ -81,6 +81,7 @@ Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function
     Route::delete("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
     Route::post("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "updateState"])->name('orders.updateState');
     Route::post("/dashboard/orders/{id}", [OrderManagementController::class, "cancelOrder"])->name('orders.cancelOrder');
+    Route::post("/dashboard/orders/{key}", [OrderManagementController::class, "sortOrders"])->name('orders.sortOrders');
     Route::resource("/dashboard/orders", OrderManagementController::class);
 });
 

@@ -14,7 +14,7 @@ class OrderManagementController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::orderBy('created_at', 'desc')->get();
         return view('ordermanagement.index', ["orders" => $orders]);
     }
 
@@ -114,5 +114,14 @@ class OrderManagementController extends Controller
         $order->save();
 
         return redirect()->route('orders.edit', ["order" => $id]);
+    }
+
+    /**
+     * Sort the orders and return them
+     */
+    public function sortOrders($key)
+    {
+        $orders = Order::orderBy('', )->get();
+        return view('ordermanagement.index', ["orders" => $orders]);
     }
 }

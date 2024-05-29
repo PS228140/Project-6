@@ -84,7 +84,7 @@ class OrderController extends Controller
         $order->zipcode = $validatedData["zipcode"];
         $order->save();
 
-        Cookie::forget('order_id');
+        Cookie::queue(Cookie::forget('order_id'));
         
         return view('status', ['order' => $order]);
     }
