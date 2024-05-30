@@ -128,4 +128,15 @@ class OrderController extends Controller
         
         return view('status', ['order' => $order]);
     }
+
+    /*
+    The function used to formulate all the Orders as JSON.
+    */
+
+    public function apiIndex()
+    {
+        $orders = Order::all();
+
+        return response()->json($orders);
+    }
 }
