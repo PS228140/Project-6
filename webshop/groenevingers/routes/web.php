@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\OAuthLoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderManagementController;
 use App\Http\Controllers\ProductController;
@@ -44,6 +45,14 @@ Route::get("/contact", function () {
 
 /* pdf routes */
 Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
+
+/* Google OAuth routes */
+Route::get('/google/redirect', [OAuthLoginController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback', [OAuthLoginController::class, 'handleGoogleCallback'])->name('google.callback');
+
+/* Github OAuth routes */
+Route::get('/github/redirect', [OAuthLoginController::class, 'redirectToGithub'])->name('github.redirect');
+Route::get('/github/callback', [OAuthLoginController::class, 'handleGithubCallback'])->name('github.callback');
 
 /* dashboard routes */
 Route::get("/dashboard", [DashboardController::class, "index"])->middleware(["auth", "verified"])->name("dashboard");
