@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="pt-12">
+    <div class="pt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <h3 class="pb-6 font-semibold text-center text-xl text-gray-800 dark:text-gray-200 leading-tight">Charts</h3>

@@ -10,11 +10,11 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
                     <div class="grid grid-cols-6 grid-rows-1 dark:text-gray-500">
-                        <h5 class="text-center cursor-pointer" onclick="location.href='#'">Customer name</h5>
-                        <h5 class="text-center cursor-pointer" onclick="location.href='#'">Created at</h5>
-                        <h5 class="text-center cursor-pointer" onclick="location.href='#'">Price</h5>
-                        <h5 class="text-center cursor-pointer" onclick="location.href='#'">Items</h5>
-                        <h5 class="text-center cursor-pointer" onclick="location.href='#'">Order status</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'customer_name']) }}'">Customer name</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'created_at']) }}'">Created at</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'price']) }}'">Price</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'items']) }}'">Items</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'state_id']) }}'">Order status</h5>
                     </div>
 
                     @foreach($orders as $order)

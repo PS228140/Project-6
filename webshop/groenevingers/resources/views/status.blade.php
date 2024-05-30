@@ -48,8 +48,8 @@
                 <div class="order-overview-body">
                     @foreach ($order->orderrow as $orderrow)
                         @php
-                            $product = Product::getProduct($orderrow->product_id);
-                            $category = Categorie::getCategorie($product['categorie_id']);
+                            $product = Product::find($orderrow->product_id);
+                            $category = Categorie::find($product['categorie_id']);
                         @endphp
 
                         <div class="order-item">

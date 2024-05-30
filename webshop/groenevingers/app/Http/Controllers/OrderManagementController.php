@@ -19,22 +19,6 @@ class OrderManagementController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(string $id)
@@ -118,10 +102,24 @@ class OrderManagementController extends Controller
 
     /**
      * Sort the orders and return them
+     * 
+     * @param string $key name of the column to sort the orders by
      */
     public function sortOrders($key)
     {
-        $orders = Order::orderBy('', )->get();
+        if ($key === "customer_name") {
+            $orders = Order::orderBy($key, 'asc')->get();
+        } elseif ($key === "created_at") {
+            $orders = Order::orderBy($key, 'desc')->get();
+        } elseif ($key === "price") {
+            $orders = Order::orderBy($key, 'desc')->get();
+        } elseif ($key === "items") {
+            $orders = Order::withCount('Orderrow')->orderBy('orderrow_count', 'desc')->get();
+        } elseif ($key === "state_id") {
+            $orders = Order::orderBy($key, 'asc')->get();
+        } else {
+            $orders = Order::orderBy('created_at', 'desc')->get();
+        }
         return view('ordermanagement.index', ["orders" => $orders]);
     }
 }

@@ -83,8 +83,8 @@
 
                     @foreach ($order->orderrow as $orderrow)
                         @php
-                            $product = Product::getProduct($orderrow->product_id);
-                            $categorie = Categorie::getCategorie($product['categorie_id']);
+                            $product = Product::find($orderrow->product_id);
+                            $categorie = Categorie::find($product['categorie_id']);
                         @endphp
 
                         <form
