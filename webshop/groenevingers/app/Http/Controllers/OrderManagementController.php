@@ -23,7 +23,8 @@ class OrderManagementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $order = Order::with('Orderrow')->find($id);
+        return view('ordermanagement.show', ["order" => $order]);
     }
 
     /**
@@ -32,7 +33,6 @@ class OrderManagementController extends Controller
     public function edit(string $id)
     {
         $order = Order::with('Orderrow')->find($id);
-
         return view('ordermanagement.edit', ["order" => $order]);
     }
 
@@ -40,14 +40,6 @@ class OrderManagementController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
     {
         //
     }
@@ -65,7 +57,7 @@ class OrderManagementController extends Controller
         $order->save();
 
         Orderrow::destroy($id);
-        return redirect()->route('orders.edit', ["order" => $orderId]);
+        return redirect()->route('orders.show', ["order" => $orderId]);
     }
 
     /**
@@ -76,7 +68,7 @@ class OrderManagementController extends Controller
         if ($id <= 4) {
             $stateId = $id + 1;
         } else {
-            return redirect()->route('orders.edit', ["order" => $orderId]);
+            return redirect()->route('orders.show', ["order" => $orderId]);
         }
 
         $order = Order::find($orderId);
@@ -84,7 +76,7 @@ class OrderManagementController extends Controller
         $order->updated_at = Carbon::now();
         $order->save();
 
-        return redirect()->route('orders.edit', ["order" => $orderId]);
+        return redirect()->route('orders.show', ["order" => $orderId]);
     }
 
     /**
@@ -97,7 +89,7 @@ class OrderManagementController extends Controller
         $order->updated_at = Carbon::now();
         $order->save();
 
-        return redirect()->route('orders.edit', ["order" => $id]);
+        return redirect()->route('orders.show', ["order" => $id]);
     }
 
     /**

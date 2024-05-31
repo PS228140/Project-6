@@ -52,24 +52,14 @@
                     </div>
 
                     <div class="flex flex-row justify-between content-end">
-                        <div class="flex flex-row gap-2">
-                            <form
-                                action="{{ route('orders.updateState', ['id' => $order->state->id, 'orderId' => $order->id]) }}"
-                                method="post">
-                                @csrf
-                                @method('POST')
-                                <button type="submit"
-                                    class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
-                            </form>
-
-                            <form action="#" method="post">
-                                @csrf
-                                @method('POST')
-                                <button type="submit"
-                                    class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Roll
-                                    back</button>
-                            </form>
-                        </div>
+                        <form
+                            action="{{ route('orders.updateState', ['id' => $order->state->id, 'orderId' => $order->id]) }}"
+                            method="post">
+                            @csrf
+                            @method('POST')
+                            <button type="submit"
+                                class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
+                        </form>
 
                         <form action="{{ route('orders.cancelOrder', ['id' => $order->id]) }}" method="post">
                             @csrf
@@ -108,13 +98,10 @@
                             </div>
                             <p class="mt-10 justify-self-end">{{ $orderrow->quantity }}x</p>
                             <p class="mt-10 justify-self-end">€ {{ number_format($orderrow->price, 2, ',') }}</p>
-                            <form
-                                action="{{ route('orders.destroyOrderRow', ['id' => $orderrow->id, 'orderId' => $order->id]) }}"
-                                method="post" class="justify-self-end self-end">
+                            <form action="{{ route('orders.destroyOrderRow', ['id' => $orderrow->id, 'orderId' => $order->id]) }}" method="post" class="justify-self-end self-end">
                                 @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="w-min items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Remove</button>
+                                @method('DELETE') 
+                                <button type="submit" class="w-min items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Remove</button>
                             </form>
                         </div>
                     @endforeach
@@ -142,10 +129,16 @@
 
                     <h5 class="dark:text-gray-500">Order information</h5>
 
-                    <div class="flex flex-col gap-2">
-                        <span>Created at: {{ $created_at }}</span>
-                        <span>Updated at: {{ $updated_at }}</span>
-                        <span>Total price: € {{ number_format($order->price, 2, ',') }}</span>
+                    <div class="flex flex-row justify-between">
+                        <div class="flex flex-col gap-2">
+                            <span>Created at: {{ $created_at }}</span>
+                            <span>Updated at: {{ $updated_at }}</span>
+                            <span>Total price: € {{ number_format($order->price, 2, ',') }}</span>
+                        </div>
+
+                        <div onclick="location.href='{{ route('orders.edit', ['order'=>$order->id]) }}'" class="flex justify-center items-center cursor-pointer h-12 w-12 border-2 rounded-full border-gray-500 self-end">
+                            <img src="{{ url('/assets/icons/edit.svg') }}" alt="edit records" />
+                        </div>
                     </div>
                 </div>
             </div>
