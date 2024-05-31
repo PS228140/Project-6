@@ -28,7 +28,7 @@
                         <x-nav-link :href="route('management.index')" :active="request()->routeIs('management.index')">
                             {{__('Management')}}
                         </x-nav-link>
-                        <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index')">
+                        <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index') || request()->routeIs('orders.sortOrders')">
                             {{__('Orders')}}
                         </x-nav-link>
                     @endif
@@ -101,7 +101,7 @@
                 <x-responsive-nav-link :href="route('management.index')" :active="request()->routeIs('management.index')">
                     {{__('Management')}}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index')">
+                <x-responsive-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index') || request()->routeIs('orders.sortOrders')">
                     {{__('Orders')}}
                 </x-responsive-nav-link>
             @endif

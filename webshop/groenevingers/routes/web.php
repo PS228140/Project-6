@@ -81,7 +81,7 @@ Route::middleware("auth", "verified", "role:Admin,Accountant,Manager")->group(fu
     Route::resource("/dashboard/products", ProductController::class)->except(["index"]);
 });
 
-/* routes only accessible to Administrators and Accantants */
+/* routes only accessible to Administrators and Accountants */
 Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function () {
     /* - management routes - */
     Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
