@@ -59,14 +59,16 @@
                                 @csrf
                                 @method('POST')
                                 <button type="submit"
-                                    class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
+                                    class="justify-self-end align-end w-28 mt-4 h-full max-h-8 inline-flex items-center justify-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Proceed</button>
                             </form>
 
-                            <form action="#" method="post">
+                            <form
+                                action="{{ route('orders.rollbackState', ['id' => $order->state->id, 'orderId' => $order->id]) }}"
+                                method="post">
                                 @csrf
                                 @method('POST')
                                 <button type="submit"
-                                    class="justify-self-end align-end w-min mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Roll
+                                    class="justify-self-end align-end w-28 max-w-28 mt-4 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Roll
                                     back</button>
                             </form>
                         </div>
@@ -124,30 +126,45 @@
 
         <div class="pt-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-4">
+                <form action="{{ route('orders.updateOrderInformation', ['order' => $order->id]) }}" method="post" class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-4">
+                    @csrf
+                    @method('PATCH')
+
                     <h5 class="dark:text-gray-500">Customer information</h5>
 
-                    <div class="flex flex-col gap-2">
-                        <span>{{ $order->customer_name }}</span>
-                        <span>{{ $order->email }}</span>
-                        <span>{{ $order->phone }}</span>
+                    <div class="flex flex-col gap-2 max-w-xl">
+                        <label for="customer_name" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Customer name</label>
+                        <input name="customer_name" id="customer_name" placeholder="{{ $order->customer_name }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" />
+                        
+                        <label for="email" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Email</label>
+                        <input name="email" id="email" placeholder="{{ $order->email }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"/>
+                        
+                        <label for="phone" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Phone</label>
+                        <input name="phone" id="phone" placeholder="{{ $order->phone }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"/>
                     </div>
 
                     <h5 class="dark:text-gray-500">Delivery information</h5>
 
-                    <div class="flex flex-col gap-2">
-                        <span>{{ $order->zipcode }}, {{ $order->city }}</span>
-                        <span>{{ $order->address }}</span>
+                    <div class="flex flex-col gap-2 max-w-xl">
+                        <label for="zipcode" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Zipcode</label>
+                        <input name="zipcode" id="zipcode" placeholder="{{ $order->zipcode }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" />
+                         
+                        <label for="address" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Adress</label>
+                        <input name="address" id="address" placeholder="{{ $order->address }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"/>
+                        
+                        <label for="city" class="block font-medium text-sm text-gray-700 dark:text-gray-300">City</label>
+                        <input name="city" id="city" placeholder="{{ $order->city }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"/>
                     </div>
 
                     <h5 class="dark:text-gray-500">Order information</h5>
 
-                    <div class="flex flex-col gap-2">
-                        <span>Created at: {{ $created_at }}</span>
-                        <span>Updated at: {{ $updated_at }}</span>
-                        <span>Total price: € {{ number_format($order->price, 2, ',') }}</span>
+                    <div class="flex flex-col gap-2 max-w-xl">
+                        <label for="price" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Total price (€)</label>
+                        <input name="price" id="price" placeholder="{{ number_format($order->price, 2, ',') }}" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"/>
                     </div>
-                </div>
+
+                    <button type="submit" class="inline-flex items-center w-min px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Save</button>
+                </form>
             </div>
         </div>
     </div>
