@@ -37,3 +37,15 @@
     border: 1px solid #da1e28;
     color: #da1e28;
 }
+
+.verpakken {
+    background-color: transparent;
+    border: 1px solid #cfcfcf;
+    color: #cfcfcf;
+}
+
+.gereed {
+    background-color: transparent;
+    border: 1px solid #24A148;
+    color: #24A148;
+}

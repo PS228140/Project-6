@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('order_statuses', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
             $table->string('name');
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('order_statuses');
     }
 };

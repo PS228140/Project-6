@@ -31,18 +31,19 @@
                     <p>Bestelling</p>
                     <span
                         class="order-status
-                        @if ($order->state->name === 'Ontvangen') received
-                        @elseif ($order->state->name === 'Betaald')
+                        @if ($order->status->name === 'Ontvangen')
+                            received
+                        @elseif ($order->status->name === 'Betaald')
                             payed
-                        @elseif ($order->state->name === 'Verwerkt')
+                        @elseif ($order->status->name === 'Verwerkt')
                             processed
-                        @elseif ($order->state->name === 'Verzonden')
+                        @elseif ($order->status->name === 'Verzonden')
                             send
-                        @elseif ($order->state->name === 'Afgeleverd')
+                        @elseif ($order->status->name === 'Afgeleverd')
                             delivered
-                        @elseif ($order->state->name === 'Geannuleerd')
+                        @elseif ($order->status->name === 'Geannuleerd')
                             cancelled @endif
-                    ">{{ $order->state->name }}</span>
+                    ">{{ $order->status->name }}</span>
                 </div>
 
                 <div class="order-overview-body">

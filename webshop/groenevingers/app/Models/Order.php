@@ -17,7 +17,7 @@ class Order extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "state_id",
+        "status_id",
         "customer_name",
         "city",
         "zipcode",
@@ -28,9 +28,9 @@ class Order extends Model
     /**
      * Get the State associated with the Order.
      */
-    public function state(): BelongsTo
+    public function status(): BelongsTo
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(OrderStatus::class);
     }
 
     /**

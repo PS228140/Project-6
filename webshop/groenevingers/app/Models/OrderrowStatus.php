@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class State extends Model
+class OrderrowStatus extends Model
 {
     use HasFactory;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -20,8 +19,8 @@ class State extends Model
     /**
      * Get the users associated with the Status.
      */
-    public function orders(): HasMany
+    public function Orderrow(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Orderrow::class);
     }
 }

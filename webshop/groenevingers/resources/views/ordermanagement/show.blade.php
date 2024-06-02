@@ -1,7 +1,7 @@
 @php
     use App\Models\Product;
     use App\Models\Categorie;
-    use App\Models\State;
+    use App\Models\OrderStatus;
     use Carbon\Carbon;
 
     $created_at = Carbon::parse($order->created_at)->setTimezone('Europe/Berlin');
@@ -26,26 +26,26 @@
 
                     <div class="flex flex-row gap-3">
                         @php
-                            $states = State::all();
+                            $statuses = OrderStatus::all();
                         @endphp
 
-                        @foreach ($states as $state)
-                            @if ($order->state->id >= $state->id)
-                                @if ($order->state->id == 6)
+                        @foreach ($statuses as $status)
+                            @if ($order->status->id >= $status->id)
+                                @if ($order->status->id == 6)
                                     <div class="w-full flex flex-col gap-1">
                                         <div class="bg-red-600 h-1 w-full rounded-sm"></div>
-                                        <span class="text-gray-500">{{ $state->name }}</span>
+                                        <span class="text-gray-500">{{ $status->name }}</span>
                                     </div>
                                 @else
                                     <div class="w-full flex flex-col gap-1">
                                         <div class="bg-gray-100 h-1 w-full rounded-sm"></div>
-                                        <span class="text-gray-100">{{ $state->name }}</span>
+                                        <span class="text-gray-100">{{ $status->name }}</span>
                                     </div>
                                 @endif
                             @else
                                 <div class="w-full flex flex-col gap-1">
                                     <div class="bg-gray-600 h-1 w-full rounded-sm"></div>
-                                    <span class="text-gray-500">{{ $state->name }}</span>
+                                    <span class="text-gray-500">{{ $status->name }}</span>
                                 </div>
                             @endif
                         @endforeach
@@ -59,6 +59,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
                     <div class="grid grid-cols-4 grid-rows-1 dark:text-gray-500">
                         <h5>Product</h5>
+                        <h5 class="justify-self-end">Status</h5>
                         <h5 class="justify-self-end">Quantity</h5>
                         <h5 class="justify-self-end">Price</h5>
                     </div>
@@ -70,7 +71,6 @@
                         @endphp
 
                         <div class="grid grid-cols-4 grid-rows-1 py-2">
-
                             <div class="flex">
                                 <img class="max-h-16 rounded-md" src="{{ $product['img_src'] }}" />
                                 <div class="flex flex-col justify-between">
@@ -78,13 +78,9 @@
                                     <p class="mx-4 dark:text-gray-500">{{ $categorie['name'] }}</p>
                                 </div>
                             </div>
+                            <span class="mt-10 justify-self-end px-2 py-1 border rounded-md font-semibold text-xs uppercase tracking-widest {{ strtolower($orderrow->status->name) }}">{{ $orderrow->status->name }}</span>
                             <p class="mt-10 justify-self-end">{{ $orderrow->quantity }}x</p>
                             <p class="mt-10 justify-self-end">€ {{ number_format($orderrow->price, 2, ',') }}</p>
-                            <form action="{{ route('orders.destroyOrderRow', ['id' => $orderrow->id, 'orderId' => $order->id]) }}" method="post" class="justify-self-end self-end">
-                                @csrf
-                                @method('DELETE') 
-                                <button type="submit" class="w-min items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Remove</button>
-                            </form>
                         </div>
                     @endforeach
                 </div>

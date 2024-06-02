@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use App\Models\UserStatus;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -29,7 +29,7 @@ class UserFactory extends Factory
             "password" =>  Hash::make('password'),
             "name" => fake()->name(),
             "branch_id" => fake()->randomFloat(0, 1, 3),
-            "status_id" => fake()->randomFloat(0, 1, 3),
+            "status_id" => UserStatus::inRandomOrder()->first()->id,
             "phone" => fake()->phoneNumber(),
             "created_at" => $this->faker->dateTimeBetween('-1 year', 'now'),
             "updated_at" => $this->faker->dateTimeBetween('-1 year', 'now'),

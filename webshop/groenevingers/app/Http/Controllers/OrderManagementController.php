@@ -59,16 +59,16 @@ class OrderManagementController extends Controller
      * @param int $id id of the current state
      * @param int $orderId id of the order that should be updated
      */
-    public function updateState(int $id, int $orderId)
+    public function updateStatus(int $id, int $orderId)
     {
         if ($id <= 4) {
-            $stateId = $id + 1;
+            $statusId = $id + 1;
         } else {
             return redirect()->route('orders.edit', ["order" => $orderId]);
         }
 
         $order = Order::find($orderId);
-        $order->state_id = $stateId;
+        $order->status_id = $statusId;
         $order->updated_at = Carbon::now();
         $order->save();
 
@@ -81,16 +81,16 @@ class OrderManagementController extends Controller
      * @param int $id id of the current state
      * @param int $orderId id of the order that should be updated
      */
-    public function rollbackState(string $id, string $orderId)
+    public function rollbackStatus(string $id, string $orderId)
     {
         if($id > 1) {
-            $stateId = $id - 1;
+            $statusId = $id - 1;
         } else {
             return redirect()->route('orders.edit', ["order" => $orderId]);
         }
 
         $order = Order::find($orderId);
-        $order->state_id = $stateId;
+        $order->status_id = $statusId;
         $order->updated_at = Carbon::now();
         $order->save();
 
@@ -103,7 +103,7 @@ class OrderManagementController extends Controller
     public function cancelOrder(string $id)
     {
         $order = Order::find($id);
-        $order->state_id = 6;
+        $order->status_id = 6;
         $order->updated_at = Carbon::now();
         $order->save();
 

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\State;
+use App\Models\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +21,7 @@ class OrderFactory extends Factory
         $updatedAt = $this->faker->dateTimeBetween($createdAt, 'now'); // Random date between created_at and now
 
         return [
-            "state_id" => State::inRandomOrder()->first()->id,
+            "status_id" => OrderStatus::inRandomOrder()->first()->id,
             "customer_name" => fake()->name(),
             "email" => fake()->unique()->safeEmail(),
             "phone" => fake()->unique()->phoneNumber(),

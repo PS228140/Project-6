@@ -5,22 +5,22 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class StatusesSeeder extends Seeder
+class UserStatusesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table("statuses")->insert([
+        DB::table("user_statuses")->insert([
             "name" => "Actief",
         ]);
 
-        DB::table("statuses")->insert([
+        DB::table("user_statuses")->insert([
             "name" => "Ziek",
         ]);
 
-        DB::table("statuses")->insert([
+        DB::table("user_statuses")->insert([
             "name" => "Vakantie",
         ]);
     }

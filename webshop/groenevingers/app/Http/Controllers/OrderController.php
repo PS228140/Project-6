@@ -35,7 +35,7 @@ class OrderController extends Controller
         ]);
 
         if ($cookie === null) {
-            $newOrderId = Order::insertGetId(['state_id' => 1, 'created_at' => Carbon::now()]);
+            $newOrderId = Order::insertGetId(['status_id' => 1, 'created_at' => Carbon::now()]);
         } else {
             $newOrderId = $cookie;
         }
@@ -75,7 +75,7 @@ class OrderController extends Controller
         ]);
 
         $order = Order::find($cookie);
-        $order->state_id = 2;
+        $order->status_id = 2;
         $order->customer_name = $validatedData["fullName"];
         $order->email = $validatedData["email"];
         $order->phone = $validatedData["phone"];

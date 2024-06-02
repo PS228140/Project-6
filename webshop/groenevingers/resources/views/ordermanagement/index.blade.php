@@ -14,7 +14,7 @@
                         <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'created_at']) }}'">Created at</h5>
                         <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'price']) }}'">Price</h5>
                         <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'items']) }}'">Items</h5>
-                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'state_id']) }}'">Order status</h5>
+                        <h5 class="text-center cursor-pointer" onclick="location.href='{{ route('orders.sortOrders', ['key' => 'status_id']) }}'">Order status</h5>
                     </div>
 
                     @foreach($orders as $order)
@@ -23,7 +23,7 @@
                             <p class="text-center my-2">{{ date('M d, Y', strtotime($order->created_at)) }}</p>
                             <p class="text-center my-2">€ {{ number_format($order->price, 2, ',') }}</p>
                             <p class="text-center my-2">{{ count($order->orderrow) }}</p>
-                            <p class="justify-self-center my-2 text-center w-32 h-min text-center font-weight rounded {{ strtolower($order->state->name) }}">{{ $order->state->name }}</p>
+                            <p class="justify-self-center my-2 text-center w-32 h-min text-center font-weight rounded {{ strtolower($order->status->name) }}">{{ $order->status->name }}</p>
                             <button onclick="location.href='{{ route('orders.show', ['order' => $order->id]) }}'" class="justify-self-end align-end w-min my-1 h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Beheer</button>
                         </div>
                     @endforeach

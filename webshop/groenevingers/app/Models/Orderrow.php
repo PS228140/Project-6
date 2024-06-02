@@ -17,6 +17,7 @@ class Orderrow extends Model
      */
     protected $fillable = [
         "order_id",
+        "status_id",
         "product_id",
         "quantity",
         "price"
@@ -25,8 +26,16 @@ class Orderrow extends Model
     /**
      * Get Order coresponding with the Orderrow.
      */
-    public function Order(): BelongsTo
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
+    }
+
+    /**
+     * Get the status coresponding with the Orderrow.
+     */
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(OrderrowStatus::class);
     }
 }
