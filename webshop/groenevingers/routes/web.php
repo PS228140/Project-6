@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostcodeController;
 use App\Http\Middleware\EnsureRoleIsValid;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::resource("/shop", ShopController::class)->only(["index", "show"]);
 /* order routes */
 Route::resource("/order", OrderController::class);
 Route::patch("/order", [OrderController::class, 'setCustomerInformation'])->name('order.setCustomerInformation');
+Route::delete('/orderrow/{id}', [OrderController::class, 'destroyOrderrow'])->name('orderrow.destroy');
 
 /* checkout routes */
 Route::get("/checkout", [CheckoutController::class, 'index'])->name('checkout.index');
@@ -44,6 +46,10 @@ Route::get("/contact", function () {
 
 /* pdf routes */
 Route::get("/get-pdf", [DomPdfController::class, "getPdf"])->name("pdf.index");
+
+/* Postcode routes */
+Route::get('/postcode-lookup', [PostcodeController::class, 'showLookupForm'])->name('postcode.lookup.form');
+Route::post('/postcode-lookup', [PostcodeController::class, 'lookup'])->name('postcode.lookup');
 
 /* dashboard routes */
 Route::get("/dashboard", [DashboardController::class, "index"])->middleware(["auth", "verified"])->name("dashboard");

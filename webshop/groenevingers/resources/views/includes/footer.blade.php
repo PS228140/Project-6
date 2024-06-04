@@ -20,7 +20,8 @@
 
         <div class="socials-list">
             <h5>Service</h5>
-            <a href="{{route('pdf.index')}}">Voorbeeld factuur</a>
+            <a href="{{route('pdf.index')}}">{{ GoogleTranslate::trans('Voorbeeld factuur', app()->getLocale()) }}</a>
+            <a href="{{route('postcode.lookup')}}">{{ GoogleTranslate::trans('Postcode opzoeken', app()->getLocale()) }}</a>
         </div>
     </div>
 

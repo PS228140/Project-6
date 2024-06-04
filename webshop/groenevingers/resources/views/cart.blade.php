@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     @include('includes.header')
@@ -34,6 +35,14 @@
                         <span>{{ $product["name"] }}</span> 
                         <span>{{ $orderrow->quantity }}x</span>
                         <span>€ {{ number_format($orderrow->price, 2, ',') }}</span>
+
+                        <form action="{{ route('orderrow.destroy', $orderrow->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -51,7 +60,7 @@
                 <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
             </div>
         @endif
-        </div>
+    </div>
     @include('includes.footer')
 </body>
 </html>
