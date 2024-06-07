@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use App\Models\Role;
-use App\Models\Status;
 use App\Models\User;
+use App\Models\UserStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +30,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::find($id);
-        $statuses = Status::all();
+        $statuses = UserStatus::all();
         $branches = Branch::all();
         $roles = Role::all();
 
