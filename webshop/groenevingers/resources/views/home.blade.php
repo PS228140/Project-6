@@ -54,5 +54,3 @@
 </body>
 
 </html>
-
-<script src="{{ url('javascript/database/products/fetchAll.js') }}"></script>
