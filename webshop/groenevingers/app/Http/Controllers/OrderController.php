@@ -22,14 +22,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -43,7 +35,7 @@ class OrderController extends Controller
         ]);
 
         if ($cookie === null) {
-            $newOrderId = Order::insertGetId(['state_id' => 1, 'created_at' => Carbon::now()]);
+            $newOrderId = Order::insertGetId(['status_id' => 1, 'created_at' => Carbon::now()]);
         } else {
             $newOrderId = $cookie;
         }
@@ -66,38 +58,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
-    /**
      * Set all user information
      */
     public function setCustomerInformation(Request $request) 
@@ -115,7 +75,7 @@ class OrderController extends Controller
         ]);
 
         $order = Order::find($cookie);
-        $order->state_id = 2;
+        $order->status_id = 2;
         $order->customer_name = $validatedData["fullName"];
         $order->email = $validatedData["email"];
         $order->phone = $validatedData["phone"];
@@ -124,7 +84,7 @@ class OrderController extends Controller
         $order->zipcode = $validatedData["zipcode"];
         $order->save();
 
-        Cookie::forget('order_id');
+        Cookie::queue(Cookie::forget('order_id'));
         
         return view('status', ['order' => $order]);
     }

@@ -27,7 +27,7 @@
             <div class="order-overview">
                 @foreach ($order->orderrow as $orderrow)
                     @php
-                        $product = Product::getProduct($orderrow->product_id);
+                        $product = Product::find($orderrow->product_id);
                     @endphp
 
                     <div class="product-wrapper">

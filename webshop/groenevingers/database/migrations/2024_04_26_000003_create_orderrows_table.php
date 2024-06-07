@@ -15,12 +15,14 @@ return new class extends Migration
             $table->engine = "InnoDB";
             $table->id();
             $table->unsignedBigInteger('order_id')->index()->default(1);
+            $table->unsignedBigInteger('status_id')->index()->default(1);
             $table->unsignedBigInteger('product_id')->index()->default(1);
             $table->integer('quantity')->default(1);
             $table->double('price')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('orderrow_statuses')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
         });
     }

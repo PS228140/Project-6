@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class DashboardController extends Controller
@@ -13,8 +11,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $products = User::all();
-
         $chart_options = [
             'chart_title' => 'Users by months',
             'report_type' => 'group_by_date',
@@ -29,6 +25,20 @@ class DashboardController extends Controller
 
         $userChart = new LaravelChart($chart_options);
 
-        return view("dashboard", compact("userChart"));
+        $order_chart_options = [
+            'chart_title' => 'Orders by day',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Models\Order',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'day',
+            'chart_color' => '110,152,199',
+            'chart_type' => 'line',
+            'chart_height' => '400px',
+            'show_blank_data' => 'true'
+        ];
+
+        $orderChart = new LaravelChart($order_chart_options);
+
+        return view("dashboard", compact(["userChart", "orderChart"]));
     }
 }

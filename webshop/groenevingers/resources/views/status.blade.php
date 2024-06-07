@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winkelwagen - GroeneVingers</title>
+    <title>Je bestelling - GroeneVingers</title>
     <link rel="shortcut icon" href="{{ url('assets/icons/favicon.svg') }}" type="image/x-icon">
     <script src="{{ url('javascript/script.js') }}"></script>
     <link rel="stylesheet" href="{{ url('css/includes/reset.css') }}">
@@ -31,25 +31,26 @@
                     <p>Bestelling</p>
                     <span
                         class="order-status
-                        @if ($order->state->name === 'Ontvangen') received
-                        @elseif ($order->state->name === 'Betaald')
+                        @if ($order->status->name === 'Ontvangen')
+                            received
+                        @elseif ($order->status->name === 'Betaald')
                             payed
-                        @elseif ($order->state->name === 'Verwerkt')
+                        @elseif ($order->status->name === 'Verwerkt')
                             processed
-                        @elseif ($order->state->name === 'Verzonden')
+                        @elseif ($order->status->name === 'Verzonden')
                             send
-                        @elseif ($order->state->name === 'Afgeleverd')
+                        @elseif ($order->status->name === 'Afgeleverd')
                             delivered
-                        @elseif ($order->state->name === 'Geannuleerd')
+                        @elseif ($order->status->name === 'Geannuleerd')
                             cancelled @endif
-                    ">{{ $order->state->name }}</span>
+                    ">{{ $order->status->name }}</span>
                 </div>
 
                 <div class="order-overview-body">
                     @foreach ($order->orderrow as $orderrow)
                         @php
-                            $product = Product::getProduct($orderrow->product_id);
-                            $category = Categorie::getCategorie($product['categorie_id']);
+                            $product = Product::find($orderrow->product_id);
+                            $category = Categorie::find($product['categorie_id']);
                         @endphp
 
                         <div class="order-item">

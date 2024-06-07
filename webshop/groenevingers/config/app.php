@@ -112,7 +112,7 @@ return [
     |
     */
 
-    "faker_locale" => "en_US",
+    "faker_locale" => "nl_NL",
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,7 @@ return [
             * Package Service Providers...
             */
             Barryvdh\DomPDF\ServiceProvider::class,
+            SocialiteProviders\Manager\ServiceProvider::class,
 
             /*
              * Application Service Providers...

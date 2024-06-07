@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UsersSeeder extends Seeder
 {
@@ -48,7 +49,7 @@ class UsersSeeder extends Seeder
             "branch_id" => 1,
             "status_id" => 1,
             "phone" => "061234567",
-            "created_at" => "2024-05-23 07:38:48",
+            "created_at" => "2024-03-23 07:38:48",
             "updated_at" => Carbon::now(),
         ]);
 
@@ -61,7 +62,7 @@ class UsersSeeder extends Seeder
             "branch_id" => 1,
             "status_id" => 1,
             "phone" => "31678140931",
-            "created_at" => Carbon::now(),
+            "created_at" => "2024-04-12 08:35:50",
             "updated_at" => Carbon::now(),
         ]);
 
@@ -74,7 +75,7 @@ class UsersSeeder extends Seeder
             "branch_id" => 3,
             "status_id" => 3,
             "phone" => "31633024999",
-            "created_at" => Carbon::now(),
+            "created_at" => "2024-04-28 12:48:36",
             "updated_at" => Carbon::now(),
         ]);
 
