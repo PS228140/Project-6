@@ -100,8 +100,6 @@ class OrderController extends Controller
         return response()->json($orders);
     }
 
-
-    
     public function destroyOrderrow($id)
     {
         $orderrow = Orderrow::findOrFail($id);

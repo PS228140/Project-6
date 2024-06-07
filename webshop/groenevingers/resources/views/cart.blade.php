@@ -23,7 +23,13 @@
     @include('includes.header')
     <div class="wrapper">
         <h2 class="title">Winkelwagen</h2>
-        @if ($order)
+
+        @if ($order === null || $order->orderrow === null)
+            <div class="empty">
+                <p>Uw winkelwagen is momenteel leeg</p>
+                <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
+            </div>
+        @elseif ($order)
             <div class="order-overview">
                 @foreach ($order->orderrow as $orderrow)
                     @php
@@ -53,11 +59,6 @@
                     <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Verder winkelen</button>
                     <button class="main-button checkout-btn" onclick="location.href='{{ route('checkout.index') }}'">Naar Bestellen</button>
                 </div>
-            </div>
-        @elseif ($order === null)
-            <div class="empty">
-                <p>Uw winkelwagen is momenteel leeg</p>
-                <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
             </div>
         @endif
     </div>
