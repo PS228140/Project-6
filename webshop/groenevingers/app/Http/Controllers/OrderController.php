@@ -88,4 +88,32 @@ class OrderController extends Controller
         
         return view('status', ['order' => $order]);
     }
+
+    /*
+    The function used to formulate all the Orders as JSON.
+    */
+
+    public function apiIndex()
+    {
+        $orders = Order::all();
+
+        return response()->json($orders);
+    }
+
+
+    
+    public function destroyOrderrow($id)
+    {
+        $orderrow = Orderrow::findOrFail($id);
+        $order = Order::findOrFail($orderrow->order_id);
+
+        // Update the total price of the order
+        $order->price -= $orderrow->price;
+        $order->save();
+
+        // Delete the orderrow
+        $orderrow->delete();
+
+        return redirect()->route('order.index');
+    }
 }

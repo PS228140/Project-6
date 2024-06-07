@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             "name" => "required|string|max:255",
             "email" =>
                 "required|string|lowercase|email|max:255|unique:" . User::class,
-            "phone" => "required",
+            "phone" => ["required", "regex:/^(?:(?:\+|00)31|0)(?:6|((?:2|3|4|5|6|7|8|9)[0-9]))\d{7,8}$/"], // Nederlandse telefoonnummers regex
             "password" => ["required", "confirmed", Rules\Password::defaults()],
         ]);
 
@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Avatar::create($request->name)->save(storage_path(path: 'app\public\avatar-' . $user->id . '.png'));
+        Avatar::create($request->name)->save(storage_path('app/public/avatar-' . $user->id . '.png'));
 
         Auth::login($user);
 
