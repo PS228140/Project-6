@@ -2,6 +2,7 @@
     use App\Models\Product;
     use App\Models\Categorie;
     use App\Models\OrderStatus;
+    use App\Models\OrderrowStatus;
     use Carbon\Carbon;
 
     $created_at = Carbon::parse($order->created_at)->setTimezone('Europe/Berlin');
@@ -54,7 +55,7 @@
                     <div class="flex flex-row justify-between content-end">
                         <div class="flex flex-row gap-2">
                             <form
-                                action="{{ route('orders.updateStatus', ['id' => $order->status->id, 'orderId' => $order->id]) }}"
+                                action="{{ route('orders.updateStatus', ['id' => $order->id, 'statusId' => $order->status->id]) }}"
                                 method="post">
                                 @csrf
                                 @method('POST')
@@ -63,7 +64,7 @@
                             </form>
 
                             <form
-                                action="{{ route('orders.rollbackStatus', ['id' => $order->status->id, 'orderId' => $order->id]) }}"
+                                action="{{ route('orders.rollbackStatus', ['id' => $order->id, 'statusId' => $order->status->id]) }}"
                                 method="post">
                                 @csrf
                                 @method('POST')
@@ -87,7 +88,7 @@
         <div class="pt-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
-                    <div class="grid grid-cols-5 grid-rows-1 dark:text-gray-500">
+                    <div class="grid grid-cols-6 grid-rows-1 dark:text-gray-500">
                         <h5>Product</h5>
                         <h5 class="justify-self-end">Status</h5>
                         <h5 class="justify-self-end">Quantity</h5>
@@ -98,9 +99,10 @@
                         @php
                             $product = Product::find($orderrow->product_id);
                             $categorie = Categorie::find($product['categorie_id']);
+                            $orderrowStatuses = OrderrowStatus::all();
                         @endphp
 
-                        <div class="grid grid-cols-5 grid-rows-1 py-2">
+                        <div class="grid grid-cols-6 grid-rows-1 py-2">
 
                             <div class="flex">
                                 <img class="max-h-16 rounded-md" src="{{ $product['img_src'] }}" />
@@ -109,11 +111,37 @@
                                     <p class="mx-4 dark:text-gray-500">{{ $categorie['name'] }}</p>
                                 </div>
                             </div>
-                            <span class="mt-10 justify-self-end px-2 py-1 border rounded-md font-semibold text-xs uppercase tracking-widest {{ strtolower($orderrow->status->name) }}">{{ $orderrow->status->name }}</span>
-                            <p class="mt-10 justify-self-end">{{ $orderrow->quantity }}x</p>
-                            <p class="mt-10 justify-self-end">€ {{ number_format($orderrow->price, 2, ',') }}</p>
+
+                            <form action="{{ route('orders.updateOrderRow', ['id' => $orderrow->id] )}}" method="post" class="col-span-4 grid grid-cols-4 w-full justify-end items-end">
+                            @csrf
+                            @method('POST')
+                                <input type="hidden" name="order_id" value="{{ $order->id }}" />
+                                <select name="orderrow_status" class="px-4 py-1 rounded-md justify-self-end align-self-end max-h-8 w-3/4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm rounded">
+                                    @foreach ($orderrowStatuses as $orderrowStatus)
+                                        @if ($orderrowStatus->id === $orderrow->status_id)
+                                            <option selected value="{{ $orderrowStatus->id}}">{{ $orderrowStatus->name }}</option>
+                                        @else
+                                            <option value="{{ $orderrowStatus->id}}">{{ $orderrowStatus->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                                                
+                                <select name="orderrow_quantity" class="px-4 py-1 rounded-md justify-self-end align-self-end max-h-8 w-1/2 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm rounded">
+                                    @for ($i = 1; $i < 10; $i++)
+                                        @if ($orderrow->quantity == $i)
+                                            <option selected value="{{ $i }}">{{ $i }}</option>
+                                        @else
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+
+                                <p class="align-self-end justify-self-end">€ {{ number_format($orderrow->price, 2, ',') }}</p>
+                                
+                                <button type="submit" class="justify-self-end align-end w-min-content h-full max-h-8 inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Save</button>
+                            </form>
                             <form
-                                action="{{ route('orders.destroyOrderRow', ['id' => $orderrow->id, 'orderId' => $order->id]) }}"
+                                action="{{ route('orders.destroyOrderRow', ['id' => $order->id, 'rowId' => $orderrow->id]) }}"
                                 method="post" class="justify-self-end self-end">
                                 @csrf
                                 @method('DELETE')
@@ -128,9 +156,19 @@
 
         <div class="pt-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('orders.updateOrderInformation', ['order' => $order->id]) }}" method="post" class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-4">
+                <form action="{{ route('orders.updateOrderInformation', ['id' => $order->id]) }}" method="post" class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-4">
                     @csrf
                     @method('PATCH')
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="text-red-600">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <h5 class="dark:text-gray-500">Customer information</h5>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Orderrow;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Propaganistas\LaravelPhone\Rules\Phone;
@@ -38,19 +39,25 @@ class OrderManagementController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the state of an order
+     * 
+     * @param int $id id of the current state
+     * @param int $orderId id of the order that should be updated
      */
-    public function destroyOrderRow(string $id, string $orderId)
+    public function updateStatus(int $id, int $statusId)
     {
-        $orderrow = Orderrow::find($id);
+        if ($statusId <= 4) {
+            $statusId = $statusId + 1;
+        } else {
+            return redirect()->route('orders.edit', ["order" => $id]);
+        }
 
-        $order = Order::find($orderId);
-        $order->price = $order->price - $orderrow->price;
+        $order = Order::find($id);
+        $order->status_id = $statusId;
         $order->updated_at = Carbon::now();
         $order->save();
 
-        Orderrow::destroy($id);
-        return redirect()->route('orders.edit', ["order" => $orderId]);
+        return redirect()->route('orders.edit', ["order" => $id]);
     }
 
     /**
@@ -59,42 +66,20 @@ class OrderManagementController extends Controller
      * @param int $id id of the current state
      * @param int $orderId id of the order that should be updated
      */
-    public function updateStatus(int $id, int $orderId)
+    public function rollbackStatus(string $id, string $statusId)
     {
-        if ($id <= 4) {
-            $statusId = $id + 1;
+        if($statusId > 1) {
+            $statusId = $statusId - 1;
         } else {
-            return redirect()->route('orders.edit', ["order" => $orderId]);
+            return redirect()->route('orders.edit', ["order" => $id]);
         }
 
-        $order = Order::find($orderId);
+        $order = Order::find($id);
         $order->status_id = $statusId;
         $order->updated_at = Carbon::now();
         $order->save();
 
-        return redirect()->route('orders.edit', ["order" => $orderId]);
-    }
-
-    /**
-     * Update the state of an order
-     * 
-     * @param int $id id of the current state
-     * @param int $orderId id of the order that should be updated
-     */
-    public function rollbackStatus(string $id, string $orderId)
-    {
-        if($id > 1) {
-            $statusId = $id - 1;
-        } else {
-            return redirect()->route('orders.edit', ["order" => $orderId]);
-        }
-
-        $order = Order::find($orderId);
-        $order->status_id = $statusId;
-        $order->updated_at = Carbon::now();
-        $order->save();
-
-        return redirect()->route('orders.edit', ["order" => $orderId]);
+        return redirect()->route('orders.edit', ["order" => $id]);
     }
 
     /**
@@ -136,7 +121,7 @@ class OrderManagementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function updateOrderInformation(Request $request, string $orderId)
+    public function updateOrderInformation(Request $request, string $id)
     {
         $validatedData = $request->validate([
             "customer_name" => "string|max:255",
@@ -145,10 +130,10 @@ class OrderManagementController extends Controller
             "zipcode" => "string|max:255",
             "address" => "string|max:255",
             "city" => "string|max:255",
-            "price" => "string|max:255"
+            "price" => "numeric|max:255"
         ]);
 
-        $order = Order::find($orderId);
+        $order = Order::find($id);
         $order->customer_name = $validatedData["customer_name"];
         $order->email = $validatedData["email"];
         $order->phone = $validatedData["phone"];
@@ -158,6 +143,50 @@ class OrderManagementController extends Controller
         $order->price = $validatedData["price"];
         $order->save();
 
-        return redirect()->route("orders.show", ['order' => $orderId]);
+        return redirect()->route("orders.show", ['order' => $id]);
+    }
+
+    /**
+     * Set the status column of a specified row in storage.
+     */
+    public function updateOrderRow(Request $request, string $id)
+    {   
+        $orderrow = Orderrow::find($id);
+        $product = Product::find($orderrow->product_id);
+
+        $orderrow->status_id = $request->orderrow_status;
+        $orderrow->quantity = $request->orderrow_quantity;
+        $orderrow->price = $request->orderrow_quantity * $product->price;
+        $orderrow->updated_at = Carbon::now();
+        $orderrow->save();
+
+        $order = Order::with('Orderrow')->find($request->order_id);
+        $price = null;
+
+        foreach ($order->orderrow as $orderrow) {
+            $price += $orderrow->price;
+        }
+
+        $order->price = $price;
+        $order->updated_at = Carbon::now();
+        $order->save();
+
+        return redirect()->route('orders.edit', ["order" => $request->order_id]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroyOrderRow(string $id, string $rowId)
+    {
+        $orderrow = Orderrow::find($rowId);
+
+        $order = Order::find($id);
+        $order->price = $order->price - $orderrow->price;
+        $order->updated_at = Carbon::now();
+        $order->save();
+
+        Orderrow::destroy($rowId);
+        return redirect()->route('orders.edit', ["order" => $id]);
     }
 }

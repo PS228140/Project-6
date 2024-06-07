@@ -87,12 +87,13 @@ Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function
     Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
 
     /* - order management routes - */
-    Route::delete("/dashboard/orders/{id}/{orderId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
-    Route::post("/dashboard/orders/update/{id}/{orderId}", [OrderManagementController::class, "updateStatus"])->name('orders.updateStatus');
-    Route::post("/dashboard/orders/rollback/{id}/{orderId}", [OrderManagementController::class, "rollbackStatus"])->name('orders.rollbackStatus');
+    Route::delete("/dashboard/orders/{id}/{rowId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
+    Route::post("/dashboard/orders/updaterow/{id}", [OrderManagementController::class, "updateOrderRow"])->name('orders.updateOrderRow');
+    Route::post("/dashboard/orders/update/{id}/{statusId}", [OrderManagementController::class, "updateStatus"])->name('orders.updateStatus');
+    Route::post("/dashboard/orders/rollback/{id}/{statusId}", [OrderManagementController::class, "rollbackStatus"])->name('orders.rollbackStatus');
     Route::post("/dashboard/orders/{id}", [OrderManagementController::class, "cancelOrder"])->name('orders.cancelOrder');
     Route::get("/dashboard/orders/sort/{key}", [OrderManagementController::class, "sortOrders"])->name('orders.sortOrders');
-    Route::patch("/dashboard/orders/update/{order}", [OrderManagementController::class, "updateOrderInformation"])->name('orders.updateOrderInformation');
+    Route::patch("/dashboard/orders/update/{id}", [OrderManagementController::class, "updateOrderInformation"])->name('orders.updateOrderInformation');
     Route::resource("/dashboard/orders", OrderManagementController::class)->except(['create', 'store', 'update', 'destroy']);
 });
 
