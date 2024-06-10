@@ -20,5 +20,9 @@ class OrderrowStatusesSeeder extends Seeder
         DB::table('orderrow_statuses')->insert([
             'name' => 'Gereed'
         ]);
+
+        DB::table('orderrow_statuses')->insert([
+            'name' => 'Retour'
+        ]);
     }
 }
