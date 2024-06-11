@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create("products", function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
+            $table->string("stock_keeping_unit")->unique()->nullable();
             $table->unsignedBigInteger("api_id")->unique();
             $table->unsignedBigInteger("categorie_id")->index()->default(1);
             $table->string("name");
