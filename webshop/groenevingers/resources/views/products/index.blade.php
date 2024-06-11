@@ -10,10 +10,10 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div class="pt-6 grid grid-cols-5 grid-rows-1 dark:text-gray-500">
-                    <h5 class="text-center cursor-pointer">SKU</h5>
-                    <h5 class="text-center cursor-pointer">Product name</h5>
-                    <h5 class="text-center cursor-pointer">Price</h5>
-                    <h5 class="text-center cursor-pointer">Categorie</h5>
+                    <h5 class="text-center">SKU</h5>
+                    <h5 class="text-center">Product name</h5>
+                    <h5 class="text-center">Price</h5>
+                    <h5 class="text-center">Categorie</h5>
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-2">
                     @foreach ($products as $product)
