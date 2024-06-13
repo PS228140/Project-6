@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string("name");
             $table->longText("description");
             $table->double("price");
+            $table->integer("supply")->default(1);
             $table->string("img_src");
             $table->string("color");
             $table->string("height_cm");

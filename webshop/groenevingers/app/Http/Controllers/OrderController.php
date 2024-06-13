@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Orderrow;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -44,13 +45,15 @@ class OrderController extends Controller
         $newOrderRow->order_id = $newOrderId;
         $newOrderRow->product_id = $validatedData["product_id"];
         $newOrderRow->quantity = $validatedData["quantity"];
-        $newOrderRow->price = $request->product_price * $request->quantity;
+        $newOrderRow->price = $validatedData["product_price"] * $request->quantity;
         $newOrderRow->save();
 
         $order = Order::find($newOrderId);
-        $order->price = $order->price + $request->product_price * $request->quantity;
+        $order->price = $order->price + $validatedData["product_price"] * $request->quantity;
         $order->updated_at = Carbon::now();
         $order->save();
+
+        $product = Product::find($validatedData["product_id"]);
         
         $cookie = cookie('order_id', $newOrderId, 120);
 
@@ -67,14 +70,14 @@ class OrderController extends Controller
         /* add better validation */
         $validatedData = $request->validate([
             "fullName" => 'required',
-            "email" => 'required',
+            "email" => 'required|email',
             "phone" => 'required',
             "address" => 'required',
             "city" => 'required',
             "zipcode" => 'required',
         ]);
 
-        $order = Order::find($cookie);
+        $order = Order::with('Orderrow')->find($cookie);
         $order->status_id = 2;
         $order->customer_name = $validatedData["fullName"];
         $order->email = $validatedData["email"];
@@ -84,6 +87,12 @@ class OrderController extends Controller
         $order->zipcode = $validatedData["zipcode"];
         $order->save();
 
+        foreach($order->orderrow as $orderrow) {
+            $product = Product::find($orderrow->product_id);
+            $product->supply = $product->supply - $orderrow->quantity;
+            $product->save();
+        }
+
         Cookie::queue(Cookie::forget('order_id'));
         
         return view('status', ['order' => $order]);
@@ -92,7 +101,6 @@ class OrderController extends Controller
     /*
     The function used to formulate all the Orders as JSON.
     */
-
     public function apiIndex()
     {
         $orders = Order::all();
@@ -100,6 +108,11 @@ class OrderController extends Controller
         return response()->json($orders);
     }
 
+    /**
+     * Delete an orderrow coresponding with the given id
+     * 
+     * @param int $id id of the orderrow to delete
+     */
     public function destroyOrderrow($id)
     {
         $orderrow = Orderrow::findOrFail($id);
