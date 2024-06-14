@@ -24,10 +24,11 @@
     <div class="wrapper">
         <h2 class="title">Winkelwagen</h2>
 
-        @if ($order === null || $order->orderrow === null)
+        @if ($order === null || $order->orderrow === null || $order->orderrow->isEmpty())
             <div class="empty">
                 <p>Uw winkelwagen is momenteel leeg</p>
                 <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
+                <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Begin met winkelen</button>
             </div>
         @elseif ($order)
             <div class="order-overview">
@@ -37,7 +38,7 @@
                     @endphp
 
                     <div class="product-wrapper">
-                        <img class="product-image" src="{{ $product["img_src"] }}" alt="" />
+                        <img class="product-image" src="{{ $product["img_src"] }}" alt="{{ $product["name"] }}" />
                         <span>{{ $product["name"] }}</span> 
                         <span>{{ $orderrow->quantity }}x</span>
                         <span>€ {{ number_format($orderrow->price, 2, ',') }}</span>
