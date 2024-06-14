@@ -14,8 +14,8 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight align-center">
-            {{ __(date('d-m-Y', strtotime($order->created_at)) . ' / ' . $order->customer_name) }}
+        <h2 class="flex flex-row gap-4 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight align-center">
+            <span class="flex flex-row cursor-pointer" onclick="location.href='{{ route('orders.show', ['order' => $order->id]) }}'"><img src="{{ url('assets/icons/arrow_back.svg') }}" /></span>{{ __(date('d-m-Y', strtotime($order->created_at)) . ' / ' . $order->customer_name) }}
         </h2>
     </x-slot>
 

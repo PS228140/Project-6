@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -94,7 +95,22 @@ class ManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $response = Http::withToken("50|Oy8mM3g2A8jSTpiHoxrRXXdspGlvQHbbQ45qM272")->get("https://kuin.summaict.nl/api/orderItem?order_id=" . $id);
+        
+        $orderrows = $response->json();
+        
+        for ($i=0; $i < count($orderrows); $i++) {
+            $product = Product::where('api_id', $orderrows[$i]["product_id"])->first();
+
+            if ($product !== null) {
+                $product->supply = $product->supply + $orderrows[$i]["quantity"];
+                $product->save();
+            } else {
+                return response()->json(['error' => 'Product not found in database. Make sure to add it first'], 404);
+            }
+        }
+
+        return redirect()->route('management.index');
     }
 
     /**
