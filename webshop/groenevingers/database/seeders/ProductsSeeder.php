@@ -143,7 +143,7 @@ class ProductsSeeder extends Seeder
             "stock_keeping_unit" => "TUOL00000000008",
             "api_id" => 607,
             "categorie_id" => 2,
-            "name" => "Olijfboom",
+            "name" => "Olijfboom groot",
             "description" => "De olijfboom, Olea europaea, is een kleine boom in de familie Oleaceae.",
             "price" => "11.49",
             "supply" => 10,
