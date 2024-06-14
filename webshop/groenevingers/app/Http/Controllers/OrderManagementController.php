@@ -110,7 +110,7 @@ class OrderManagementController extends Controller
             $orders = Order::orderBy($key, 'desc')->get();
         } elseif ($key === "items") {
             $orders = Order::withCount('Orderrow')->orderBy('orderrow_count', 'desc')->get();
-        } elseif ($key === "state_id") {
+        } elseif ($key === "status_id") {
             $orders = Order::orderBy($key, 'asc')->get();
         } else {
             $orders = Order::orderBy('created_at', 'desc')->get();

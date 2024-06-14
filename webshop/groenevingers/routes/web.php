@@ -91,7 +91,7 @@ Route::middleware("auth", "verified", "role:Admin,Accountant,Manager")->group(fu
 /* routes only accessible to Administrators and Accountants */
 Route::middleware(["auth", "verified", "role:Admin,Accountant"])->group(function () {
     /* - management routes - */
-    Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store']);
+    Route::resource("/dashboard/management", ManagementController::class)->only(['index', 'show', 'create', 'store', 'update']);
 
     /* - order management routes - */
     Route::delete("/dashboard/orders/{id}/{rowId}", [OrderManagementController::class, "destroyOrderRow"])->name('orders.destroyOrderRow');
