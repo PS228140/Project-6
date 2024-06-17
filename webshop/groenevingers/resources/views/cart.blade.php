@@ -23,15 +23,22 @@
     @include('includes.header')
     <div class="wrapper">
         <h2 class="title">Winkelwagen</h2>
-        @if ($order)
+
+        @if ($order === null || $order->orderrow === null || $order->orderrow->isEmpty())
+            <div class="empty">
+                <p>Uw winkelwagen is momenteel leeg</p>
+                <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
+                <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Begin met winkelen</button>
+            </div>
+        @elseif ($order)
             <div class="order-overview">
                 @foreach ($order->orderrow as $orderrow)
                     @php
-                        $product = Product::getProduct($orderrow->product_id);
+                        $product = Product::find($orderrow->product_id);
                     @endphp
 
                     <div class="product-wrapper">
-                        <img class="product-image" src="{{ $product["img_src"] }}" alt="" />
+                        <img class="product-image" src="{{ $product["img_src"] }}" alt="{{ $product["name"] }}" />
                         <span>{{ $product["name"] }}</span> 
                         <span>{{ $orderrow->quantity }}x</span>
                         <span>€ {{ number_format($orderrow->price, 2, ',') }}</span>
@@ -53,11 +60,6 @@
                     <button class="main-button back-btn" onclick="location.href='{{ route('shop.index') }}'">Verder winkelen</button>
                     <button class="main-button checkout-btn" onclick="location.href='{{ route('checkout.index') }}'">Naar Bestellen</button>
                 </div>
-            </div>
-        @elseif ($order === null)
-            <div class="empty">
-                <p>Uw winkelwagen is momenteel leeg</p>
-                <img class="empty-image" src="{{ url('assets/icons/empty-cart.svg') }}"/>
             </div>
         @endif
     </div>

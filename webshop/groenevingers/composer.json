@@ -11,10 +11,12 @@
         "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.8",
         "laraveldaily/laravel-charts": "^0.2.3",
         "laravolt/avatar": "^5.1",
         "propaganistas/laravel-phone": "^5.3",
+        "socialiteproviders/github": "^4.1",
         "stichoza/google-translate-php": "^5.1"
     },
     "require-dev": {

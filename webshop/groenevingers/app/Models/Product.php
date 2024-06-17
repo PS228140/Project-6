@@ -19,9 +19,11 @@ class Product extends Model
     protected $fillable = [
         "api_id",
         "categorie_id",
+        "stock_keeping_unit",
         "name",
         "description",
         "price",
+        "supplu",
         "img_src",
         "color",
         "height_cm",

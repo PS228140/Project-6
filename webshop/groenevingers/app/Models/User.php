@@ -27,7 +27,7 @@ class User extends Authenticatable
         "password",
         "branch_id",
         "status_id",
-        "phone",
+        "phone"
     ];
 
     /**
@@ -68,6 +68,6 @@ class User extends Authenticatable
      */
     public function status(): BelongsTo
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(UserStatus::class);
     }
 }

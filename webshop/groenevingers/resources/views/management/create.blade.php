@@ -46,7 +46,9 @@
             </div>
 
             @if ($orderrows !== null)
-                <div class="mt-6 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <form action="{{ route('management.update', ['management' => $order_id] )}}" method="POST" class="mt-6 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    @method("PUT")
+                    @csrf
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         @if (!is_array($orderrows))
                             <p>{{ $orderrow }}</p>
@@ -59,9 +61,9 @@
                                 <p>{{ $product["name"] }} - {{ $orderrow["quantity"] }}x</p>
                             @endforeach
                         @endif
-                        <button type="button" onclick="location.href='{{ route('management.index') }}'" class="mt-6 w-min inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Finish</button>
+                        <button type="submit" class="mt-6 w-min inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Finish</button>
                     </div>
-                </div>
+                </form>
             @endif
         </div>
     </div>

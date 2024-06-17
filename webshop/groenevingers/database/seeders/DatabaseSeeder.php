@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesSeeder::class,
             BranchesSeeder::class,
-            StatusesSeeder::class,
+            UserStatusesSeeder::class,
             UsersSeeder::class,
             CategoriesSeeder::class,
             ProductsSeeder::class,
-            StatesSeeder::class,
+            OrderStatusesSeeder::class,
+            OrderrowStatusesSeeder::class,
             DymanticProfileSeeder::class,
             DymanticTokenSeeder::class,
         ]);

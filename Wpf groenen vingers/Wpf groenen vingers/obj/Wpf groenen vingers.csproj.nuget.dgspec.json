@@ -42,11 +42,11 @@
           "dependencies": {
             "BarCode": {
               "target": "Package",
-              "version": "[2024.5.3, )"
+              "version": "[2024.6.1, )"
             },
-            "IronPdf": {
+            "QuestPDF": {
               "target": "Package",
-              "version": "[2024.5.2, )"
+              "version": "[2024.6.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

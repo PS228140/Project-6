@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
-            $table->unsignedBigInteger('state_id')->index()->default(1);
+            $table->unsignedBigInteger('status_id')->index()->default(1);
             $table->string('customer_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->double('price')->nullable();
             $table->timestamps();
 
-            $table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('order_statuses')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

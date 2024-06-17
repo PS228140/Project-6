@@ -1,25 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 
 namespace Wpf_groenen_vingers
 {
+    public class Plant
+    {
+        public string Name { get; set; }
+        public string Color { get; set; }
+        public decimal Price { get; set; }
+    }
+
+    public class RelayCommand : ICommand
+    {
+        private readonly Action<object> _execute;
+        private readonly Predicate<object> _canExecute;
+
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute == null || _canExecute(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+    }
+
     public class MainViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<Plant> _plants;
@@ -66,7 +89,7 @@ namespace Wpf_groenen_vingers
         {
             Plants = new ObservableCollection<Plant>();
 
-            // Ophalen van gegevens uit de database
+            // Load data from the database
             LoadPlantsFromDatabase();
 
             UpdateCommand = new RelayCommand(UpdatePlant);
@@ -76,9 +99,8 @@ namespace Wpf_groenen_vingers
 
         private void LoadPlantsFromDatabase()
         {
-            string connectionString = "YourConnectionString"; // Vervang dit door de juiste verbindingssnaren
-            string query = "SELECT name, color, price FROM products"; // Query om gegevens op te halen uit de database
-             
+            string connectionString = "YourConnectionString"; // Replace with actual connection string
+            string query = "SELECT name, color, price FROM products"; // Query to get data from the database
 
             try
             {
@@ -90,8 +112,7 @@ namespace Wpf_groenen_vingers
 
                     while (reader.Read())
                     {
-                        Plants.Add(new Plantdsyyu778g
-
+                        Plants.Add(new Plant
                         {
                             Name = reader["name"].ToString(),
                             Color = reader["color"].ToString(),
@@ -104,7 +125,7 @@ namespace Wpf_groenen_vingers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Er is een fout opgetreden bij het ophalen van gegevens uit de database: " + ex.Message);
+                MessageBox.Show("An error occurred while fetching data from the database: " + ex.Message);
             }
         }
 
@@ -137,34 +158,4 @@ namespace Wpf_groenen_vingers
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
-    public class RelayCommand : ICommand
-    {
-        private readonly Action<object> _execute;
-        private readonly Predicate<object> _canExecute;
-
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-    }
 }
-
-

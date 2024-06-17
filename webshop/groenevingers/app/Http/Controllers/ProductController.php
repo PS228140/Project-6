@@ -44,7 +44,7 @@ class ProductController extends Controller
             "width_cm" => "required|string|max:5",
             "depth_cm" => "required|string|max:5",
             "weight_gr" => "required|string|max:10",
-        ]);
+        ]);        
 
         $newProduct = new Product();
         $newProduct->api_id = $validatedData["api_id"];
@@ -61,6 +61,30 @@ class ProductController extends Controller
         $newProduct->updated_at = Carbon::now();
 
         $newProduct->save();
+
+        $product = Product::find($newProduct->id);
+        $categorie = Categorie::find($product->categorie_id);
+
+        // Add the first to letters of the products categorie to the SKU
+        $SKU = strtoupper($categorie->name[0] . $categorie->name[1]);
+
+        // Add the first to letters of the products name to the SKU
+        $SKU = $SKU . strtoupper($product->name[0] . $product->name[1]);
+
+        // Add the id of the product to the back of the SKU
+        $numberOfCharacters = strlen($SKU) + strlen($product->id);
+        
+        if ($numberOfCharacters < 15) {
+            for ($i=0; $i < (15 - $numberOfCharacters); $i++) { 
+                $SKU = $SKU . '0';
+            }
+            $SKU = $SKU . $product->id;
+        } else {
+            $SKU = $SKU . $product->id;
+        }
+
+        $product->stock_keeping_unit = $SKU;
+        $product->save();
 
         return redirect()->route("management.index");
     }
@@ -97,11 +121,28 @@ class ProductController extends Controller
         ]);
 
         $product = Product::findOrFail($id);
+        $categorie = Categorie::find($request->categorie_id);
+
+        // Add the categorie name to the SKU
+        $SKU = strtoupper($categorie->name[0] . $categorie->name[1]);
+        // Add the product name to the SKU
+        $SKU = $SKU . strtoupper($request->name[0] . $request->name[1]);
+        // Add the id of the product to the back of the SKU
+        $numberOfCharacters = strlen($SKU) + strlen($product->id);
+        if ($numberOfCharacters < 15) {
+            for ($i=0; $i < (15 - $numberOfCharacters); $i++) { 
+                $SKU = $SKU . '0';
+            }
+            $SKU = $SKU . $product->id;
+        } else {
+            $SKU = $SKU . $product->id;
+        }
 
         if ($request->file("image") != null) {
             Storage::disk("public")->put("products", $request->file("image"));
 
             $product->update([
+                "stock_keeping_unit" => $SKU,
                 "name" => $request->input("name"),
                 "description" => $request->input("description"),
                 "price" => $request->input("price"),
@@ -117,6 +158,7 @@ class ProductController extends Controller
             ]);
         } else {
             $product->update([
+                "stock_keeping_unit" => $SKU,
                 "name" => $request->input("name"),
                 "description" => $request->input("description"),
                 "price" => $request->input("price"),
