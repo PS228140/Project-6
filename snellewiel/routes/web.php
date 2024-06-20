@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+route::get('/', function () {
     return view('welcome');
 });
+
+route::resource('/orders', OrderController::class)->only(['index', 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
