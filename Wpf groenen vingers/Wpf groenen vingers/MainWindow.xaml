@@ -21,14 +21,14 @@
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="assets\Winkel.png"/>
+            <ImageBrush ImageSource="assets/Winkel.png"/>
         </Grid.Background>
 
         <ListView Grid.Row="1" Grid.Column="3" Opacity="0.8" ItemsSource="{Binding Plants}" SelectedItem="{Binding SelectedPlant}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naam" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Kleur" DisplayMemberBinding="{Binding Color}"/>
+                    <GridViewColumn Header="Kleur" DisplayMemberBinding="{Binding Supply}"/>
                     <GridViewColumn Header="Prijs" DisplayMemberBinding="{Binding Price}"/>
                 </GridView>
             </ListView.View>
@@ -43,23 +43,17 @@
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Kassasysteem" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
 
             <TextBlock Text="Geselecteerde Plant Prijs:" Grid.Row="1" Margin="5" FontSize="16"/>
-            <TextBox Text="{Binding SelectedPlant.Price, StringFormat={}{0:N2}, Mode=OneWay}" Grid.Row="1" Margin="5" FontSize="16"/>
+            <TextBlock Text="{Binding SelectedPlant.Price, StringFormat={}{0:N2}, Mode=OneWay}" Grid.Row="1" Margin="5" FontSize="16" Background="White"/>
 
-            <TextBlock Text="Kwantiteit:" Grid.Row="2" Margin="5" FontSize="16"/>
-            <TextBox Text="{Binding Quantity}" Grid.Row="2" Margin="5" FontSize="16"/>
+            <TextBlock Text="Kwantiteit:" Grid.Row="2" Margin="5" FontSize="16" />
+            <TextBlock Text="{Binding Quantity}" Grid.Row="2" Margin="5" FontSize="16" Background="White"/>
 
             <TextBlock Text="Totaalbedrag:" Grid.Row="3" Margin="5" FontSize="16"/>
-            <TextBlock Text="{Binding TotalAmount, StringFormat={}{0:C}}" Grid.Row="3" Margin="5" FontSize="16"/>
+            
 
-            <Button Content="factuur" Command="{Binding PayCommand}" Grid.Row="4" Margin="5" FontSize="16"/>
+            <Button Content="Factuur" Click="Button_Receipt_Click" Grid.Row="4" Margin="5" FontSize="16"/>
         </Grid>
-
-
-        <TextBlock Grid.Row="1" Grid.Column="3" Text="Totaalbedrag:" HorizontalAlignment="Right" Margin="5"/>
-        <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding TotalAmount, StringFormat={}{0:N2}}" HorizontalAlignment="Right" FontWeight="Bold" Margin="5"/>
     </Grid>
-
 </Window>

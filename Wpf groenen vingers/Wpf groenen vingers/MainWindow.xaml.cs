@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using MySql.Data.MySqlClient;
 
 namespace Wpf_groenen_vingers
 {
     public class Plant
     {
         public string Name { get; set; }
-        public string Color { get; set; }
+        public string Supply { get; set; }
         public decimal Price { get; set; }
     }
 
@@ -64,6 +64,7 @@ namespace Wpf_groenen_vingers
             {
                 _selectedPlant = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(TotalAmount));
             }
         }
 
@@ -92,30 +93,29 @@ namespace Wpf_groenen_vingers
             // Load data from the database
             LoadPlantsFromDatabase();
 
-            UpdateCommand = new RelayCommand(UpdatePlant);
-            AddPlantCommand = new RelayCommand(AddPlant);
             PayCommand = new RelayCommand(Pay, CanPay);
         }
 
         private void LoadPlantsFromDatabase()
         {
-            string connectionString = "YourConnectionString"; // Replace with actual connection string
-            string query = "SELECT name, color, price FROM products"; // Query to get data from the database
+            string connectionString = "Server=localhost;Database=project_6;User=root;Password=;";
+            string query = "SELECT name, supply, price FROM products";
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
-                    {
+                    {/
+
                         Plants.Add(new Plant
                         {
                             Name = reader["name"].ToString(),
-                            Color = reader["color"].ToString(),
+                            Supply = reader["supply"].ToString(),
                             Price = Convert.ToDecimal(reader["price"])
                         });
                     }
@@ -127,18 +127,6 @@ namespace Wpf_groenen_vingers
             {
                 MessageBox.Show("An error occurred while fetching data from the database: " + ex.Message);
             }
-        }
-
-        private void UpdatePlant(object obj)
-        {
-            // Implement update logic here
-            MessageBox.Show($"Updating {SelectedPlant.Name}");
-        }
-
-        private void AddPlant(object obj)
-        {
-            // Implement add plant logic here
-            MessageBox.Show("Adding new plant");
         }
 
         private bool CanPay(object obj)
