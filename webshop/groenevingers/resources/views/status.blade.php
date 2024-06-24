@@ -1,6 +1,19 @@
 @php
     use App\Models\Product;
     use App\Models\Categorie;
+
+    // Bereken de prijs inclusief 9% BTW
+$order->btw_price = $order->price * 0.09;
+
+// Controleer of de oorspronkelijke prijs minder is dan 50 euro en voeg zo nodig verzendkosten toe
+if ($order->price < 50) {
+    $order->ship_price = 7.50; // Verzendkosten
+} else {
+    $order->ship_price = 0; // Geen verzendkosten
+}
+
+// Bereken de totale prijs
+$order->total_price = $order->btw_price + $order->ship_price + $order->price;
 @endphp
 
 <!DOCTYPE html>
@@ -66,10 +79,22 @@
                         </div>
                     @endforeach
                 </div>
-
                 <div class="order-overview-footer">
-                    <strong>Totaal</strong>
-                    <strong>€{{ number_format($order->price, 2, ',') }}</strong>
+                    <p>Totaal:</p>
+                    <p>€ {{ number_format($order->price, 2, ',') }}</p>
+                </div>
+                    <div class="order-overview-footer">
+                    <p>Prijs inclusief 9% BTW:</p>
+                    <p>€ {{ number_format($order->btw_price, 2, ',', '') }}</p>
+                </div>
+                    <div class="order-overview-footer">
+                    <p>Eventuele verzendkosten:</p>
+                    <p>€ {{ number_format($order->ship_price, 2, ',', '') }}</p>
+                </div>
+</br>
+                    <div class="order-overview-footer">
+                    <h5>Totaalprijs:</h5>
+                    <h5>€ {{ number_format($order->total_price, 2, ',', '') }}</h5>
                 </div>
             </div>
 
