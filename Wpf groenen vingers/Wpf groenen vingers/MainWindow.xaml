@@ -11,7 +11,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,36 +24,29 @@
             <ImageBrush ImageSource="assets/Winkel.png"/>
         </Grid.Background>
 
-        <ListView Grid.Row="1" Grid.Column="3" Opacity="0.8" ItemsSource="{Binding Plants}" SelectedItem="{Binding SelectedPlant}">
+        <!-- Existing ListView for displaying plants -->
+        <ListView Grid.Row="1" Grid.Column="1" Opacity="0.8" ItemsSource="{Binding Plants}" SelectedItem="{Binding SelectedPlant}" MouseDoubleClick="ListView_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naam" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Kleur" DisplayMemberBinding="{Binding Supply}"/>
-                    <GridViewColumn Header="Prijs" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Prijs" DisplayMemberBinding="{Binding Price, StringFormat={}{0:C}}"/>
+                    <GridViewColumn Header="Voorraad" DisplayMemberBinding="{Binding Supply}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Grid Grid.Row="1" Grid.Column="1" Width="392" Height="727">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.4*"/>
-                <RowDefinition Height="0.4*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="4*"/>
-            </Grid.RowDefinitions>
+        <!-- New ListView for displaying selected plants -->
+        <ListView Grid.Row="1" Grid.Column="3" Opacity="0.8" ItemsSource="{Binding OrderList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Naam" DisplayMemberBinding="{Binding Plant.Name}"/>
+                    <GridViewColumn Header="Prijs" DisplayMemberBinding="{Binding Plant.Price, StringFormat={}{0:C}}"/>
+                    <GridViewColumn Header="Hoeveelheid" DisplayMemberBinding="{Binding Quantity}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-            <TextBlock Text="Geselecteerde Plant Prijs:" Grid.Row="1" Margin="5" FontSize="16"/>
-            <TextBlock Text="{Binding SelectedPlant.Price, StringFormat={}{0:N2}, Mode=OneWay}" Grid.Row="1" Margin="5" FontSize="16" Background="White"/>
-
-            <TextBlock Text="Kwantiteit:" Grid.Row="2" Margin="5" FontSize="16" />
-            <TextBlock Text="{Binding Quantity}" Grid.Row="2" Margin="5" FontSize="16" Background="White"/>
-
-            <TextBlock Text="Totaalbedrag:" Grid.Row="3" Margin="5" FontSize="16"/>
-            
-
-            <Button Content="Factuur" Click="Button_Receipt_Click" Grid.Row="4" Margin="5" FontSize="16"/>
-        </Grid>
+        <!-- Button placed under the right table -->
+        <Button Grid.Row="2" Grid.Column="3" Content="Genereer Factuur" Click="GeneratePDF_Click" Margin="5" FontSize="16" VerticalAlignment="Top"/>
     </Grid>
 </Window>

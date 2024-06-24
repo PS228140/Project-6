@@ -1,61 +1,83 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using MySql.Data.MySqlClient;
+using IronBarCode;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 
 namespace Wpf_groenen_vingers
 {
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = new MainViewModel();
+        }
+
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedPlant = (sender as ListView)?.SelectedItem as Plant;
+            if (selectedPlant != null)
+            {
+                MessageBoxResult result = MessageBox.Show($"Wilt u {selectedPlant.Name} toevoegen aan uw bestelling?", "Bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((MainViewModel)DataContext).AddToOrder(selectedPlant);
+                }
+            }
+        }
+
+        private void GeneratePDF_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ((MainViewModel)DataContext).GenerateBarcode();
+                ((MainViewModel)DataContext).GeneratePDF();
+                MessageBox.Show("Barcode en PDF zijn succesvol gegenereerd en opgeslagen!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Er is een fout opgetreden: {ex.Message}", "Fout", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+
     public class Plant
     {
         public string Name { get; set; }
-        public string Supply { get; set; }
         public decimal Price { get; set; }
+        public string Supply { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Price:C} - {Supply}";
+        }
     }
 
-    public class RelayCommand : ICommand
+    public class OrderItem
     {
-        private readonly Action<object> _execute;
-        private readonly Predicate<object> _canExecute;
+        public Plant Plant { get; set; }
+        public int Quantity { get; set; }
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public override string ToString()
         {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            return $"{Plant.Name} ({Quantity})";
         }
     }
 
     public class MainViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Plant> _plants;
-        public ObservableCollection<Plant> Plants
-        {
-            get { return _plants; }
-            set
-            {
-                _plants = value;
-                OnPropertyChanged();
-            }
-        }
-
+        public ObservableCollection<Plant> Plants { get; set; }
+        public ObservableCollection<OrderItem> OrderList { get; set; }
         private Plant _selectedPlant;
         public Plant SelectedPlant
         {
@@ -64,42 +86,42 @@ namespace Wpf_groenen_vingers
             {
                 _selectedPlant = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(TotalAmount));
             }
         }
-
-        private int _quantity;
-        public int Quantity
-        {
-            get { return _quantity; }
-            set
-            {
-                _quantity = value;
-                OnPropertyChanged(nameof(Quantity));
-                OnPropertyChanged(nameof(TotalAmount));
-            }
-        }
-
-        public decimal TotalAmount => SelectedPlant?.Price * Quantity ?? 0;
-
-        public ICommand UpdateCommand { get; private set; }
-        public ICommand AddPlantCommand { get; private set; }
-        public ICommand PayCommand { get; private set; }
 
         public MainViewModel()
         {
             Plants = new ObservableCollection<Plant>();
-
-            // Load data from the database
+            OrderList = new ObservableCollection<OrderItem>();
             LoadPlantsFromDatabase();
+        }
 
-            PayCommand = new RelayCommand(Pay, CanPay);
+        public void AddToOrder(Plant plant)
+        {
+            var existingOrderItem = OrderList.FirstOrDefault(item => item.Plant.Name == plant.Name);
+            if (existingOrderItem != null)
+            {
+                existingOrderItem.Quantity++;
+            }
+            else
+            {
+                OrderList.Add(new OrderItem { Plant = plant, Quantity = 1 });
+            }
+
+            OnPropertyChanged(nameof(OrderList));
         }
 
         private void LoadPlantsFromDatabase()
         {
-            string connectionString = "Server=localhost;Database=project_6;User=root;Password=;";
-            string query = "SELECT name, supply, price FROM products";
+            string connectionString = "Server=localhost;Port=3306;Database=project_6;User Id=root;Password=;";
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                MessageBox.Show("er kan geen verbinding met de database worden gemaakt");
+                return;
+            }
+
+            string query = "SELECT name, price, supply FROM products";
 
             try
             {
@@ -110,13 +132,12 @@ namespace Wpf_groenen_vingers
                     MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
-                    {/
-
+                    {
                         Plants.Add(new Plant
                         {
                             Name = reader["name"].ToString(),
-                            Supply = reader["supply"].ToString(),
-                            Price = Convert.ToDecimal(reader["price"])
+                            Price = Convert.ToDecimal(reader["price"]),
+                            Supply = reader["supply"].ToString()
                         });
                     }
 
@@ -125,19 +146,56 @@ namespace Wpf_groenen_vingers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while fetching data from the database: " + ex.Message);
+                MessageBox.Show("Er is een fout opgetreden bij het ophalen van gegevens uit de database: " + ex.Message);
             }
         }
 
-        private bool CanPay(object obj)
+        public void GenerateBarcode()
         {
-            return SelectedPlant != null && Quantity > 0;
+            string barcodeContent = string.Join(", ", OrderList);
+            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode(barcodeContent, BarcodeWriterEncoding.Code128);
+
+            // Aanpassing: Schaal de barcode afbeelding voordat deze wordt opgeslagen
+            barcode.ResizeTo(200, 50); // 200 pixels breed, 50 pixels hoog
+            barcode.SaveAsPng("C:/Users/feie/OneDrive/Desktop/orderBarcode.png");
         }
 
-        private void Pay(object obj)
+        public void GeneratePDF()
         {
-            // Implement payment logic here, e.g., generating a receipt
-            MessageBox.Show($"Plant: {SelectedPlant.Name}\nQuantity: {Quantity}\nTotal Amount: {TotalAmount:C}");
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Header()
+                        .Text("Bestelling")
+                        .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
+
+                    page.Content()
+                        .PaddingVertical(1, Unit.Centimetre)
+                        .Column(x =>
+                        {
+                            x.Spacing(20);
+
+                            foreach (var orderItem in OrderList)
+                            {
+                                x.Item().Text($"{orderItem.Plant.Name} - {orderItem.Plant.Price:C} - Hoeveelheid: {orderItem.Quantity}");
+                            }
+
+                            x.Item().Image("C:/Users/feie/OneDrive/Desktop/orderBarcode.png");
+                        });
+
+                    page.Footer()
+                        .AlignCenter()
+                        .Text(x =>
+                        {
+                            x.Span("Page ");
+                            x.CurrentPageNumber();
+                        });
+                });
+            })
+            .GeneratePdf("C:/Users/feie/OneDrive/Desktop/bestelling.pdf");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
