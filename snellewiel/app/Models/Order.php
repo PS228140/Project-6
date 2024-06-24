@@ -47,7 +47,7 @@ class Order extends Model
      */
     public static function apiFetchAll()
     {
-        return Http::get('127.0.0.1:8001/api/orders');
+        return Http::get('127.0.0.1:8000/api/orders');
     }
 
     /**
@@ -55,6 +55,6 @@ class Order extends Model
      */
     public static function apiFetch($id)
     {
-        return Http::get('127.0.0.1:8001/api/orders/' . $id);
+        return Http::get('127.0.0.1:8000/api/orders/' . $id);
     }
 }
