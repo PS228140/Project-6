@@ -59,7 +59,7 @@ namespace Wpf_groenen_vingers
 
         public override string ToString()
         {
-            return $"{Name} - {Price:C} - {Supply}";
+            return $"{Name} - €{Price:F2} - {Supply}";
         }
     }
 
@@ -113,11 +113,11 @@ namespace Wpf_groenen_vingers
 
         private void LoadPlantsFromDatabase()
         {
-            string connectionString = "Server=localhost;Port=3306;Database=project_6;User Id=root;Password=;";
+            string connectionString = "Server=localhost;Port=3306;Database=project_6;Username=root;Password=;";
 
             if (string.IsNullOrEmpty(connectionString))
             {
-                MessageBox.Show("er kan geen verbinding met de database worden gemaakt");
+                MessageBox.Show("Verbindingsreeks is niet ingesteld in App.config.");
                 return;
             }
 
@@ -168,7 +168,10 @@ namespace Wpf_groenen_vingers
             {
                 container.Page(page =>
                 {
+                    page.Margin(2, Unit.Centimetre);
+
                     page.Header()
+                        .AlignCenter()
                         .Text("Bestelling")
                         .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
 
@@ -180,17 +183,21 @@ namespace Wpf_groenen_vingers
 
                             foreach (var orderItem in OrderList)
                             {
-                                x.Item().Text($"{orderItem.Plant.Name} - {orderItem.Plant.Price:C} - Hoeveelheid: {orderItem.Quantity}");
+                                x.Item().AlignCenter().Text($"{orderItem.Plant.Name} - €{orderItem.Plant.Price:F2} - Hoeveelheid: {orderItem.Quantity}");
                             }
 
-                            x.Item().Image("C:/Users/feie/OneDrive/Desktop/orderBarcode.png");
+                            decimal totalPrice = OrderList.Sum(item => item.Plant.Price * item.Quantity);
+                            x.Item().AlignCenter().Text($"Totaalprijs: €{totalPrice:F2}")
+                                .SemiBold().FontSize(24).FontColor(Colors.Black);
+
+                            x.Item().AlignCenter().Image("C:/Users/feie/OneDrive/Desktop/orderBarcode.png");
                         });
 
                     page.Footer()
                         .AlignCenter()
                         .Text(x =>
                         {
-                            x.Span("Page ");
+                            x.Span("Pagina ");
                             x.CurrentPageNumber();
                         });
                 });
